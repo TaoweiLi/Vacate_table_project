@@ -11,8 +11,8 @@ function LoginFormPage() {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
 
-  // if (sessionUser) return <Redirect to="/" />;
-  if (sessionUser) return <p>Login Successful</p>
+  if (sessionUser) return <Redirect to="/" />;
+  // if (sessionUser) return <p>Login Successful</p>
 
 
   const handleSubmit = (e) => {

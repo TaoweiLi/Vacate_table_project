@@ -13,15 +13,15 @@ const removeCurrentUser = () => ({
 });
 
 
-//
-const storeCSRFToken = response => {
+// ??? selector? action? helper function?
+const storeCSRFToken = (response) => {
   const csrfToken = response.headers.get("X-CSRF-Token");
   if (csrfToken !== null || csrfToken  !== undefined) {
     sessionStorage.setItem("X-CSRF-Token", csrfToken);
   }
 }
 
-const storeCurrentUser = user => {
+const storeCurrentUser = (user) => {
   if (user !== null || user !== undefined) {
     sessionStorage.setItem("currentUser", JSON.stringify(user));
   } else {
