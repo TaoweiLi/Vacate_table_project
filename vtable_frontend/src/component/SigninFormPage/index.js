@@ -2,23 +2,24 @@ import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import './LoginForm.css';
+import './SigninForm.css';
 
-function LoginFormPage() {
+function SigninFormPage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
 
+  console.Sign(sessionUser);
   if (sessionUser) return <Redirect to="/" />;
-  // if (sessionUser) return <p>Login Successful</p>
+  // if (sessionUser) return <p>Signin Successful</p>
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(sessionActions.login({ email, password }))
+    return dispatch(sessionActions.signin({ email, password }))
       .catch(async (res) => {
         let data;
         try {
@@ -56,9 +57,9 @@ function LoginFormPage() {
           required
         />
       </label>
-      <button type="submit">Log In</button>
+      <button type="submit">Sign In</button>
     </form>
   );
 }
 
-export default LoginFormPage;
+export default SigninFormPage;

@@ -30,7 +30,7 @@ const storeCurrentUser = (user) => {
 }
 
 // thunk action creator
-export const login = ({ email, password }) => async dispatch => {
+export const signin = ({ email, password }) => async dispatch => {
   const response = await csrfFetch("/api/session", {
     method: "POST",
     body: JSON.stringify({ email, password })
@@ -66,7 +66,7 @@ export const signup = (user) => async (dispatch) => {
   return response;
 };
 
-export const logout = () => async (dispatch) => {
+export const signout = () => async (dispatch) => {
   const response = await csrfFetch("/api/session", {
     method: "DELETE"
   });

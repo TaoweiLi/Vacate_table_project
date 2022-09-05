@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { ModalProvider } from './context/Modal';
+import { ModalProvider } from './store/context/Modal';
 import './index.css';
 import App from './App';
 import configureStore from './store';

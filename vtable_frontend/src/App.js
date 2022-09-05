@@ -1,16 +1,16 @@
 import React from "react";
 import { Route, Switch } from 'react-router-dom';
-import LoginFormPage from "./component/LoginFormPage";
+import SigninFormPage from "./component/SigninFormPage";
+import HomePage from "./component/HomePage";
 
 
 
 function App() {
-  // console.log("DEBUG #0");
+
   return (
     <Switch>
-      {/* <Route path="/" component={HomePage} /> */}
-      <Route path="/login" component={LoginFormPage} />
-      
+      <Route exact path="/" component={HomePage} />
+      <Route exact path="/signin" component={SigninFormPage} />
     </Switch>
   );
 }
