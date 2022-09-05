@@ -21,7 +21,7 @@ ApplicationRecord.transaction do
     first_name: "Daisy",
     last_name: "Li",
     email: "dali@vtable.com",
-    phone_number: "1234567890"
+    phone_number: "1234567890",
     password: "123456"
   )
 
