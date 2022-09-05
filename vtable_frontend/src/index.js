@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { ModalProvider } from './context/Modal';
@@ -37,12 +37,14 @@ function Root() {
 }
 
 const renderApplication = () => {
-  ReactDOM.render(
-    <React.StrictMode>
+  const div = ReactDOM.createRoot(document.getElementById("root"));
+  div.render(
+
+    <BrowserRouter>
       <Root />
-    </React.StrictMode>,
-    document.getElementById('root')
-  );
+    </BrowserRouter>
+
+  )
 }
 
 if (

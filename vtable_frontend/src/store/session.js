@@ -12,28 +12,30 @@ const removeCurrentUser = () => ({
   type: REMOVE_CURRENT_USER
 });
 
+
+//
 const storeCSRFToken = response => {
   const csrfToken = response.headers.get("X-CSRF-Token");
-  if (csrfToken) sessionStorage.setItem("X-CSRF-Token", csrfToken);
+  if (csrfToken !== null || csrfToken  !== undefined) {
+    sessionStorage.setItem("X-CSRF-Token", csrfToken);
+  }
 }
 
 const storeCurrentUser = user => {
-  if (user) sessionStorage.setItem("currentUser", JSON.stringify(user));
-  else sessionStorage.removeItem("currentUser");
+  if (user !== null || user !== undefined) {
+    sessionStorage.setItem("currentUser", JSON.stringify(user));
+  } else {
+    sessionStorage.removeItem("currentUser");
+  }
 }
 
+// thunk action creator
 export const login = ({ email, password }) => async dispatch => {
-  console.log("***debug");
-  console.log(email, password);
   const response = await csrfFetch("/api/session", {
     method: "POST",
     body: JSON.stringify({ email, password })
   });
-
-  console.log(response);
- 
   const data = await response.json();
-  console.log(data);
   storeCurrentUser(data.user);
   dispatch(setCurrentUser(data.user));
   return response;
@@ -73,6 +75,7 @@ export const logout = () => async (dispatch) => {
   return response;
 };
 
+//
 const initialState = {
   user: JSON.parse(sessionStorage.getItem("currentUser"))
 };

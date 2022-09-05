@@ -5,11 +5,12 @@ import LoginFormPage from "./component/LoginFormPage";
 
 
 function App() {
+  // console.log("DEBUG #0");
   return (
     <Switch>
-      <Route path="/login">
-        <LoginFormPage />
-      </Route>
+      {/* <Route path="/" component={HomePage} /> */}
+      <Route path="/login" component={LoginFormPage} />
+      
     </Switch>
   );
 }
