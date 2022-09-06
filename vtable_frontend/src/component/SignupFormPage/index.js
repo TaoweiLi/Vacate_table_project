@@ -38,7 +38,7 @@ function SignupFormPage() {
     }
     return setErrors(['Confirm Password field must be the same as the Password field']);
   };
-  console.log("debug #2")
+  
   return (
     <form onSubmit={handleSubmit}>
       <ul>

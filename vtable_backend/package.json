@@ -1,0 +1,17 @@
+{
+  "name": "vacate_table_backend",
+  "version": "1.0.0",
+  "description": "Vacate Table is a practice project to clone of Open Table.",
+  "engines": {
+    "node": "16.x"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "npm install --prefix ../vtable_frontend && npm run build --prefix ../vtable_frontend"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
