@@ -11,7 +11,6 @@ function SigninFormPage() {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
 
-  console.Sign(sessionUser);
   if (sessionUser) return <Redirect to="/" />;
   // if (sessionUser) return <p>Signin Successful</p>
 

@@ -14,10 +14,6 @@ function HomePage() {
   const [errors, setErrors] = useState([]);
 
 
-
-  // if (sessionUser) return <p>Signin Successful</p>
-
-
   const handleSubmit1 = (e) => {
     e.preventDefault();
     setErrors([]);
@@ -36,29 +32,24 @@ function HomePage() {
       });
   }
 
-  const handleSubmit2 = (e) => {
-    e.preventDefault();
-    setErrors([]);
-    console.log("debug #1")
+  if (sessionUser) {
     return (
       <>
-        <Redirect to="/signin" />;
+        <h1>Home Page</h1>
+        <form onSubmit={handleSubmit1}>
+          <button type="submit">Sign Out</button>
+        </form>
       </>
-
     )
+  } else {
+    return (
+      <>
+        <h1>Home Page</h1>
+        <Link to="/signin">Sign In</Link> <br></br>
+        <Link to="/signup">Sign Up</Link>
+      </>
+    );
   }
-
-  return (
-    <>
-    <h1>Home Page</h1>
-      <form onSubmit={handleSubmit1}>
-        <button type="submit">Sign Out</button>
-      </form>
-      <Link to="/signin">Sign In</Link> 
-    </>
-
-  );
-
 }
 
 export default HomePage;
