@@ -18,8 +18,8 @@ function Navigation() {
   } else {
     sessionLinks = (
       <div className='nav-signout-state'>
-        <NavLink to="/signin">Sign In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
+        <NavLink to="/signin" className="nav-signin">Sign In</NavLink>
+        <NavLink to="/signup" className="nav-signup">Sign Up</NavLink>
       </div>
     )
   }
@@ -40,7 +40,7 @@ function Navigation() {
         <div className="nav-right">
           <div className='nav-user-state'>{sessionLinks}</div>
           <div className='nav-seach'>
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i className="fa-solid fa-magnifying-glass"></i>
           </div>
         </div>
       </div>

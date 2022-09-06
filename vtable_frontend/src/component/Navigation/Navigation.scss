@@ -16,5 +16,63 @@
   .nav-left {
     display: flex;
     flex-direction: row;
+
+    .nav-log {
+      padding-left: 10px;
+    }
+
+    .nav-location-menu {
+      padding: 0 16px;
+      border-left: 1px solid #0000000f;
+      margin-left: 8px;
+    }
+  }
+
+  .nav-right {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    opacity: 1;
+    transition: opacity .4s ease-in-out;
+
+    .nav-user-state {
+      display: flex;
+      justify-content: space-between;
+      border-right: 1px solid #0000000f;
+      margin-right: 16px;
+    }
+
+    .nav-search {
+      align-items: center;
+      box-sizing: border-box;
+      display: flex;
+    }
+
+    .profile-buttons {
+      .nav-user {
+        background-color: transparent;
+        border: 0;
+      }
+
+      .nav-calendar {
+        background-color: transparent;
+        border: 0;
+      }
+
+      .nav-bell {
+        background-color: transparent;
+        border: 0;
+        padding-right: 16px;
+      }
+    }
+
+    .nav-signout-state {
+      .nav-signin {
+        padding-right: 10px;
+      }
+      .nav-signup {
+        padding-right: 16px;
+      }
+    }
   }
 }
