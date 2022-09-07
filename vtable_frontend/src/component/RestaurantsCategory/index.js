@@ -8,7 +8,7 @@ function RestaurantsCategory({ title }) {
   return (
     <>
       <div className="res-category">
-        <section className="blank-erea">
+        <section className="blank-area">
           <header className="category-header">
             <h2 className="category-header-text">{title}</h2>
           </header>
