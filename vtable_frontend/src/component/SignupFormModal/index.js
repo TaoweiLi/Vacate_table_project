@@ -6,12 +6,10 @@ function SignupFormModal() {
   const [showModal, setShowModal] = useState(false);
 
   const signUpOnClick = function () {
-    console.log("DEBUG HERE");
     setShowModal(true);
   }
 
   const signUpModalOnClose = function () {
-    console.log("DEBUG HERE 2");
     setShowModal(false)
   }
 
