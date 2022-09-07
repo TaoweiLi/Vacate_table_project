@@ -2,16 +2,14 @@
   position: absolute;
 } */
 
-.nav-bar {
+.lower-nav-bar {
+  background-color: #fff;
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-  height: 30px;
-  padding-top: 20px;
-  padding-bottom: 18px;
-  padding-left: 20px;
-  padding-right: 20px;
-  height: 100%;
-  border-bottom: 1px solid lightgrey;
+  position: relative;
+  height: 3.375rem;
+  padding: 0 16px 0 32px;
 
   .nav-left {
     display: flex;
@@ -32,8 +30,6 @@
     align-items: center;
     display: flex;
     height: 100%;
-    opacity: 1;
-    transition: opacity .4s ease-in-out;
 
     .nav-user-state {
       display: flex;
@@ -49,6 +45,7 @@
     }
 
     .profile-buttons {
+
       .nav-user {
         background-color: transparent;
         border: 0;
@@ -67,11 +64,30 @@
     }
 
     .nav-signout-state {
-      .nav-signin {
-        padding-right: 10px;
-      }
       .nav-signup {
+        background-color: #247f9e;
+        border: 0.0625rem solid #247f9e;
+        color: #ffffff;
+        border-radius: 0.1875rem;
+        font-size: 14px;
+        margin: 0 8px;
+        cursor: pointer;
+        line-height: 2rem;
+        padding: 0 16px;
+      }
+
+      .nav-signin {
+        background-color: initial;
+        border: 0.0625rem solid #d8d9db;
+        color: #2d333f;
+        border-radius: 0.1875rem;
+        font-size: 14px;
+        margin: 0;
         padding-right: 16px;
+        cursor: pointer;
+        line-height: 2rem;
+        padding: 0 16px;
+
       }
     }
   }
