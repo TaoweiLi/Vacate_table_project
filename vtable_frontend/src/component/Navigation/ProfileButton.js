@@ -7,21 +7,20 @@ function ProfileButton({ user }) {
   const [showMenu, setShowMenu] = useState(false);
 
   const openMenu = () => {
-    if (showMenu) return;
-    setShowMenu(true);
+    setShowMenu(!showMenu);
   };
 
-  useEffect(() => {
-    if (!showMenu) return;
+  // useEffect(() => {
+  //   if (!showMenu) return;
 
-    const closeMenu = () => {
-      setShowMenu(false);
-    };
+  //   const closeMenu = () => {
+  //     setShowMenu(false);
+  //   };
 
-    document.addEventListener('click', closeMenu);
+  //   document.addEventListener('click', closeMenu);
 
-    return () => document.removeEventListener("click", closeMenu);
-  }, [showMenu]);
+  //   return () => document.removeEventListener("click", closeMenu);
+  // }, [showMenu]);
 
   const signout = (e) => {
     e.preventDefault();
@@ -31,18 +30,19 @@ function ProfileButton({ user }) {
   return (
     <>
       <div className="profile-buttons">
-        <button className="nav-user" onClick={openMenu}>
-          <i className="fa-regular fa-circle-user"></i>
-        </button>
-        {showMenu && (
-          <ul className="profile-dropdown">
-            <li>{user.username}</li>
-            <li>{user.email}</li>
-            <li>
+        <div id="nav-user-dropdown">
+          <button className="nav-user-button" onClick={openMenu}>
+            <i className="fa-regular fa-circle-user"></i>
+          </button>
+          {showMenu && (
+            <ul className="profile-dropdown">
+              <li>Hello! {user.firstName}</li>
+              <li>{user.email}</li>
               <button onClick={signout}>Sign Out</button>
-            </li>
-          </ul>
-        )}
+            </ul>
+          )}
+        </div>
+
         <button className="nav-calendar">
           <i className="fa-regular fa-calendar"></i>
         </button>

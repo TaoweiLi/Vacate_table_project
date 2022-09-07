@@ -2,16 +2,14 @@
   position: absolute;
 } */
 
-.nav-bar {
+.lower-nav-bar {
+  background-color: #fff;
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-  height: 30px;
-  padding-top: 20px;
-  padding-bottom: 18px;
-  padding-left: 20px;
-  padding-right: 20px;
-  height: 100%;
-  border-bottom: 1px solid lightgrey;
+  position: relative;
+  height: 3.375rem;
+  padding: 0 16px 0 32px;
 
   .nav-left {
     display: flex;
@@ -32,46 +30,105 @@
     align-items: center;
     display: flex;
     height: 100%;
-    opacity: 1;
-    transition: opacity .4s ease-in-out;
 
     .nav-user-state {
       display: flex;
+      align-items: center;
       justify-content: space-between;
       border-right: 1px solid #0000000f;
       margin-right: 16px;
+      height: 100%;
     }
 
     .nav-search {
       align-items: center;
       box-sizing: border-box;
       display: flex;
+      height: 100%;
     }
 
     .profile-buttons {
-      .nav-user {
-        background-color: transparent;
-        border: 0;
+      align-items: center;
+      display: flex;
+      height: 100%;
+
+      #nav-user-dropdown {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+
+        .nav-user-button {
+          color: #2d333f;
+          font-size: 16px;
+          margin: 0 4px;
+          outline: none;
+          padding: 0;
+          position: relative;
+          background-color: initial;
+          border: 0;
+          cursor: pointer;
+          height: 100%;
+        }
+
+        .profile-dropdown {
+          margin-top: 12px;
+          padding-bottom: 8px;
+          width: 19.75rem;
+          background-color: #fff;
+          border-radius: 0.1875rem;
+          box-shadow: 0 0 0 0.0625rem #0000001a;
+          display: flex;
+          flex-direction: column;
+          max-height: 70rem;
+          position: absolute;
+          right: 0;
+          top: 100%;
+          transition: transform .15s ease-out, opacity .15s ease-out, position .15s ease-out, max-height 0s;
+          z-index: 100;
+        }
       }
 
       .nav-calendar {
         background-color: transparent;
         border: 0;
+        height: 100%;
       }
 
       .nav-bell {
         background-color: transparent;
         border: 0;
         padding-right: 16px;
+        height: 100%;
       }
     }
 
     .nav-signout-state {
-      .nav-signin {
-        padding-right: 10px;
-      }
       .nav-signup {
+        background-color: #247f9e;
+        border: 0.0625rem solid #247f9e;
+        color: #ffffff;
+        border-radius: 0.1875rem;
+        font-size: 14px;
+        margin: 0 8px;
+        cursor: pointer;
+        line-height: 2rem;
+        padding: 0 16px;
+      }
+
+      .nav-signin {
+        background-color: initial;
+        border: 0.0625rem solid #d8d9db;
+        color: #2d333f;
+        border-radius: 0.1875rem;
+        font-size: 14px;
+        margin: 0;
         padding-right: 16px;
+        cursor: pointer;
+        line-height: 2rem;
+        padding: 0 16px;
+
       }
     }
   }

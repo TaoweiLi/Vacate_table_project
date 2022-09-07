@@ -1,55 +1,32 @@
-import React, { useState } from 'react';
-import * as sessionActions from '../../store/session';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
-import "./HomePage.css";
+import SearchHeader from "../SearchHeader";
+import RestaurantsCategory from "../RestaurantsCategory";
+import "./HomePage.scss";
 
 function HomePage() {
 
+  return (
+    <>
+      <header id="search-header">
+        <SearchHeader />
+      </header>
+      <section id="main-sections-wrapper">
+        <div id="main-sections">
+          <section id="current-location" >
+            <div id="current-location-contetnt">
+              <div id="current-location-text">It looks like you're in San Francisco. Not correct?</div>
+              <button id="current location-button">Get current location</button>
+            </div>
+            <div><RestaurantsCategory title={"Order takeout"}/></div>
+            <div><RestaurantsCategory title={"Award Winning"}/></div>
+          </section> 
+          <div></div>
+          <div></div>
 
-  const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errors, setErrors] = useState([]);
+        </div>
+      </section>
+    </>
+  )
 
-
-  const handleSubmit1 = (e) => {
-    e.preventDefault();
-    setErrors([]);
-    return dispatch(sessionActions.signout())
-      .catch(async (res) => {
-        let data;
-        try {
-          // .clone() essentially allows you to read the response body twice
-          data = await res.clone().json();
-        } catch {
-          data = await res.text(); // Will hit this case if the server is down
-        }
-        if (data?.errors) setErrors(data.errors);
-        else if (data) setErrors([data]);
-        else setErrors([res.statusText]);
-      });
-  }
-
-  if (sessionUser) {
-    return (
-      <>
-        <h1>Home Page</h1>
-        <form onSubmit={handleSubmit1}>
-          <button type="submit">Sign Out</button>
-        </form>
-      </>
-    )
-  } else {
-    return (
-      <>
-        <h1>Home Page</h1>
-        <Link to="/signin">Sign In</Link> <br></br>
-        <Link to="/signup">Sign Up</Link>
-      </>
-    );
-  }
 }
 
 export default HomePage;
