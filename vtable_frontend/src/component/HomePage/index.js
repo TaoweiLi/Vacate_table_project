@@ -6,7 +6,7 @@ function HomePage() {
 
   return (
     <>
-      <header id="search-header">
+      <header>
         <SearchHeader />
       </header>
       <section id="main-sections-wrapper">
@@ -21,7 +21,6 @@ function HomePage() {
           </section> 
           <div></div>
           <div></div>
-
         </div>
       </section>
     </>

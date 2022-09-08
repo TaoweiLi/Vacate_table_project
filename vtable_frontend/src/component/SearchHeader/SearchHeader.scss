@@ -1,26 +1,213 @@
-// .search-header {
-  
-// }
+#search-header-wrapper {
+  min-height: 0;
+  padding: 32px 0;
+  background: linear-gradient(.647turn, #1a0a47cc, #0d1b4599 .01%, #0d1b45cc 51.04%, #0d1b45 99.1%);
 
-.seacrch-bar {
-  display: flex;
-  justify-content: center;
+  #search-header-content {
+    height: 100%;
+    padding: 32px 16px;
+    width: calc(100% - 32px);
+    z-index: 1;
+
+    #search-header-text {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 56px;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0 0 16px;
+      text-align: center;
+    }
+
+    #search-bar-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-left: 16px;
+      margin-right: 16px;
+
+      #search-bar-content-wrapper {
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        #search-bar-left {
+          display: flex;
+          min-width: 30rem;
+          flex-grow: 1;
+
+
+          #dtp-date {
+            // background: #fff;
+            // border-bottom-left-radius: 4px;
+            // border-top-left-radius: 4px;
+            // min-width: 9.375rem;
+            // overflow: visible;
+            // text-overflow: ellipsis;
+            // white-space: nowrap;
+
+            #dtp-date-button {
+              align-items: center;
+              background: #fff;
+              color: #2d333f;
+              cursor: pointer;
+              display: flex;
+              font-size: 16px;
+              font-weight: 500;
+              height: 100%;
+              line-height: 24px;
+              padding: 0.3125rem;
+
+              #dtp-date-view {
+                align-items: center;
+                display: flex;
+                flex: 1;
+                font-weight: 500;
+                height: 100%;
+                padding: 0.1875rem;
+
+                #dtp-date-view-icon {
+                  display: inline-block;
+                  font-size: 0;
+                  height: 1.5rem;
+                  line-height: 1;
+                  min-width: 1.5rem;
+                  width: 1.5rem;
+                }
+
+                #dtp-date-view-content {
+                  flex: 1;
+                  margin-left: 4px;
+                  padding: 0 4px;
+                }
+
+                #dtp-date-view-arrow {
+                  display: inline-block;
+                  font-size: 0;
+                  height: 1.5rem;
+                  line-height: 1;
+                  min-width: 1.5rem;
+                  width: 1.5rem;
+                }
+              }
+            }
+          }
+
+
+          #dtp-time {
+            #dtp-time-drop {
+              -webkit-appearance: none;
+              bottom: 0;
+              height: 100%;
+              left: 0;
+              opacity: 0;
+              position: absolute;
+              right: 0;
+              top: 0;
+              width: 100%;
+              margin: 0;
+            }
+
+            #dtp-time-view {
+              align-items: center;
+              display: flex;
+              flex: 1;
+              font-weight: 500;
+              height: 100%;
+              padding: 0.1875rem;
+
+              #dtp-time-view-icon {
+                display: inline-block;
+                font-size: 0;
+                height: 1.5rem;
+                line-height: 1;
+                min-width: 1.5rem;
+                width: 1.5rem;
+              }
+
+              #dtp-time-view-content {
+                flex: 1;
+                margin-left: 4px;
+                padding: 0 4px;
+              }
+
+              #dtp-time-view-arrow {
+                display: inline-block;
+                font-size: 0;
+                height: 1.5rem;
+                line-height: 1;
+                min-width: 1.5rem;
+                width: 1.5rem;
+              }
+            }
+          }
+
+          #dtp-people {
+            #dtp-people-drop {
+              -webkit-appearance: none;
+              bottom: 0;
+              cursor: pointer;
+              font: inherit;
+              height: 100%;
+              left: 0;
+              opacity: 0;
+              position: absolute;
+              right: 0;
+              top: 0;
+              width: 100%;
+            }
+
+            #dtp-people-view {
+              align-items: center;
+              display: flex;
+              flex: 1;
+              font-weight: 500;
+              height: 100%;
+              padding: 0.1875rem;
+
+              #dtp-people-view-icon {
+                display: inline-block;
+                font-size: 0;
+                height: 1.5rem;
+                line-height: 1;
+                min-width: 1.5rem;
+                width: 1.5rem;
+              }
+
+              #dtp-people-view-content {
+                flex: 1;
+                margin-left: 4px;
+                padding: 0 4px;
+              }
+
+              #dtp-people-view-arrow {
+                display: inline-block;
+                font-size: 0;
+                height: 1.5rem;
+                line-height: 1;
+                min-width: 1.5rem;
+                width: 1.5rem;
+              }
+            }
+          }
+        }
+      }
+
+      #searvh-bar-right {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  }
 }
 
 .dtp {
-  display: flex;
-  flex-direction: row;
-}
-
-.header-sent {
-  display: flex;
-  justify-content: center;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif; 
-  /* font-family: Brandon text; */
-}
-
-.search-container {
-  display: flex;
-  justify-content: center;
+  background: #fff;
+  height: 3rem;
+  position: relative;
+  border-left: 0.0625rem solid #00000014;
+  border-right: 0.0625rem solid #00000014;
 }
