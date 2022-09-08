@@ -8,7 +8,7 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       login!(@user)
-      render :show
+      render :show # why not render json: @user ?
     else
       render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
     end

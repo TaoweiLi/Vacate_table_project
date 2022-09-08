@@ -13,7 +13,6 @@ function App() {
       <div id="site-wrapper">
         <div id="base-app">
           <header id="nav-bar-wrapper">
-            <div>PlaceHolder-Top-Nav-Bar</div>
             <div><Navigation /></div>
           </header>
 

@@ -31,12 +31,25 @@ function Navigation() {
 
   return (
     <>
+      <div id="top-nav-bar">
+        <button id="for-business">For Businesses</button>
+        <div id="mobile-button-wrapper">
+          <button id="mobile-button" className="button_with_down_arrow">Mobile</button>
+        </div>
+        <button id="help">Help</button>
+        <div id="language-wrapper">
+          <button id="language" className="button_with_down_arrow" >EN</button>
+        </div>
+      </div>
+
       <div className="lower-nav-bar">
         <div className="nav-left">
-          <a className="nav-logo" href="/">
-            <img className="nav-logo-img" src="" alt="Vacate Table Logo"></img>
-          </a>
-          <div className='nav-location-menu'>
+          <div>
+            <a className="nav-logo" href="/">
+              <img className="nav-logo-img" height="35" src="https://i.postimg.cc/ZKgFN97s/Untitled-drawing-17.png" alt="Vacate Table Logo"></img>
+            </a>
+          </div>
+          <div className="nav-location-menu button_with_down_arrow">
             <i className="fa-solid fa-location-dot"></i>
           </div>
         </div>
