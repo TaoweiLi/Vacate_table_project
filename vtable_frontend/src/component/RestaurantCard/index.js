@@ -71,7 +71,7 @@ export default function RestaurantCard({ restaurant }) {
         {/* <div id="horizontal-scroll-container"> */}
           {/* <ul> */}
             <div id="card-container">
-              {/* <a href=""> */}
+              <a href={`/restaurants/${restaurant.id}`}>
                 <Card id="card-wrapper" sx={{ maxWidth: 236 }}>
                   <CardMedia
                     id="card-img" component="img" image={restaurant.img} alt={restaurant.name}
@@ -103,7 +103,7 @@ export default function RestaurantCard({ restaurant }) {
                     {/* <Button size="small">Learn More</Button> */}
                   </CardActions>
                 </Card>
-              {/* </a> */}
+              </a>
             </div>
           {/* </ul> */}
         {/* </div> */}

@@ -5,7 +5,8 @@ import RestaurantsIndex from "./component/RestaurantsIndex";
 // import SignupFormPage from "./component/SignupFormPage";
 import Navigation from "./component/Navigation";
 import Footer from "./component/Footer";
-
+import RestaurantShow from "./component/RestaurantShow";
+import PageNotFound from "./component/PageNotFund";
 function App() {
 
   return (
@@ -19,6 +20,8 @@ function App() {
           <main id="main-content-wrapper">
             <Switch>
               <Route exact path="/" component={RestaurantsIndex} />
+              <Route exact path="/restaurants/:restaurantId" component={RestaurantShow} />
+              <Route path="*" component={PageNotFound} />
             </Switch>
           </main>
 

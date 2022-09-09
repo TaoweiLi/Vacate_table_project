@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require 'open-uri'
 
 ApplicationRecord.transaction do
   puts "Destroying tables..."
@@ -57,6 +58,9 @@ ApplicationRecord.transaction do
     tag: "order_takeout",
     img: "https://resizer.otstatic.com/v2/photos/wide-huge/1/25898035.jpg",
   )
+
+  file1 = URI.open("https://app-vtable-seeds.s3.us-west-1.amazonaws.com/25898035.jpeg")
+  r1.photo.attach(io: file1, filename: "25898035.jpeg")
 
   r2 = Restaurant.create!(
     name: "Porterhouse",
@@ -129,8 +133,6 @@ ApplicationRecord.transaction do
     img: "https://resizer.otstatic.com/v2/photos/wide-huge/3/49014781.jpg",
   )
 
-
-  
   # Award Winning
   r6 = Restaurant.create!(
     name: "Berber",

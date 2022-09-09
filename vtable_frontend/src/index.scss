@@ -67,9 +67,6 @@ h1 {
 }
 
 
-h3 {
-  
-}
 
 
 // App Base CSS
@@ -100,20 +97,6 @@ body {
       #main-content-wrapper {
         outline: 0;
         display: block;
-      }
-
-      #footer-wrapper {
-        background-color: #2d333f;
-        border-top: 0.0625rem solid #0000001f;
-        display: flex;
-        justify-content: center;
-
-        #footer {
-          max-width: 80rem;
-          box-sizing: border-box;
-          padding: 32px 32px 16px;
-          width: 100%;
-        }
       }
     }
   }
