@@ -1,10 +1,10 @@
-.res-category {
+.res-category-wrapper {
 
   .blank-area {
     // padding: 0 32px;
     margin-top: 48px;
 
-    .category-header {
+    .res-category-header {
       min-height: 2.25rem;
       border-bottom: 0.0625rem solid #d8d9db;
       display: flex;
@@ -13,7 +13,7 @@
       padding-bottom: 16px;
       width: 100%;
 
-      .category-header-text {
+      .res-category-header-text {
         margin: 0 0 0.25rem;
         color: #2d333f;
         font-size: 1.5rem;
@@ -27,5 +27,8 @@
       }
     }
 
+    .res-category-container {
+      display: flex;
+    }
   }
 }

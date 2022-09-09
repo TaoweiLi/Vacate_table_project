@@ -6,23 +6,22 @@ import { useEffect } from 'react';
 import { getRestaurants } from '../../store/restaurants';
 
 function RestaurantsCategory({ title, tag }) {
-  const restaurants = useSelector(getRestaurants)
+  const restaurants = useSelector((state) => getRestaurants(state, tag))
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(restaurantsActions.fetchRestaurants())
+    dispatch(restaurantsActions.fetchRestaurants(tag))
   }, [dispatch])
-
 
   return (
     <>
-      <div className="res-category">
+      <div className="res-category-wrapper">
         <section className="blank-area">
-          <header className="category-header">
-            <h2 className="category-header-text">{title}</h2>
+          <header className="res-category-header">
+            <h2 className="res-category-header-text">{title}</h2>
           </header>
-          <div className="res-cards">
-            {restaurants.map(res => <RestaurantCard key={res.id} restaurant={res} />)}
+          <div className="res-category-container">
+            {restaurants.map(res => <RestaurantCard key={res.id} restaurant={res} tag={tag}/>)}
           </div>
         </section>
 

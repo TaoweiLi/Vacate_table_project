@@ -27,21 +27,25 @@ export function getRestaurant(restaurantId) {
   }
 }
 
-export function getRestaurants(state) {
-  if (!state || !state["restaurants"]) {
+export function getRestaurants(state, tag) {
+  if (!state || !state["restaurants"] || !state["restaurants"][tag]) {
     return [];
   }
 
-  return Object.values(state["restaurants"]);
+  return Object.values(state["restaurants"][tag]);
 }
 
 
-export function fetchRestaurants() {
+export function fetchRestaurants(tag) {
   return async function (dispacth) {
-    const response = await fetch("/api/restaurants");
+    console.log(tag)
+    const response = await fetch("/api/restaurants?tag="+tag);
+    console.log("DEBUG 1111")
+
     if (response.ok) {
       const restaurants = await response.json();
-      dispacth(receiveRestaurants(restaurants));
+      dispacth(receiveRestaurants({ [tag] : restaurants}));
+      console.log(restaurants)
       return restaurants;
     }
   }
@@ -66,6 +70,8 @@ function restaurantsReducer(state = {}, action) {
   switch (action.type) {
     case RECEIVE_RESTAURANTS:
       newState = { ...action.restaurants };
+      console.log("AAAAA")
+      console.log(newState)
       return newState;
     case RECEIVE_RESTAURANT:
       newState[action.restaurant.id] = action.restaurant;

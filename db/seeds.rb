@@ -17,7 +17,6 @@ ApplicationRecord.transaction do
   ApplicationRecord.connection.reset_pk_sequence!("users")
   ApplicationRecord.connection.reset_pk_sequence!("restaurants")
 
-
   puts "Creating users..."
   # Create one user with an easy to remember username, email, and password:
   User.create!(
@@ -56,7 +55,7 @@ ApplicationRecord.transaction do
     website: "http://www.blindtastingsc.com/",
     phone_number: "(650) 264-8221",
     tag: "order_takeout",
-    img: "https://resizer.otstatic.com/v2/photos/wide-huge/1/25898035.jpg"
+    img: "https://resizer.otstatic.com/v2/photos/wide-huge/1/25898035.jpg",
   )
 
   r2 = Restaurant.create!(
@@ -74,27 +73,64 @@ ApplicationRecord.transaction do
     website: "http://www.porterhousesanmateo.com/",
     phone_number: "(650) 579-5911",
     tag: "order_takeout",
-    img: "https://resizer.otstatic.com/v2/photos/wide-huge/3/27694738.jpg"
+    img: "https://resizer.otstatic.com/v2/photos/wide-huge/3/27694738.jpg",
   )
   r3 = Restaurant.create!(
-  name: "Osteria",
-  address: "247 Hamilton Ave, Palo Alto, CA 94301",
-  description: "Our vision is to insure a quality dining every time you eat with us. Osteria's purpose is to provide 'Culinary Contentment.",
-  cuisine: "Italian",
-  expense: "$30 and under",
-  neighborhood: "Palo Alto",
-  operation_hours: "Daily 5:00 pm–9:00 pm",
-  dining_style: "Casual Elegant",
-  dress_code: "Casual Dress",
-  parking_details: "Street Parking",
-  payment_options: "AMEX, Discover, MasterCard, Visa",
-  website: "https://www.osteriatoscanapaloalto.com/",
-  phone_number: "(650) 328-5700",
-  tag: "order_takeout",
-  img: "https://resizer.otstatic.com/v2/photos/wide-huge/1/25544914.jpg"
-)
- 
+    name: "Osteria",
+    address: "247 Hamilton Ave, Palo Alto, CA 94301",
+    description: "Our vision is to insure a quality dining every time you eat with us. Osteria's purpose is to provide 'Culinary Contentment.",
+    cuisine: "Italian",
+    expense: "$30 and under",
+    neighborhood: "Palo Alto",
+    operation_hours: "Daily 5:00 pm–9:00 pm",
+    dining_style: "Casual Elegant",
+    dress_code: "Casual Dress",
+    parking_details: "Street Parking",
+    payment_options: "AMEX, Discover, MasterCard, Visa",
+    website: "https://www.osteriatoscanapaloalto.com/",
+    phone_number: "(650) 328-5700",
+    tag: "order_takeout",
+    img: "https://resizer.otstatic.com/v2/photos/wide-huge/1/25544914.jpg",
+  )
 
+  r4 = Restaurant.create!(
+    name: "Amoura Restaurant",
+    address: "713 Linden Avenue, South San Francisco, CA 94080",
+    description: "Amoura Restaurant, located in the heart of South San Francisco, brings modern Mediterranean fare to the Bay Area when its doors open early 2015.",
+    cuisine: "Mediterranean",
+    expense: "$30 and under",
+    neighborhood: "South San Francisco",
+    operation_hours: "Daily 5:00 pm–9:00 pm",
+    dining_style: "Casual Dining",
+    dress_code: "Casual Dress",
+    parking_details: "We offer private parking at Amoura. There is also street parking available for your convenience.",
+    payment_options: "AMEX, Discover, MasterCard, Visa",
+    website: "http://www.amourasf.com/",
+    phone_number: "(650) 754-6891",
+    tag: "order_takeout",
+    img: "https://resizer.otstatic.com/v2/photos/wide-huge/3/30720229.jpg",
+  )
+
+  r5 = Restaurant.create!(
+    name: "Arya Steakhouse - Palo Alto",
+    address: "140 University Ave, Palo Alto, CA 94301",
+    description: "Welcome to ARYA, a place we call home. Arya is about a warm ambiance, and many choices whether you love Steak or Persian Cuisine. Arya features seafood, steaks, chicken, and kebabs, cooked to order, the best in Persian cuisine.",
+    cuisine: "Steakhouse",
+    expense: "$31 to $50",
+    neighborhood: "Palo Alto",
+    operation_hours: "Sat, Sun 11:30 am–10:00 pm Lunch Mon–Fri 11:30 am–2:30 pm Dinner Mon–Fri 5:00 pm–10:00 pm",
+    dining_style: "Elegant Dining",
+    dress_code: "Business Casual",
+    parking_details: "Public Lot",
+    payment_options: "AMEX, Diners Club, Discover, MasterCard, Visa",
+    website: "http://www.aryasteakhouse.com/",
+    phone_number: "(650) 304-3119",
+    tag: "order_takeout",
+    img: "https://resizer.otstatic.com/v2/photos/wide-huge/3/49014781.jpg",
+  )
+
+
+  
   # Award Winning
   r6 = Restaurant.create!(
     name: "Berber",
@@ -111,10 +147,10 @@ ApplicationRecord.transaction do
     website: "http://www.berbersf.com/",
     phone_number: "(415) 800-7767",
     tag: "award-winning",
-    img: "https://resizer.otstatic.com/v2/photos/wide-huge/3/49265159.jpg"
+    img: "https://resizer.otstatic.com/v2/photos/wide-huge/3/49265159.jpg",
   )
 
-   r7 = Restaurant.create!(
+  r7 = Restaurant.create!(
     name: "Okane",
     address: "669 Townsend Street, San Francisco, CA 94103",
     description: "Okane specializes in izakaya and sushi, providing the Bay Area with an engaging new dining and drinking option that affords guests one of the City’s most authentic Japanese izakaya experiences with an emphasis on traditional dishes.",
@@ -129,11 +165,10 @@ ApplicationRecord.transaction do
     website: "http://www.okanesf.com/",
     phone_number: "(415) 865-9788",
     tag: "award-winning",
-    img: "https://resizer.otstatic.com/v2/photos/wide-huge/5/26434411.jpg"
+    img: "https://resizer.otstatic.com/v2/photos/wide-huge/5/26434411.jpg",
   )
 
-
-   r8 = Restaurant.create!(
+  r8 = Restaurant.create!(
     name: "Trestle",
     address: "531 Jackson St, San Francisco, CA 94133",
     description: "At Trestle, we remember a time, not too long ago, where people took pause to enjoy a meal in the presence of great company, giving it the reverence and respect deserved. We provide a dining experience served in courses, with the satisfaction and warmth found at a family gathering, creating the foundation to a proper meal.",
@@ -148,7 +183,44 @@ ApplicationRecord.transaction do
     website: "http://www.trestlesf.com/",
     phone_number: "(415) 772-0922",
     tag: "award-winning",
-    img: "https://resizer.otstatic.com/v2/photos/wide-huge/1/24094108.jpg"
+    img: "https://resizer.otstatic.com/v2/photos/wide-huge/1/24094108.jpg",
   )
+
+  r9 = Restaurant.create!(
+    name: "Spinning Bones",
+    address: "1205 Park St, Alameda, CA 94501",
+    description: "Spinning Bones is a California rotisserie restaurant that specializes in roasted meats with bold flavors. The focus of the menu is slow roasted meats: poultry, pork and beef, rotating on spits over high heat, and basting in their own natural juices.",
+    cuisine: "American",
+    expense: "$30 and under",
+    neighborhood: "Alameda",
+    operation_hours: "Wed, Thu, Sun 12:00 pm–8:00 pm Fri, Sat 12:00 pm–9:00 pm",
+    dining_style: "Casual Dining",
+    dress_code: "Casual Dress",
+    parking_details: "Street Parking",
+    payment_options: "AMEX, Discover, MasterCard, Visa",
+    website: "http://www.spinningbones.com/",
+    phone_number: "(510) 263-9290",
+    tag: "award-winning",
+    img: "https://resizer.otstatic.com/v2/photos/wide-huge/1/28320134.jpg",
+  )
+
+  r10 = Restaurant.create!(
+    name: "Insalata's",
+    address: "120 Sir Francis Drake Blvd, San Anselmo, CA 94960",
+    description: "Insalata's Restaurant is moving into it's 25th year of the community minded restaurants in San Anselmo. Insalata's receives Bib Gourmand from Michelin for it's 10th year in a row.",
+    cuisine: "Mediterranean",
+    expense: "$31 to $50",
+    neighborhood: "San Anselmo",
+    operation_hours: "Daily 11:00 am–7:00 pm Lunch Daily 11:30 am–2:30 pm Dinner Mon–Thu, Sun 5:00 pm–8:30 pm Fri, Sat 5:00 pm–9:00 pm",
+    dining_style: "Fine Dining",
+    dress_code: "Smart Casual",
+    parking_details: "We have a wrap around horse shoe parking lot.",
+    payment_options: "AMEX, Discover, MasterCard, Visa",
+    website: "http://www.insalatas.com/",
+    phone_number: "(415) 457-7700",
+    tag: "award-winning",
+    img: "https://resizer.otstatic.com/v2/photos/xlarge/1/23687356.jpg",
+  )
+
   puts "Done!"
 end
