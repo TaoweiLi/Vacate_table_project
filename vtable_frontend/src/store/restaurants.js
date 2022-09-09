@@ -47,12 +47,11 @@ export function getRestaurants(state) {
 }
 
 export function getTaggedRestaurants(state, tag) {
-  console.log("DEBUG 1212   ", state)
+  
   if (!state || !state["restaurants"] || !state["restaurants"][tag]) {
     return [];
   }
-  console.log("DEBUG 3333   ", tag)
-  console.log(state["restaurants"][tag])
+
   return Object.values(state["restaurants"][tag]);
 }
 
@@ -75,11 +74,11 @@ export function fetchTaggedRestaurants(tag) {
   return async function (dispacth) {
 
     const response = await fetch("/api/restaurants?tag=" + tag);
-    console.log("DEBUG 1111   ", tag)
+
     if (response.ok) {
       const restaurants = await response.json();
       dispacth(receiveTaggedRestaurants(tag, restaurants));
-      console.log("DEBUG 2222 ", restaurants)
+
       // return restaurants;
     }
   }
@@ -106,9 +105,7 @@ function restaurantsReducer(state = {}, action) {
       newState["all"] = action.restaurants
       return newState;
     case RECEIVE_TAGGED_RESTAURANTS:
-      console.log("DEVUG XXXXY ", action)
       newState[action.tag] = action.restaurants
-      console.log("DEVUG XXXX ",newState)
       return newState;
     case RECEIVE_RESTAURANT:
       newState[action.restaurant.id] = action.restaurant;

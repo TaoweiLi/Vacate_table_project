@@ -23,6 +23,7 @@ function App() {
               <Route exact path="/restaurants/:restaurantId" component={RestaurantShow} />
               <Route path="*" component={PageNotFound} />
             </Switch>
+            {/* <div><RestaurantShow /></div> */}
           </main>
 
           <div id="footer-wrapper">

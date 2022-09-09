@@ -6,6 +6,11 @@ div {
   display: block;
 }
 
+
+section {
+  display: block;
+}
+
 button {
   cursor: pointer;
 }
@@ -66,6 +71,13 @@ h1 {
 
 }
 
+h4 {
+  display: block;
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
 
 
 
@@ -95,6 +107,11 @@ body {
       flex-direction: column;
 
       #main-content-wrapper {
+        outline: 0;
+        display: block;
+      }
+
+      #show-main-wrapper {
         outline: 0;
         display: block;
       }

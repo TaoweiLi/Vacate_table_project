@@ -13,7 +13,6 @@ function RestaurantsCategory({ title, tag }) {
     dispatch(restaurantsActions.fetchTaggedRestaurants(tag))
   }, [dispatch])
 
-  console.log("KKK " , restaurants)
 
   return (
     <>
