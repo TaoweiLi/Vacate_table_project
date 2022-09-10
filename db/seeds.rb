@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-require 'open-uri'
+require "open-uri"
 
 ApplicationRecord.transaction do
   puts "Destroying tables..."
@@ -20,7 +20,7 @@ ApplicationRecord.transaction do
 
   puts "Creating users..."
   # Create one user with an easy to remember username, email, and password:
-  User.create!(
+  u1 = User.create!(
     first_name: "Daisy",
     last_name: "Li",
     email: "dali@vtable.com",
@@ -29,14 +29,16 @@ ApplicationRecord.transaction do
   )
 
   # More users
+  users = []
   10.times do
-    User.create!({
+    user = User.create!({
       first_name: Faker::Name.unique.first_name,
       last_name: Faker::Name.unique.last_name,
       email: Faker::Internet.unique.email,
       phone_number: Faker::Number.number(digits: 10),
       password: "123456",
     })
+    users << user
   end
 
   puts "Creating restaurnts..."
@@ -62,6 +64,38 @@ ApplicationRecord.transaction do
   file1 = URI.open("https://app-vtable-seeds.s3.us-west-1.amazonaws.com/25898035.jpeg")
   r1.photo.attach(io: file1, filename: "25898035.jpeg")
 
+  r1_reser1 = Reservation.create!(
+    date: "10-12-2020",
+    time: "17:00",
+    party_size: 3,
+    restaurant_id: r1.id,
+    user_id: u1.id
+  )
+
+  r1_reser2 = Reservation.create!(
+    date: "15-12-2020",
+    time: "20:00",
+    party_size: 7,
+    restaurant_id: r1.id,
+    user_id: u1.id
+  )
+
+  r1_rev1 = Review.create!(
+    rating: 3,
+    review: "AAAAA BLA BLA WA LA AWASSA",
+    user_id: u1.id,
+    reservation_id: r1_reser2.id,
+    restaurant_id: r1.id,
+  )
+
+  r1_rev2 = Review.create!(
+    rating: 5,
+    review: "BBBBB BLA BLA WA LA AWASSA",
+    user_id: u1.id,
+    reservation_id: r1_reser1.id,
+    restaurant_id: r1.id,
+  )
+
   r2 = Restaurant.create!(
     name: "Porterhouse",
     address: "60 E. Third Ave, San Mateo, CA 94401",
@@ -79,6 +113,7 @@ ApplicationRecord.transaction do
     tag: "order_takeout",
     img: "https://resizer.otstatic.com/v2/photos/wide-huge/3/27694738.jpg",
   )
+
   r3 = Restaurant.create!(
     name: "Osteria",
     address: "247 Hamilton Ave, Palo Alto, CA 94301",

@@ -7,6 +7,7 @@ import Navigation from "./component/Navigation";
 import Footer from "./component/Footer";
 import RestaurantShow from "./component/RestaurantShow";
 import PageNotFound from "./component/PageNotFund";
+import ReservationPage from "./component/ReservationPage";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={RestaurantsIndex} />
               <Route exact path="/restaurants/:restaurantId" component={RestaurantShow} />
+              <Route exact path="/restaurants/:restaurantId/reservation" component={ReservationPage} />
               <Route path="*" component={PageNotFound} />
             </Switch>
             {/* <div><RestaurantShow /></div> */}

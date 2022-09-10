@@ -23,8 +23,8 @@ export function receiveTaggedRestaurants(tag, restaurants) {
     tag: tag,
     restaurants: restaurants
   }
-
 }
+
 
 
 // selector
@@ -58,26 +58,26 @@ export function getTaggedRestaurants(state, tag) {
 
 // thunk action
 export function fetchRestaurants() {
-  return async function (dispacth) {
+  return async function (dispatch) {
 
     const response = await fetch("/api/restaurants");
   
     if (response.ok) {
       const restaurants = await response.json();
-      dispacth(receiveRestaurants(restaurants));
+      dispatch(receiveRestaurants(restaurants));
       return restaurants;
     }
   }
 }
 
 export function fetchTaggedRestaurants(tag) {
-  return async function (dispacth) {
+  return async function (dispatch) {
 
     const response = await fetch("/api/restaurants?tag=" + tag);
 
     if (response.ok) {
       const restaurants = await response.json();
-      dispacth(receiveTaggedRestaurants(tag, restaurants));
+      dispatch(receiveTaggedRestaurants(tag, restaurants));
 
       // return restaurants;
     }

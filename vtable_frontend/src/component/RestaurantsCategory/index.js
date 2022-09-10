@@ -11,7 +11,7 @@ function RestaurantsCategory({ title, tag }) {
 
   useEffect(() => {
     dispatch(restaurantsActions.fetchTaggedRestaurants(tag))
-  }, [dispatch])
+  }, [dispatch, tag])
 
 
   return (

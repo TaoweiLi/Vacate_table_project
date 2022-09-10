@@ -21,4 +21,20 @@ class Review < ApplicationRecord
   belongs_to :restaurant,
              foreign_key: :restaurant_id,
              class_name: :Restaurant
+
+  def self.find_by_resturantId_userId(restaurantId, userId)
+    reviews = Review.find_by(restaurant_id: restaurantId, user_id: userId)
+    return reviews
+  end
+
+  def self.find_by_resturantId(restaurantId)
+    reviews = Review.find_by(restaurant_id: restaurantId)
+    p "aaaaaa"
+    return reviews
+  end
+
+  def self.find_by_userId(userId)
+    reviews = Review.find_by(user_id: userId)
+    return reviews
+  end
 end

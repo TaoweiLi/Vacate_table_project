@@ -23,7 +23,6 @@
 #
 class Restaurant < ApplicationRecord
   validates :name, :address, :description, :cuisine, presence: true
-
+  
   has_one_attached :photo
-
 end
