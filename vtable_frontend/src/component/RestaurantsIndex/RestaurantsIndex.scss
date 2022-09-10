@@ -1,4 +1,3 @@
-
 #main-sections-wrapper {
   background-color: #fff;
   padding-top: 0.0625rem;
@@ -11,7 +10,7 @@
     max-width: 80rem;
     width: 100%;
 
-    #current-location {
+    #current-location-wrapper {
       padding: 0 32px;
 
 
@@ -32,7 +31,7 @@
           margin: 0 8px 0 0;
         }
 
-        #current location-button {
+        #current-location-buttons {
           margin: 0;
           background: none;
           border-style: none;
@@ -44,6 +43,20 @@
           padding: 0;
           text-align: start;
           text-decoration: none;
+
+          #current-location-arrow {
+            box-sizing: border-box;
+            height: 1.5rem;
+            width: 1.5rem;
+          }
+
+          #urrent-location-link {
+            align-self: center;
+            margin: 0 0 0 4px;
+            font-size: .875rem;
+            font-weight: 500;
+            line-height: 1.25rem;
+          }
         }
       }
     }

@@ -3,26 +3,26 @@ import RestaurantCard from "../RestaurantCard";
 import * as restaurantsActions from '../../store/restaurants';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getRestaurants } from '../../store/restaurants';
+import { getTaggedRestaurants } from '../../store/restaurants';
 
 function RestaurantsCategory({ title, tag }) {
-  const restaurants = useSelector(getRestaurants)
+  const restaurants = useSelector((state) => getTaggedRestaurants(state, tag))
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(restaurantsActions.fetchRestaurants())
-  }, [dispatch])
+    dispatch(restaurantsActions.fetchTaggedRestaurants(tag))
+  }, [dispatch, tag])
 
 
   return (
     <>
-      <div className="res-category">
+      <div className="res-category-wrapper">
         <section className="blank-area">
-          <header className="category-header">
-            <h2 className="category-header-text">{title}</h2>
+          <header className="res-category-header">
+            <h2 className="res-category-header-text">{title}</h2>
           </header>
-          <div className="res-cards">
-            {restaurants.map(res => <RestaurantCard key={res.id} restaurant={res} />)}
+          <div className="res-category-container">
+            {restaurants.map(res => <RestaurantCard key={res.id} restaurant={res} tag={tag}/>)}
           </div>
         </section>
 

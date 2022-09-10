@@ -1,0 +1,149 @@
+.breadcrumb {
+  padding: 0 32px;
+  background-color: #fff;
+  border-top: 0.0625rem solid #00000014;
+  box-sizing: border-box;
+  display: flex;
+  height: 2rem;
+  margin: 0;
+  overflow-x: auto;
+
+}
+
+.show-main-wrapper {
+
+  .show-banner-wrapper {
+    background-color: #2d333f;
+    display: flex;
+    line-height: 0;
+    position: relative;
+
+
+    .show-res-img {
+      height: 460px;
+      object-fit: cover;
+      width: 100%;
+      animation: VK_NMQTrLcupWxvayIap .8s ease-in-out;
+    }
+  }
+
+  .show-res-detail-main-wrapper {
+    padding: 0 16px 16px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    margin-top: -51px;
+    position: relative;
+
+    .res-detail-left {
+      margin-right: 0;
+      width: 100%;
+      background-color: #fff;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-right: 32px;
+      padding: 0 16px calc(128px - 0.25rem);
+      width: 40rem;
+
+      .left-nav-bar-wrapper {
+        background: #fff;
+        padding-top: 16px;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+
+        .left-nav-bar {
+          box-shadow: inset 0 -0.0625rem 0 0 #d8d9db;
+          position: relative;
+        }
+      }
+
+
+    }
+
+
+
+
+
+    .res-detail-right {
+      width: 20rem;
+
+      .right-bookable-wrapper {
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0;
+        z-index: 11;
+
+        .right-reservation-wrapper {
+          background-color: #fff;
+          border-radius: 4px;
+          box-shadow: 0 2px 4px #2d333f33;
+          padding: 16px;
+        }
+
+        .right-oreder-wrapper {
+          margin: 16px 0 0;
+          background-color: #fff;
+          border-radius: 4px;
+          box-shadow: 0 2px 4px #2d333f33;
+          padding: 16px
+        }
+      }
+
+      .right-res-detail-wrapper {
+        margin-top: 16px;
+
+        .right-google-map {
+          border-radius: 4px;
+          box-shadow: 0 2px 4px #2d333f33;
+          display: inline-flex;
+          font-size: 1rem;
+          font-weight: 500;
+          line-height: 1.5rem;
+          justify-content: space-around;
+          width: 100%;
+        }
+
+        .right-res-additional-info {
+          margin: 16px 0 0;
+
+          .additional-info-title {
+            margin: 0 0 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.5rem;
+          }
+
+          .additional-info-container {
+            display: flex;
+            flex-direction: column;
+
+            .additional-info-list {
+              flex: 1;
+              margin: 0;
+              padding: 0;
+              display: flex;
+              flex-direction: column;
+            }
+
+            .view-more {
+              .view-more-button {
+                font-size: inherit;
+                font-weight: inherit;
+                padding: 0;
+                color: #da3743;
+                align-items: center;
+                background: none;
+                border: none;
+                cursor: pointer;
+                justify-content: center;
+                margin: 0;
+                outline: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -8,6 +8,7 @@ import App from './App';
 import configureStore from './store';
 import csrfFetch from './store/csrf';
 import * as sessionActions from './store/session';
+import Favicon from 'react-favicon'
 
 const store = configureStore();
 
@@ -42,11 +43,14 @@ function Root() {
 const renderApplication = () => {
   const div = ReactDOM.createRoot(document.getElementById("root"));
   div.render(
-
-    <BrowserRouter>
-      <Root />
-    </BrowserRouter>
-
+    <>
+      <div>
+        <Favicon url='http://oflisback.github.io/react-favicon/img/github.ico' />
+      </div>
+      <BrowserRouter>
+        <Root />
+      </BrowserRouter>
+    </>
   )
 }
 

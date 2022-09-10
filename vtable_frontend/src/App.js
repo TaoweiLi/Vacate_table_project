@@ -1,10 +1,13 @@
 import React from "react";
 import { Route, Switch } from 'react-router-dom';
 // import SigninFormPage from "./component/SigninFormPage";
-import HomePage from "./component/HomePage";
+import RestaurantsIndex from "./component/RestaurantsIndex";
 // import SignupFormPage from "./component/SignupFormPage";
 import Navigation from "./component/Navigation";
 import Footer from "./component/Footer";
+import RestaurantShow from "./component/RestaurantShow";
+import PageNotFound from "./component/PageNotFund";
+import ReservationPage from "./component/ReservationPage";
 
 function App() {
 
@@ -18,8 +21,12 @@ function App() {
 
           <main id="main-content-wrapper">
             <Switch>
-              <Route exact path="/" component={HomePage} />
+              <Route exact path="/" component={RestaurantsIndex} />
+              <Route exact path="/restaurants/:restaurantId" component={RestaurantShow} />
+              <Route exact path="/restaurants/:restaurantId/reservation" component={ReservationPage} />
+              <Route path="*" component={PageNotFound} />
             </Switch>
+            {/* <div><RestaurantShow /></div> */}
           </main>
 
           <div id="footer-wrapper">

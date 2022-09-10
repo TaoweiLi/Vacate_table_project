@@ -1,0 +1,88 @@
+#card-section {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  margin-block: 0;
+  padding: 0;
+  transition: transform .8s;
+
+
+  #card-container {
+    margin-right: 8px;
+    width: 236px;
+    clip-path: inherit;
+    flex-grow: 0;
+    flex-shrink: 0;
+    position: relative;
+
+    card-wrapper {
+      border: 10px solid #d8d9db;
+      border-radius: 4px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      position: relative;
+      transition: all .3s;
+      width: 100%;
+      z-index: 1;
+
+      #card-img {
+        min-height: 132px;
+        width: 100%;
+      }
+
+      #card-content-wrapper {
+        background-color: #fff;
+        color: initial;
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        overflow: hidden;
+        padding: 8px;
+        position: relative;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: .875rem;
+        font-weight: 400;
+        line-height: 1.25rem;
+
+        #card-res-name {
+          color: #df126e !important;
+          margin: 0 0 4px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          font-size: 1.125rem;
+          font-weight: 700;
+          line-height: 1.5rem;
+        }
+
+        #card-res-rating {
+          align-items: center;
+          display: flex;
+          flex-direction: row;
+          margin: 0 0 4px;
+
+          #card-res-stars {
+            align-items: center;
+            display: flex;
+          }
+
+          #card-res-reviews {
+            color: #2d333f;
+            margin: 0 0 0 4px;
+            font-size: .875rem;
+            font-weight: 500;
+            line-height: 1.25rem;
+          }
+        }
+      }
+    }
+  }
+
+}
