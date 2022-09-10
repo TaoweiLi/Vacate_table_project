@@ -37,10 +37,10 @@ function RestaurantShow() {
             </section>
             <section className="left-res-info">
               <section className="left-res-take-out"></section>
-              <h1 id="right-res-name">{restaurant.name}</h1>
+              <h1 id="right-res-name">restaurant name</h1>
               <div id="right-res-overview">
-                <div>{restaurant.expense}</div>
-                <div>{restaurant.cuisine}</div>
+                <div>restaurant.expense</div>
+                <div>restaurant.cuisine</div>
               </div>
             </section>
             <section className="left-res-photos">Restaurant Photos</section>
