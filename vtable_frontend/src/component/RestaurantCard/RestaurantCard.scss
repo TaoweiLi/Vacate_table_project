@@ -86,3 +86,20 @@
   }
 
 }
+
+#card-res-name {
+  color: #2d333f;
+  margin: 0 0 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+}
+
+#card-img {
+  min-height: 132px;
+  width: 100%;
+  animation: 0.8s ease-in-out;
+}

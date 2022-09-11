@@ -1,4 +1,4 @@
-// import RestaurantShow from "../RestaurantShow";
+import RestaurantShow from "../RestaurantShow";
 
 function ReservationPage (props) {
 

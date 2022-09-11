@@ -18,7 +18,7 @@ export function getRestaurantReviews(state, restaurantId) {
   if (!state["reviews"]["restaurants"][restaurantId]) {
     return [];
   }
-
+  console.log("DEBUG BBB ", state)
   return state["reviews"]["restaurants"][restaurantId];
 }
 

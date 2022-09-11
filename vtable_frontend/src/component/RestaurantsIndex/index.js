@@ -17,13 +17,14 @@ function RestaurantsIndex() {
               <div id="current-location-text">It looks like you're in San Francisco. Not correct?</div>
               <div id="current-location-buttons">
                 <div id="current-location-arrow">
-                  <i class="fa-solid fa-location-arrow"></i>
+                  <i className="fa-solid fa-location-arrow"></i>
                 </div>
                 <div id="current-location-link">
                   <div>Get current location</div>
                 </div>
               </div>
             </div>
+            <div><RestaurantsCategory title={"New to VacateTable"} tag={"new_to_vtable"} /></div>
             <div><RestaurantsCategory title={"Order takeout"} tag={"order_takeout"} /></div>
             <div><RestaurantsCategory title={"Award Winning"} tag={"award_winning"} /></div>
           </section>

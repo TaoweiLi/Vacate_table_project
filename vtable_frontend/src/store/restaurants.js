@@ -13,9 +13,10 @@ export function receiveRestaurants(restaurants) {
 export function receiveRestaurant(restaurant) {
   return {
     type: RECEIVE_RESTAURANT,
-    restaurant
+    restaurant: restaurant
   }
 }
+
 
 export function receiveTaggedRestaurants(tag, restaurants) {
   return {
@@ -24,7 +25,6 @@ export function receiveTaggedRestaurants(tag, restaurants) {
     restaurants: restaurants
   }
 }
-
 
 
 // selector

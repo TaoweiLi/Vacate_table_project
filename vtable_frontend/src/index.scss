@@ -15,6 +15,11 @@ button {
   cursor: pointer;
 }
 
+a:-webkit-any-link {
+  color: -webkit-link;
+  cursor: pointer;
+}
+
 select {
   writing-mode: horizontal-tb !important;
   text-rendering: auto;
