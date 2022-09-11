@@ -41,7 +41,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        
+
 
         #signup-fname {
           padding-top: 20px;
@@ -71,6 +71,13 @@
         }
 
         #signup-password {
+          padding-top: 20px;
+          padding-bottom: 15px;
+          border-radius: 5px;
+          margin-top: 10px;
+        }
+
+        #signup-password-comf {
           padding-top: 20px;
           padding-bottom: 15px;
           border-radius: 5px;

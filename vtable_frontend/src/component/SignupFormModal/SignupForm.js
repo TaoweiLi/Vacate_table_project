@@ -54,13 +54,14 @@ function SignupForm() {
             <ul>
               {errors.map(error => <li key={error}>{error}</li>)}
             </ul>
-            <input id="signup-fname" placeholder="First Name" type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
+            <input id="signup-fname" placeholder="First Name" type="text" size="50" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
             <input id="signup-lname" placeholder="Last Name" type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
             <input id="signup-email" placeholder="Email" type="text" value={email} onChange={(e) => setEmail(e.target.value)} required />
             <input id="signup-phone" placeholder="Phone Number" type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required />
             <input id="signup-password" placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+            <input id="signup-password-comf" placeholder="Comfirm Password" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
             <button id="signup-modal-button" type="submit">Sign Up</button>
-            <button id="demo-user" onClick={() => dispatch(sessionActions.signup({ email: "dali@vtable.com", password: "123456" }))}>DemoUser</button>
+            <button id="demo-user" onClick={() => dispatch(sessionActions.signup({ firstName: "Daisy", lastName: "Li", email: "dali@vtable.com", phoneNumber: "1234567890", password: "123456" }))}>DemoUser</button>
           </form>
         </div>
       </div>
