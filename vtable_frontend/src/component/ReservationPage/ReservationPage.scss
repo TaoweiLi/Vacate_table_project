@@ -1,0 +1,95 @@
+#reserv-main-wrapper {
+  display: flex;
+  justify-content: center;
+
+  #reserv-main-container {
+    background: #fff;
+    height: 100%;
+    width: 100%;
+
+    #reserv-main-content {
+      display: flex;
+      flex-flow: row wrap;
+      flex-direction: row;
+      margin: 32px auto 5rem;
+      max-width: 61rem;
+
+      #reserv-right {
+        flex: 1 0 1%;
+        min-width: 0;
+
+        #reserv-text {
+          flex: 1 100%;
+          font-size: 18px;
+          font-weight: 700;
+          line-height: 24px;
+          margin: 0 0 16px;
+          min-height: 24px;
+        }
+
+        #rederv-info-wrapper {
+          display: flex;
+          margin-bottom: 16px;
+
+          #res-img-container {
+            display: flex;
+            margin-right: 16px;
+
+            #res-img {
+              border-radius: 4px;
+              height: 4rem;
+              width: 4rem;
+            }
+          }
+
+          #reserv-info-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            #restaurant-name-container {
+              color: #2d333f;
+              display: flex;
+              justify-content: flex-start;
+              text-decoration: none;
+
+              #restaurant-name {
+                font-size: 24px;
+                font-weight: 700;
+                line-height: 28px;
+                margin: 0 0 4px;
+              }
+
+              #reserv-detail-wrapper {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                width: 100%;
+
+                #date {
+                  align-items: center;
+                    display: flex;
+                    margin-right: 24px;
+                    margin-top: 8px;
+                }
+
+                #time {
+                  align-items: center;
+                    display: flex;
+                    margin-right: 24px;
+                    margin-top: 8px;
+                }
+
+                #person {
+                  align-items: center;
+                    display: flex;
+                    margin-top: 8px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

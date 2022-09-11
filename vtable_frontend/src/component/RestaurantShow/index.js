@@ -9,7 +9,7 @@ import React from 'react';
 function RestaurantShow() {
   const { restaurantId } = useParams();
   const restaurant = useSelector(getRestaurant(restaurantId));
-  const reviews = useSelector((state) => getRestaurantReviews(state, restaurantId)); // getRestaurantReviews not a cuury
+  const reviews = useSelector((state) => getRestaurantReviews(state, restaurantId));
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -43,11 +43,11 @@ function RestaurantShow() {
   const todayYear = new Date().toDateString().slice(11);
 
   const initialState = {
+    "restaurant": restaurant,
     "partySize": 2,
     "date": `${todayYear}-${hashMonth[todayMonth]}-${todayDay}`,
     "time": "11:00"
   }
-
 
   const [partySize, setPartySize] = useState(initialState.partySize)
   const [date, setDate] = useState(initialState.date);
@@ -75,10 +75,9 @@ function RestaurantShow() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    let currentState = {...initialState, partySize, date, time}
     history.push({
       pathname: `/restaurants/${restaurant.id}/reservation`,
-      state: currentState
+      search: `?partySize=${partySize}&date=${date}&time=${time}`,
     }); 
   }
 
@@ -91,11 +90,11 @@ function RestaurantShow() {
       <div className="breadcrumb"></div>
 
       {restaurant && (
-        <div className="show-main-wrapper">
+        <main className="show-main-wrapper">
           <div className="show-banner-wrapper">
             <div className="show-location-bar"></div>
             {/* <div className="show-save-button"></div> */}
-            <img className="show-res-img"></img>
+            <img className="show-res-img" src={restaurant.photoUrl}></img>
           </div>
 
           <div className="show-res-detail-main-wrapper">
@@ -123,11 +122,11 @@ function RestaurantShow() {
                 <div className="right-reservation-wrapper">
 
                   <form onSubmit={handleSubmit}>
-                    <label for="fname">Party Size</label>
-                    <input type="text" id="fname" value={partySize} onChange={handleChange("partySize")} />
-                    <label for="lname">Date</label>
-                    <input type="text" id="lname" value={date} onChange={handleChange("date")} />
-                    <label for="lname">Time</label>
+                    <label for="fname">Party Size</label><br></br>
+                    <input type="text" id="fname" value={partySize} onChange={handleChange("partySize")} /><br></br>
+                    <label for="lname">Date</label><br></br>
+                    <input type="text" id="lname" value={date} onChange={handleChange("date")} /><br></br>
+                    <label for="lname">Time</label><br></br>
                     <input type="text" id="lname" value={time} onChange={handleChange("time")} />
                     <input type="submit" value="Find a time" />
                   </form>
@@ -156,7 +155,7 @@ function RestaurantShow() {
               </section>
             </div>
           </div>
-        </div>
+        </main>
       )}
       <p>{JSON.stringify(restaurant, null, 4)}</p>
       <p>{JSON.stringify(reviews, null, 4)}</p>

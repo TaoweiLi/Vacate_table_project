@@ -13,12 +13,12 @@ export function getRestaurantReviews(state, restaurantId) {
   // if (!state || !state["reviews"] || !state["reviews"]["restaurants"] || !state["reviews"]["restaurants"][restaurantId]) {
   //   return [];
   // }
-  console.log("DEBUG AAA ", state)
+ 
 
   if (!state["reviews"]["restaurants"][restaurantId]) {
     return [];
   }
-  console.log("DEBUG BBB ", state)
+
   return state["reviews"]["restaurants"][restaurantId];
 }
 
