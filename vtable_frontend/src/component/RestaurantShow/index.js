@@ -166,44 +166,162 @@ function RestaurantShow() {
               </section>
             </div>
 
-
             <div id="res-detail-right">
               <div id="right-reserv-wrapper">
                 <div id="right-reserv-container">
                   <h4 id="right-reserv-header">Make a reservation</h4>
                   <form id="reserv-form" onSubmit={handleSubmit}>
-                    <div id="ps-wrapper">
-                    <label forhtml="partySize">Party Size</label><br></br>
-                      <input type="text" id="partySize" value={partySize} onChange={handleChange("partySize")} /><br></br>
-                    </div>
-                    <div id="dt-wrapper">
-                      <label forhtml="date">Date</label><br></br>
-                      <input type="text" id="date" value={date} onChange={handleChange("date")} /><br></br>
-                      <label forhtml="time">Time</label><br></br>
-                      <input type="text" id="time" value={time} onChange={handleChange("time")} />
-                    </div>
-                    
-                    <input type="submit" value="Find a time" />
+                    <label className="reserv-header" htmlFor="party-size">Party Size</label>
+                    <input className="reserv-input" id="party-size" value={partySize} onChange={handleChange("partySize")} />
+
+                    <label className="reserv-header" htmlFor="date">Date</label>
+                    <input className="reserv-input" id="date" value={date} onChange={handleChange("date")} />
+
+                    <label className="reserv-header" htmlFor="time">Time</label>
+                    <input className="reserv-input" id="time" value={time} onChange={handleChange("time")} />
+
+
+                    {/* <div id="ps-wrapper">
+                      <div className="ps-select-wrapper">
+                        <select className="ps-select-dropdown" id="ps-select">
+                          <option value="1">1 person</option>
+                          <option value="2">2 person</option> */}
+                    {/* <option value="3">3 person</option>
+                          <option value="4">4 person</option>
+                          <option value="5">5 person</option>
+                          <option value="6">6 person</option>
+                          <option value="7">7 person</option>
+                          <option value="8">8 person</option>
+                          <option value="9">9 person</option>
+                          <option value="10">10 person</option>
+                        </select>
+                      </div>
+                    </div> */}
+
+                    {/* <div id="dt-wrapper">
+                      <div id="date-wrapper">
+                        <div className="date-select-wrapper">
+                          <select className="date-select-dropdown" id="date-select">
+                          </select>
+                        </div>
+                      </div> */}
+
+                    {/* <div id="time-wrapper">
+                        <label className="time-select-header" htmlFor="time-select">Time</label>
+                        <input type="text" id="partySize" value={partySize} onChange={handleChange("partySize")} /><br></br>
+                        <div className="time-select-wrapper">
+                          <select className="time-select-dropdown" id="time-select">
+                            <option value="2000-02-01T00:00:00">12:00 AM</option>
+                            <option value="2000-02-01T00:30:00">12:30 AM</option>
+                            <option value="2000-02-01T01:00:00">1:00 AM</option>
+                            <option value="2000-02-01T01:30:00">1:30 AM</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div> */}
+
+                    <button id="reserv-button">Find a time</button>
                   </form>
 
                 </div>
-                <div className="right-order-wrapper"></div>
               </div>
 
-              <section className="right-res-detail-wrapper">
-                <div className="right-google-map"></div>
-                <div className="right-res-additional-info">
-                  <h4 className="additional-info-title">Additional information</h4>
-                  <div className="additional-info-container">
-                    <ul className="additional-info-list">
-                      <li className="ai-list"></li>
-                      <li className="ai-list"></li>
-                      <li className="ai-list"></li>
-                      <li className="ai-list"></li>
-                      <li className="ai-list"></li>
-                    </ul>
-                    <div id="view-more">
-                      <button id="view-more-button">+ View more</button>
+              <section id="right-res-info-wrapper">
+                <div id="right-res-info-container">
+                  <section id="right-google-map">
+                    <p>Google map</p>
+                    <div id="res-address-wrapper"><i className="fa-solid fa-location-dot"></i> {restaurant.address}</div>
+                  </section>
+
+                  <div id="right-additional-info-wrapper">
+                    <h4 className="additional-info-title">Additional information</h4>
+                    <div className="additional-info-container">
+                      <ul className="additional-info-list">
+                        <li className="ai-list-wrapper">
+                          <div className="ai-list-container">
+                            <div className="ai-icon"><i className="fa-regular fa-building"></i></div>
+                            <div className="ai-info">
+                              <div className="ai-info-title">Neighborhood</div>
+                              <div className="ai-info-content">{restaurant.neighborhood}</div>
+                            </div>
+                          </div>
+                        </li>
+                        <li className="ai-list-wrapper">
+                          <div className="ai-list-container">
+                            <div className="ai-icon"><i className="fa-regular fa-clock"></i></div>
+                            <div className="ai-info">
+                              <div className="ai-info-title">Hours of operation</div>
+                              <div className="ai-info-content">{restaurant.operation_hours}</div>
+                            </div>
+                          </div>
+                        </li>
+                        <li className="ai-list-wrapper">
+                          <div className="ai-list-container">
+                            <div className="ai-icon"><i className="fa-solid fa-utensils"></i></div>
+                            <div className="ai-info">
+                              <div className="ai-info-title">Cuisine</div>
+                              <div className="ai-info-content">{restaurant.cuisine}</div>
+                            </div>
+                          </div>
+                        </li>
+                        <li className="ai-list-wrapper">
+                          <div className="ai-list-container">
+                            <div className="ai-icon"><i className="fa-solid fa-landmark-dome"></i></div>
+                            <div className="ai-info">
+                              <div className="ai-info-title">Dining style</div>
+                              <div className="ai-info-content">{restaurant.dining_style}</div>
+                            </div>
+                          </div>
+                        </li>
+                        <li className="ai-list-wrapper">
+                          <div className="ai-list-container">
+                            <div className="ai-icon"><i className="fa-solid fa-user-tie"></i></div>
+                            <div className="ai-info">
+                              <div className="ai-info-title">Dress code</div>
+                              <div className="ai-info-content">{restaurant.dress_code}</div>
+                            </div>
+                          </div>
+                        </li>
+                        <li className="ai-list-wrapper">
+                          <div className="ai-list-container">
+                            <div className="ai-icon"><i className="fa-solid fa-square-parking"></i></div>
+                            <div className="ai-info">
+                              <div className="ai-info-title">Parking details</div>
+                              <div className="ai-info-content">{restaurant.parking_details}</div>
+                            </div>
+                          </div>
+                        </li>
+                        <li className="ai-list-wrapper">
+                          <div className="ai-list-container">
+                            <div className="ai-icon"><i className="fa-solid fa-square-parking"></i></div>
+                            <div className="ai-info">
+                              <div className="ai-info-title">Payment options</div>
+                              <div className="ai-info-content">{restaurant.payment_options}</div>
+                            </div>
+                          </div>
+                        </li>
+                        <li className="ai-list-wrapper">
+                          <div className="ai-list-container">
+                            <div className="ai-icon"><i className="fa-solid fa-arrow-up-right-from-square"></i></div>
+                            <div className="ai-info">
+                              <div className="ai-info-title">Website</div>
+                              <div className="ai-info-content">{restaurant.website}</div>
+                            </div>
+                          </div>
+                        </li>
+                        <li className="ai-list-wrapper">
+                          <div className="ai-list-container">
+                            <div className="ai-icon"><i className="fa-solid fa-arrow-up-right-from-square"></i></div>
+                            <div className="ai-info">
+                              <div className="ai-info-title">Phone Number</div>
+                              <div className="ai-info-content">{restaurant.phone_number}</div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                      <div id="view-more">
+                        <button id="view-more-button">+ View more</button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -213,8 +331,8 @@ function RestaurantShow() {
         </main>
       )}
 
-      <p>{JSON.stringify(restaurant, null, 4)}</p>
-      <p>{JSON.stringify(reviews, null, 4)}</p>
+      {/* <p>{JSON.stringify(restaurant, null, 4)}</p>
+      <p>{JSON.stringify(reviews, null, 4)}</p> */}
       <p></p>
     </>
 
