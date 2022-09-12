@@ -56,7 +56,7 @@ function RestaurantReservation(props) {
         </div>
       </div>
       )}
-      <h1>{partySize}</h1>
+      {/* <h1>{partySize}</h1> */}
     </>
   )
 }
