@@ -8,10 +8,12 @@ class Api::RestaurantsController < ApplicationController
     end
 
     render json: @restaurants
+    # render :index
   end
 
   def show
     @restaurant = Restaurant.find_by(id: params[:id])
     render json: @restaurant
+    # render :show
   end
 end

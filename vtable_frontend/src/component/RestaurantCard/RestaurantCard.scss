@@ -30,6 +30,7 @@
       transition: all .3s;
       width: 100%;
       z-index: 1;
+      color: #2d333f;
 
       #card-img {
         min-height: 132px;
@@ -82,7 +83,46 @@
           }
         }
       }
+
+
+      #home-resev-button {
+        background: #da3743;
+        border-radius: 4px;
+        color: #fff;
+        cursor: pointer;
+        display: block;
+        font-size: 14px;
+        font-weight: 700;
+        height: 2rem;
+        justify-content: center;
+        line-height: 32px;
+        margin-bottom: 4px;
+        margin-right: 4px;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        width: 4.875rem;
+      }
+
+
     }
   }
 
+}
+
+#card-res-name {
+  color: #2d333f;
+  margin: 0 0 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+}
+
+#card-img {
+  min-height: 132px;
+  width: 100%;
+  animation: 0.8s ease-in-out;
 }

@@ -1,0 +1,130 @@
+#signup-modal {
+  display: flex;
+  height: 400px;
+  width: 450px;
+  margin-bottom: 300px;
+
+  #signup-modal-wrapper {
+
+    #signup-modal-inner {
+      padding-top: 4.5rem;
+      background-color: #fff;
+      min-height: calc(48.0625rem - 96px);
+      padding: 48px 32px;
+
+      #signup-modal-title {
+        margin: 0 0 4px;
+        font-size: 1.125rem;
+        font-weight: 700;
+        line-height: 1.5rem;
+        display: block;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+      }
+
+      #signup-modal-text {
+        margin: 4px 0 32px;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5rem;
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        color: #2d333f;
+      }
+
+      #signup-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+
+        #signup-fname {
+          padding-top: 20px;
+          padding-bottom: 15px;
+          border-radius: 5px;
+        }
+
+        #signup-lname {
+          padding-top: 20px;
+          padding-bottom: 15px;
+          border-radius: 5px;
+          margin-top: 10px;
+        }
+
+        #signup-email {
+          padding-top: 20px;
+          padding-bottom: 15px;
+          border-radius: 5px;
+          margin-top: 10px;
+        }
+
+        #signup-phone {
+          padding-top: 20px;
+          padding-bottom: 15px;
+          border-radius: 5px;
+          margin-top: 10px;
+        }
+
+        #signup-password {
+          padding-top: 20px;
+          padding-bottom: 15px;
+          border-radius: 5px;
+          margin-top: 10px;
+        }
+
+        #signup-password-comf {
+          padding-top: 20px;
+          padding-bottom: 15px;
+          border-radius: 5px;
+          margin-top: 10px;
+        }
+
+        #signup-modal-button {
+          padding-top: 20px;
+          padding-bottom: 20px;
+          border-radius: 5px;
+          margin-top: 20px;
+          background-color: #da3743;
+          border: none;
+          color: #fff;
+          font-size: large;
+          cursor: pointer;
+        }
+
+        #signup-modal-button:hover {
+          transition-duration: 0.2s;
+          background: #a62932;
+        }
+
+
+        input::placeholder {
+          font-size: 20px;
+        }
+
+        #demo-user {
+          padding-top: 20px;
+          padding-bottom: 20px;
+          border-radius: 5px;
+          margin-top: 20px;
+          background-color: #0d1b45;
+          border: none;
+          color: #fff;
+          font-size: large;
+          cursor: pointer;
+        }
+
+        #demo-user:hover {
+          transition-duration: 0.2s;
+          background: #274bb7;
+        }
+      }
+
+
+    }
+  }
+}
