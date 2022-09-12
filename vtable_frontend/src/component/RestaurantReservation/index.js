@@ -5,9 +5,9 @@ import { Link, useParams, useHistory } from 'react-router-dom';
 import { getRestaurant, fetchRestaurant } from '../../store/restaurants';
 import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
-import "./ReservationPage.scss";
+import "./RestaurantReservation.scss";
 
-function ReservationPage(props) {
+function RestaurantReservation(props) {
   const { restaurantId } = useParams();
   const dispatch = useDispatch();
   const restaurant = useSelector(getRestaurant(restaurantId));
@@ -61,4 +61,4 @@ function ReservationPage(props) {
   )
 }
 
-export default ReservationPage;
+export default RestaurantReservation;

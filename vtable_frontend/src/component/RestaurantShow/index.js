@@ -5,6 +5,7 @@ import "./RestaurantShow.scss"
 import { getRestaurant, fetchRestaurant } from '../../store/restaurants';
 import { fetchRestaurantReviews, getRestaurantReviews } from '../../store/reviews';
 import React from 'react';
+import RestaurantReview from '../RestaurantReview';
 
 function RestaurantShow() {
   const { restaurantId } = useParams();
@@ -78,15 +79,11 @@ function RestaurantShow() {
     history.push({
       pathname: `/restaurants/${restaurant.id}/reservation`,
       search: `?partySize=${partySize}&date=${date}&time=${time}`,
-    }); 
+    });
   }
 
   return (
     <>
-      {
-      /* <div id="show-site-wrapper">
-        <div id="show-base-app"></div>
-       </div> */}
       <div className="breadcrumb"></div>
 
       {restaurant && (
@@ -94,45 +91,103 @@ function RestaurantShow() {
           <div className="show-banner-wrapper">
             <div className="show-location-bar"></div>
             {/* <div className="show-save-button"></div> */}
-            <img className="show-res-img" src={restaurant.photoUrl}></img>
+            <img className="show-res-img" src={restaurant.img}></img>
           </div>
 
           <div className="show-res-detail-main-wrapper">
-            <div className="res-detail-left">
-              <section className="left-nav-bar-wrapper">Restaurant Nav Bar
+            <div id="res-detail-left">
+              <section id="left-nav-bar-wrapper">
                 <nav className="left-nav-bar">
+                  <ol className="nav-list">
+                    <li className="nav-buttons">
+                      <button className="nav-button">Overview</button>
+                    </li>
+                    <li className="nav-buttons">
+                      <button className="nav-button">Photos</button>
+                    </li>
+                    <li className="nav-buttons">
+                      <button className="nav-button">Menu</button>
+                    </li>
+                    <li className="nav-buttons">
+                      <button className="nav-button">Review</button>
+                    </li>
+
+                  </ol>
                 </nav>
               </section>
-              <section className="left-res-info">
-                <section className="left-res-take-out"></section>
-                <h1 id="right-res-name">{restaurant.name}</h1>
-                <div id="right-res-overview">
-                  <div>restaurant.expense</div>
-                  <div>restaurant.cuisine</div>
+
+              <section id="left-oview-wrapper">
+                <h1 id="res-name">{restaurant.name}</h1>
+                <div id="res-overview">
+                  <div><i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
+                    {reviews.rating}
+                  </div>
+                  <div><i className="fa-solid fa-money-bill"></i> {restaurant.expense}</div>
+                  <div><i className="fa-solid fa-utensils"></i> {restaurant.cuisine}</div>
+                </div>
+                <div id="res-description">
+                  <div id="res-description-container">
+                    <div id="res-description-detail">{restaurant.description}</div>
+                  </div>
+                  <div id="res-readmore">
+                    <button id="res-readmore-button">+ Read more</button>
+                  </div>
                 </div>
               </section>
-              <section className="left-res-photos">Restaurant Photos</section>
-              <section className="letf-res-menu">Menu</section>
-              <section className="left-res-review">Review</section>
+
+              <section id="left-menu-wrapper">
+                <h2 id="menu-header">Menu</h2>
+                <a id="res-web-wrapper" href={restaurant.website}>
+                  <i id="web-icon" className="fa-solid fa-arrow-up-right-from-square"></i>
+                  <span id="web-text">View menu on restaurant's website</span>
+                </a>
+              </section>
+
+              <section id="left-review-wrapper">
+
+                <h2 id="res-review-header">Review
+                  <button id="review-button">Write a review</button>
+                </h2>
+
+                <ol id="review-list-wrapper">
+                  {/* {reviews.map(review => <RestaurantReview key={restaurant.id} review={review} />)} */}
+                  <li id="review-content">
+                    <section id="reviewer-info">user_id: {reviews.user_id}</section>
+                    <section id="review-details">
+                      <div>Rating: {reviews.rating}</div>
+                      <div>{reviews.review}</div>
+                    </section>
+                  </li>
+                </ol>
+              </section>
             </div>
 
 
-            <div className="res-detail-right">
-              <div className="right-bookable-wrapper">
-                <div className="right-reservation-wrapper">
-
-                  <form onSubmit={handleSubmit}>
-                    <label for="fname">Party Size</label><br></br>
-                    <input type="text" id="fname" value={partySize} onChange={handleChange("partySize")} /><br></br>
-                    <label for="lname">Date</label><br></br>
-                    <input type="text" id="lname" value={date} onChange={handleChange("date")} /><br></br>
-                    <label for="lname">Time</label><br></br>
-                    <input type="text" id="lname" value={time} onChange={handleChange("time")} />
+            <div id="res-detail-right">
+              <div id="right-reserv-wrapper">
+                <div id="right-reserv-container">
+                  <h4 id="right-reserv-header">Make a reservation</h4>
+                  <form id="reserv-form" onSubmit={handleSubmit}>
+                    <div id="ps-wrapper">
+                    <label forhtml="partySize">Party Size</label><br></br>
+                      <input type="text" id="partySize" value={partySize} onChange={handleChange("partySize")} /><br></br>
+                    </div>
+                    <div id="dt-wrapper">
+                      <label forhtml="date">Date</label><br></br>
+                      <input type="text" id="date" value={date} onChange={handleChange("date")} /><br></br>
+                      <label forhtml="time">Time</label><br></br>
+                      <input type="text" id="time" value={time} onChange={handleChange("time")} />
+                    </div>
+                    
                     <input type="submit" value="Find a time" />
                   </form>
 
                 </div>
-                <div className="right-oreder-wrapper"></div>
+                <div className="right-order-wrapper"></div>
               </div>
 
               <section className="right-res-detail-wrapper">
@@ -157,8 +212,10 @@ function RestaurantShow() {
           </div>
         </main>
       )}
+
       <p>{JSON.stringify(restaurant, null, 4)}</p>
       <p>{JSON.stringify(reviews, null, 4)}</p>
+      <p></p>
     </>
 
   )

@@ -63,8 +63,8 @@ ApplicationRecord.transaction do
     img: "https://resizer.otstatic.com/v2/photos/wide-huge/1/25898035.jpg",
   )
 
-  file1 = URI.open("https://app-vtable-seeds.s3.us-west-1.amazonaws.com/25898035.jpeg")
-  r1.photo.attach(io: file1, filename: "25898035.jpeg")
+  # file1 = URI.open("https://app-vtable-seeds.s3.us-west-1.amazonaws.com/25898035.jpeg")
+  # r1.photo.attach(io: file1, filename: "25898035.jpeg")
 
   r1_reser1 = Reservation.create!(
     date: "10-06-2022",

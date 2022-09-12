@@ -37,7 +37,7 @@
         #search-bar-left {
           display: flex;
           min-width: 30rem;
-          flex-grow: 1;
+          // flex-grow: 1;
 
 
           #dtp-date {
@@ -60,6 +60,7 @@
               height: 100%;
               line-height: 24px;
               padding: 0.3125rem;
+              
 
               #dtp-date-view {
                 align-items: center;
@@ -68,6 +69,7 @@
                 font-weight: 500;
                 height: 100%;
                 padding: 0.1875rem;
+                          border-radius: 4px;
 
                 #dtp-date-view-icon {
                   display: inline-block;
@@ -199,6 +201,7 @@
       #searvh-bar-right {
         display: flex;
         flex-direction: row;
+        
       }
     }
   }
@@ -208,6 +211,7 @@
   background: #fff;
   height: 3rem;
   position: relative;
-  border-left: 0.0625rem solid #00000014;
+  // border-left: 0.0625rem solid #00000014;
   border-right: 0.0625rem solid #00000014;
+  border-radius: 2px;
 }
