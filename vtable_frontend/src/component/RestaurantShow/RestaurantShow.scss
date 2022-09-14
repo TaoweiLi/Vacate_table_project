@@ -264,7 +264,7 @@
       #right-reserv-wrapper {
         position: sticky;
         top: 0;
-        z-index: 0;
+        z-index: 9999;
 
         #right-reserv-container {
           background-color: #fff;
@@ -371,6 +371,7 @@
             height: fit-content;
             padding: 16px 4px;
             text-decoration: none;
+            z-index: 0;
 
             #res-address-wrapper {
               display: block;

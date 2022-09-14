@@ -10,9 +10,16 @@ import Map from '../GoogleMap/Map';
 function RestaurantShow() {
   const { restaurantId } = useParams();
   const restaurant = useSelector(getRestaurant(restaurantId));
+  console.log("debug dsdd", restaurant)
   const reviews = useSelector((state) => getRestaurantReviews(state, restaurantId));
   const dispatch = useDispatch();
   const history = useHistory();
+  
+  const location = {
+    address: "825 Battery st, san francisco, CA 94111",
+    lat: 37.7989708,
+    lng: -122.4035458,
+  }
 
 
   useEffect(() => {
@@ -227,7 +234,7 @@ function RestaurantShow() {
               <section id="right-res-info-wrapper">
                 <div id="right-res-info-container">
                   <section id="right-google-map">
-                    <Map />
+                    <Map location={location}/>
                     <p>Google map</p>
                     <div id="res-address-wrapper"><i className="fa-solid fa-location-dot"></i> {restaurant.address}</div>
                   </section>

@@ -1,14 +1,30 @@
 import React from 'react';
-// import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
+import GoogleMapReact from "google-map-react";
+import LocationPin from "./LocationPin";
+import "./Map.scss";
 
-function Map() {
+function Map({ location, zoomLevel }) {
 
+  return (
+    <div>
+      {/* {<h2 className="map-h2">Come Visit Us At Our Campus</h2>} */}
+      <div className="google-map">
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: "AIzaSyDfNoYvBcS8E7_xp2Q9qH54VJfmCxGQTl4" }}
+          defaultCenter={location}
+          defaultZoom={13}
+        >
+          <LocationPin
+            lat={location.lat}
+            lng={location.lng}
+            text={location.address}
+          />
 
-  return(
-    <>
+        </GoogleMapReact>
+      </div>
 
-    <div>Map</div>
-    </>
+      {/* <div>Map</div> */}
+    </div>
   )
 }
 
