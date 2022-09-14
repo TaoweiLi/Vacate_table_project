@@ -16,6 +16,8 @@ class CreateRestaurants < ActiveRecord::Migration[7.0]
       t.string :phone_number
       t.string :tag
       t.string :img
+      t.float :lng
+      t.float :lat
 
 
       t.timestamps

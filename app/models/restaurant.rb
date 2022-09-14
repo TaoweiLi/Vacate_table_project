@@ -18,11 +18,19 @@
 #  phone_number    :string
 #  tag             :string
 #  img             :string
+#  lng             :float
+#  lat             :float
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
 class Restaurant < ApplicationRecord
-  validates :name, :address, :description, :cuisine, presence: true
+  validates :name, :address, :description, :cuisine, :lng, :lat, presence: true
   
+  has_many :reviews,
+    foreign_key: :restaurant_id,
+    class_name: :Review,
+    dependent: :destroy
+
   has_one_attached :photo
+  has_many_attached :photos
 end

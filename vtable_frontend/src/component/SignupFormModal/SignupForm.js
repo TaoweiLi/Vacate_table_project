@@ -5,7 +5,7 @@ import * as sessionActions from "../../store/session";
 import "./SignupForm.scss";
 
 
-function SignupForm() {
+function SignupForm({setShowSignin, setShowSignup}) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [firstName, setFirstName] = useState("");
@@ -39,6 +39,12 @@ function SignupForm() {
     return setErrors(['Confirm Password field must be the same as the Password field']);
   };
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    setShowSignin(true);
+    setShowSignup(false);
+  }
+
   return (
 
 
@@ -61,72 +67,15 @@ function SignupForm() {
             <input id="signup-password" placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
             <input id="signup-password-comf" placeholder="Comfirm Password" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
             <button id="signup-modal-button" type="submit">Sign Up</button>
-            <button id="demo-user" onClick={() => dispatch(sessionActions.signup({ firstName: "Daisy", lastName: "Li", email: "dali@vtable.com", phoneNumber: "1234567890", password: "123456" }))}>DemoUser</button>
+            {/* <button id="demo-user" onClick={() => dispatch(sessionActions.signup({ firstName: "Dai", lastName: "Li", email: "dali@vtable.com", phoneNumber: "1234567890", password: "123456" }))}>DemoUser</button> */}
+            <div id="sign-in">
+              Already have an account? <span id="sign-in-inner" onClick={handleClick}>Sign in</span>
+            </div>
           </form>
         </div>
       </div>
     </div>
 
-    // <form onSubmit={handleSubmit}>
-    //   <ul>
-    //     {errors.map(error => <li key={error}>{error}</li>)}
-    //   </ul>
-    //   <label>
-    //     Firstname
-    //     <input
-    //       type="text"
-    //       value={firstName}
-    //       onChange={(e) => setFirstName(e.target.value)}
-    //       required
-    //     />
-    //   </label>
-    //   <label>
-    //     Lastname
-    //     <input
-    //       type="text"
-    //       value={lastName}
-    //       onChange={(e) => setLastName(e.target.value)}
-    //       required
-    //     />
-    //   </label>
-    //   <label>
-    //     Email
-    //     <input
-    //       type="text"
-    //       value={email}
-    //       onChange={(e) => setEmail(e.target.value)}
-    //       required
-    //     />
-    //   </label>
-    //   <label>
-    //     Phone Number
-    //     <input
-    //       type="text"
-    //       value={phoneNumber}
-    //       onChange={(e) => setPhoneNumber(e.target.value)}
-    //       required
-    //     />
-    //   </label>
-    //   <label>
-    //     Password
-    //     <input
-    //       type="password"
-    //       value={password}
-    //       onChange={(e) => setPassword(e.target.value)}
-    //       required
-    //     />
-    //   </label>
-    //   <label>
-    //     Confirm Password
-    //     <input
-    //       type="password"
-    //       value={confirmPassword}
-    //       onChange={(e) => setConfirmPassword(e.target.value)}
-    //       required
-    //     />
-    //   </label>
-    //   <button type="submit">Sign Up</button>
-    // </form>
   );
 }
 

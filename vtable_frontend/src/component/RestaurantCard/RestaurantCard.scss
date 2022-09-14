@@ -8,7 +8,6 @@
   padding: 0;
   transition: transform .8s;
 
-
   #card-container {
     margin-right: 8px;
     width: 236px;
@@ -16,6 +15,7 @@
     flex-grow: 0;
     flex-shrink: 0;
     position: relative;
+
 
     card-wrapper {
       border: 10px solid #d8d9db;
@@ -108,6 +108,10 @@
     }
   }
 
+}
+
+#card-link:hover {
+  transform: scale (1.03) !important;
 }
 
 #card-res-name {

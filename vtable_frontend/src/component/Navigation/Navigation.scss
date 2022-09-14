@@ -152,7 +152,7 @@
         height: 100%;
       }
 
-      .profile-buttons {
+      #profile-buttons {
         align-items: center;
         display: flex;
         height: 100%;
@@ -191,7 +191,6 @@
             right: 0;
             top: 100%;
             transition: transform .15s ease-out, opacity .15s ease-out, position .15s ease-out, max-height 0s;
-            z-index: 100;
           }
         }
 

@@ -3,7 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch } from 'react-redux';
 import './SigninForm.scss';
 
-function SigninForm() {
+function SigninForm({setShowSignin, setShowSignup}) {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -27,6 +27,13 @@ function SigninForm() {
       });
   }
 
+  const handleClick =(e) => {
+    e.preventDefault();
+    setShowSignin(false);
+    setShowSignup(true);
+  }
+
+
   return (
     <div id="signin-modal">
       <div id="signin-modal-wrapper">
@@ -41,6 +48,9 @@ function SigninForm() {
             <input id="signin-password" placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
             <button id="signin-modal-button" type="submit">Sign In</button>
             <button id="demo-user" onClick={() => dispatch(sessionActions.signin({ email: "dali@vtable.com", password: "123456" }))}>DemoUser</button>
+            <div id="create-one">
+              Don't have an account? <span id="create-one-inner" onClick={handleClick}>Create one</span>
+            </div>
           </form>
         </div>
       </div>

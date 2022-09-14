@@ -5,7 +5,7 @@ import "./RestaurantShow.scss"
 import { getRestaurant, fetchRestaurant } from '../../store/restaurants';
 import { fetchRestaurantReviews, getRestaurantReviews } from '../../store/reviews';
 import React from 'react';
-import RestaurantReview from '../RestaurantReview';
+import Map from '../GoogleMap/Map';
 
 function RestaurantShow() {
   const { restaurantId } = useParams();
@@ -37,7 +37,6 @@ function RestaurantShow() {
     '11': '11',
     '12': '12'
   }
-
 
   const todayDay = new Date().toDateString().slice(8, 10);
   const todayMonth = new Date().getMonth() + 1;
@@ -71,7 +70,6 @@ function RestaurantShow() {
           break;
       }
     }
-
   }
 
   function handleSubmit(e) {
@@ -229,6 +227,7 @@ function RestaurantShow() {
               <section id="right-res-info-wrapper">
                 <div id="right-res-info-container">
                   <section id="right-google-map">
+                    <Map />
                     <p>Google map</p>
                     <div id="res-address-wrapper"><i className="fa-solid fa-location-dot"></i> {restaurant.address}</div>
                   </section>
@@ -331,8 +330,8 @@ function RestaurantShow() {
         </main>
       )}
 
-      {/* <p>{JSON.stringify(restaurant, null, 4)}</p>
-      <p>{JSON.stringify(reviews, null, 4)}</p> */}
+      <p>{JSON.stringify(restaurant, null, 4)}</p>
+      <p>{JSON.stringify(reviews, null, 4)}</p>
       <p></p>
     </>
 

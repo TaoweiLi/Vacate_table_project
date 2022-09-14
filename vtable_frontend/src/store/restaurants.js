@@ -1,3 +1,5 @@
+import csrfFetch from "./csrf";
+
 export const RECEIVE_RESTAURANTS = "restaurants/RECEIVE_RESTAURANTS";
 export const RECEIVE_RESTAURANT = "restaurants/RECEIVE_RESTAURANT";
 export const RECEIVE_TAGGED_RESTAURANTS = "restaurants/RECEIVE_TAGGED_RESTAURANTS";
@@ -60,7 +62,7 @@ export function getTaggedRestaurants(state, tag) {
 export function fetchRestaurants() {
   return async function (dispatch) {
 
-    const response = await fetch("/api/restaurants");
+    const response = await csrfFetch("/api/restaurants");
   
     if (response.ok) {
       const restaurants = await response.json();
@@ -73,7 +75,7 @@ export function fetchRestaurants() {
 export function fetchTaggedRestaurants(tag) {
   return async function (dispatch) {
 
-    const response = await fetch("/api/restaurants?tag=" + tag);
+    const response = await csrfFetch("/api/restaurants?tag=" + tag);
 
     if (response.ok) {
       const restaurants = await response.json();
@@ -86,7 +88,7 @@ export function fetchTaggedRestaurants(tag) {
 
 export function fetchRestaurant(restaurantId) {
   return async function (dispatch) {
-    const response = await fetch(`/api/restaurants/${restaurantId}`)
+    const response = await csrfFetch(`/api/restaurants/${restaurantId}`)
     if (response.ok) {
       const restaurant = await response.json();
       dispatch(receiveRestaurant(restaurant));

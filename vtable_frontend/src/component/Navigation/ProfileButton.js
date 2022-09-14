@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const history = useHistory();
+  const { userId } = useParams();
 
   const openMenu = () => {
     setShowMenu(!showMenu);
@@ -32,17 +33,28 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <div className="profile-buttons">
+      <div id="profile-buttons">
         <div id="nav-user-dropdown">
           <button className="nav-user-button" onClick={openMenu}>
             <i className="fa-regular fa-circle-user"></i>
           </button>
           {showMenu && (
-            <ul className="profile-dropdown">
-              <div>Hello! {user.firstName}</div><br></br>
-              <div>{user.email}</div><br></br>
+            <div className="profile-dropdown">
+              <div id="dropdown-title">Hello! {user.firstName}</div><br></br>
+              <ul>
+                <li>
+                  <a href={`/users/${userId}`}>My Profile</a>
+                </li>
+                <li>
+                  <a href={`/users/${userId}`}>My Dining History</a>
+                </li>
+                <li>
+                  <a href={`/users/${userId}`}>My Saved Restaurant</a>
+                </li>
+              </ul>
+
               <button onClick={signout}>Sign Out</button>
-            </ul>
+            </div>
           )}
         </div>
 

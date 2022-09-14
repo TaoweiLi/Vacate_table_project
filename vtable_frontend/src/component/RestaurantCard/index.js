@@ -5,8 +5,18 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import "./RestaurantCard.scss"
+import {Rating} from "@mui/material";
+import { useEffect, useState } from 'react';
+import { Link, useParams, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchRestaurantReviews, getRestaurantReviews } from '../../store/reviews';
 
-export default function RestaurantCard({ restaurant }) {
+export default function RestaurantCard({ restaurant}) {
+  // const { restaurantId } = useParams();
+  // const reviews = useSelector((state) => getRestaurantReviews(state, restaurantId));
+  // const restaurant_id = restaurant["id"];
+  // let star = reviews["restaurant_id"]["rating"];
+
   return (
     <>
       <div id="card-section">
@@ -22,11 +32,11 @@ export default function RestaurantCard({ restaurant }) {
                 <h3 id="card-res-name">{restaurant.name}</h3>
                 <div id="card-res-rating">
                   <div id="card-res-stars">
-                    <div className="fa fa-star checked"></div>
-                    <div className="fa fa-star checked"></div>
-                    <div className="fa fa-star checked"></div>
-                    <div className="fa fa-star"></div>
-                    <div className="fa fa-star"></div>
+                    <Rating
+                    name = "read-only"
+                    value ={3.5}
+                    precision = {0.5}
+                    />
                   </div>
                   <div id="card-res-reviews">200 reviews</div>
                 </div>

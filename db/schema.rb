@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_09_231347) do
 
   create_table "reservations", force: :cascade do |t|
     t.date "date", null: false
-    t.time "time", null: false
+    t.string "time", null: false
     t.integer "party_size", null: false
     t.bigint "restaurant_id", null: false
     t.bigint "user_id", null: false
@@ -70,6 +70,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_09_231347) do
     t.string "phone_number"
     t.string "tag"
     t.string "img"
+    t.float "lng"
+    t.float "lat"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_restaurants_on_name"
@@ -79,11 +81,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_09_231347) do
     t.integer "rating", null: false
     t.text "review", null: false
     t.bigint "user_id", null: false
-    t.bigint "reservation_id", null: false
     t.bigint "restaurant_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["reservation_id"], name: "index_reviews_on_reservation_id"
     t.index ["restaurant_id"], name: "index_reviews_on_restaurant_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
@@ -105,7 +105,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_09_231347) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "reservations", "restaurants"
   add_foreign_key "reservations", "users"
-  add_foreign_key "reviews", "reservations"
   add_foreign_key "reviews", "restaurants"
   add_foreign_key "reviews", "users"
 end

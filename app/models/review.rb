@@ -12,15 +12,17 @@
 #  updated_at     :datetime         not null
 #
 class Review < ApplicationRecord
-  validates :rating, :review, :user_id, :reservation_id, :restaurant_id, presence: true
+  validates :rating, :review, :user_id, :restaurant_id, presence: true
+  validates :rating, inclusion: { in: 1..5 }
 
-  belongs_to :reviewer,
-             foreign_key: :user_id,
-             class_name: :User
+  belongs_to :user,
+    foreign_key: :user_id,
+    class_name: :User
 
   belongs_to :restaurant,
-             foreign_key: :restaurant_id,
-             class_name: :Restaurant
+    foreign_key: :restaurant_id,
+    class_name: :Restaurant
+
 
   def self.find_by_resturantId_userId(restaurantId, userId)
     reviews = Review.find_by(restaurant_id: restaurantId, user_id: userId)
@@ -29,7 +31,6 @@ class Review < ApplicationRecord
 
   def self.find_by_resturantId(restaurantId)
     reviews = Review.find_by(restaurant_id: restaurantId)
-    p "aaaaaa"
     return reviews
   end
 

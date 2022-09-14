@@ -1,9 +1,11 @@
-json.restaurant do
-  json.extract! @restaurant, :id, :name, :address, :description, :cuisine, :expense, :neighborhood, :operation_hours, :dining_style, :dress_code, :parking_details, :payment_options, :website, :phone_number, :tag, :img, :created_at, :updated_at
-  json.photoUrl url_for(restaurant.photo)
-  # if @restaurant.photo.attached?
-  #   json.photoUrl url_for(@restaurant.photo)
-  # else
-  #   json.photoUrl ""
-  # end
+@restaurants.each do |restaurant|
+  json.set! restaurant.id do
+    json.extract! restaurant, :id, :name, :address, :description, :cuisine, :expense, :neighborhood, :operation_hours, :dining_style, :dress_code, :parking_details, :payment_options, :website, :phone_number, :tag, :lat, :lng, :created_at, :updated_at
+
+    if restaurant.photo.attached?
+      json.img restaurant.photo.url
+    else
+      json.img ""
+    end
+  end
 end

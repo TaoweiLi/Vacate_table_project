@@ -3,8 +3,8 @@
 # Table name: reservations
 #
 #  id            :bigint           not null, primary key
-#  date          :datetime         not null
-#  time          :datetime         not null
+#  date          :date             not null
+#  time          :time             not null
 #  party_size    :integer          not null
 #  restaurant_id :bigint           not null
 #  user_id       :bigint           not null
@@ -21,4 +21,5 @@ class Reservation < ApplicationRecord
   belongs_to :restaurant,
              foreign_key: :restaurant_id,
              class_name: :Restaurant
+
 end

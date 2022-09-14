@@ -7,13 +7,13 @@ class Api::RestaurantsController < ApplicationController
       @restaurants = Restaurant.all
     end
 
-    render json: @restaurants
-    # render :index
+    # render json: @restaurants
+    render :index
   end
 
   def show
     @restaurant = Restaurant.find_by(id: params[:id])
-    render json: @restaurant
-    # render :show
+    # render json: @restaurant
+    render :show
   end
 end

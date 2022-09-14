@@ -2,23 +2,24 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import SigninForm from './SigninForm';
 
-function SigninFormModal() {
-  const [showModal, setShowModal] = useState(false);
+function SigninFormModal({ showSignin, setShowSignin, setShowSignup }) {
+  // const [showModal, setShowModal] = useState(false);
+
 
   const signInOnClick = function(){
-    setShowModal(true);
+    setShowSignin(true);
   }
 
   const signInModalOnClose = function () {
-    setShowModal(false)
+    setShowSignin(false)
   }
 
   return (
     <>
       <button className="nav-signin" onClick={() => signInOnClick()}>Sign In</button>
-      {showModal && (
+      {showSignin && (
         <Modal onClose={() => signInModalOnClose()}>
-          <SigninForm />
+          <SigninForm setShowSignin={setShowSignin} setShowSignup={setShowSignup} />
         </Modal>
       )}
     </>

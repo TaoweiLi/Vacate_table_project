@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
@@ -8,6 +8,8 @@ import SignupFormModal from '../SignupFormModal';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
+  const [showSignin, setShowSignin] = useState(false);
+  const [showSignup, setShowSignup] = useState(false);
 
   let sessionLinks;
   if (sessionUser) {
@@ -20,8 +22,8 @@ function Navigation() {
   } else {
     sessionLinks = (
       <div className='nav-signout-state'>
-        <SignupFormModal />
-        <SigninFormModal />
+        <SignupFormModal showSignup ={showSignup} setShowSignin={setShowSignin} setShowSignup={setShowSignup}/>
+        <SigninFormModal showSignin={showSignin} setShowSignin={setShowSignin} setShowSignup={setShowSignup} />
         {/* <NavLink to="/signin" className="nav-signin">Sign In</NavLink> */}
         {/* <NavLink to="/signup" className="nav-signup">Sign Up</NavLink> */}
       </div>

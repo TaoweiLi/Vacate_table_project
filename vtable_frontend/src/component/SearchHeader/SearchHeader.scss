@@ -7,7 +7,7 @@
     height: 100%;
     padding: 32px 16px;
     width: calc(100% - 32px);
-    z-index: 1;
+    z-index: 0;
 
     #search-header-text {
       font-size: 48px;
@@ -33,6 +33,7 @@
         width: 100%;
         display: flex;
         justify-content: center;
+        z-index: 0;
 
         #search-bar-left {
           display: flex;
@@ -60,7 +61,7 @@
               height: 100%;
               line-height: 24px;
               padding: 0.3125rem;
-              
+
 
               #dtp-date-view {
                 align-items: center;
@@ -69,7 +70,7 @@
                 font-weight: 500;
                 height: 100%;
                 padding: 0.1875rem;
-                          border-radius: 4px;
+                border-radius: 4px;
 
                 #dtp-date-view-icon {
                   display: inline-block;
@@ -201,7 +202,7 @@
       #searvh-bar-right {
         display: flex;
         flex-direction: row;
-        
+        z-index: 0;
       }
     }
   }

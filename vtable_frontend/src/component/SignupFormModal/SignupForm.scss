@@ -3,6 +3,7 @@
   height: 400px;
   width: 450px;
   margin-bottom: 300px;
+  border-radius: 3px;
 
   #signup-modal-wrapper {
 
@@ -11,6 +12,7 @@
       background-color: #fff;
       min-height: calc(48.0625rem - 96px);
       padding: 48px 32px;
+      border-radius: 5px;
 
       #signup-modal-title {
         margin: 0 0 4px;
@@ -122,9 +124,18 @@
           transition-duration: 0.2s;
           background: #274bb7;
         }
+
+        #sign-in {
+          margin-top: 15px;
+          font-size: 18px;
+          // text-decoration: underline;
+
+          #sign-in-inner {
+            // text-decoration: underline;
+            color: #da3743;
+          }
+        }
       }
-
-
     }
   }
 }

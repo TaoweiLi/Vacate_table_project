@@ -1,95 +1,257 @@
 #reserv-main-wrapper {
+  outline: 0;
   display: flex;
   justify-content: center;
+  background: #fff;
+  height: 100%;
+  width: 100%;
 
-  #reserv-main-container {
-    background: #fff;
-    height: 100%;
-    width: 100%;
 
-    #reserv-main-content {
-      display: flex;
-      flex-flow: row wrap;
-      flex-direction: row;
-      margin: 32px auto 5rem;
-      max-width: 61rem;
+  #reserv-main-content {
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: row;
+    margin: 32px auto 5rem;
+    max-width: 61rem;
 
-      #reserv-right {
-        flex: 1 0 1%;
-        min-width: 0;
+    #reserv-left {
+      flex: 1 0 1%;
+      min-width: 0;
 
-        #reserv-text {
-          flex: 1 100%;
-          font-size: 18px;
-          font-weight: 700;
-          line-height: 24px;
-          margin: 0 0 16px;
-          min-height: 24px;
+      #reserv-text {
+        flex: 1 100%;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 24px;
+        margin: 0 0 16px;
+        min-height: 24px;
+      }
+
+      #reserv-info-wrapper {
+        display: flex;
+        margin-bottom: 16px;
+        flex-direction: row;
+        border-bottom: 1px solid #d2d4d6;
+
+        #res-img-container {
+          display: flex;
+          margin-right: 16px;
+          
+          .res-img {
+            border-radius: 4px;
+            width: 65px;
+            height: 65px;
+          }
         }
 
-        #rederv-info-wrapper {
+        #reserv-info-container {
           display: flex;
-          margin-bottom: 16px;
+          flex-direction: column;
+          width: 100%;
 
-          #res-img-container {
+          #restaurant-name-container {
+            color: #2d333f;
             display: flex;
-            margin-right: 16px;
+            justify-content: flex-start;
+            text-decoration: none;
 
-            #res-img {
-              border-radius: 4px;
-              height: 4rem;
-              width: 4rem;
+            #restaurant-name {
+              font-size: 24px;
+              font-weight: 700;
+              line-height: 28px;
+              margin: 0 0 4px;
             }
           }
 
-          #reserv-info-container {
+          #reserv-detail-wrapper {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            flex-wrap: wrap;
             width: 100%;
 
-            #restaurant-name-container {
-              color: #2d333f;
+            #date-container {
+              align-items: center;
               display: flex;
-              justify-content: flex-start;
-              text-decoration: none;
-
-              #restaurant-name {
-                font-size: 24px;
-                font-weight: 700;
-                line-height: 28px;
-                margin: 0 0 4px;
-              }
-
-              #reserv-detail-wrapper {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                width: 100%;
-
-                #date {
-                  align-items: center;
-                    display: flex;
-                    margin-right: 24px;
-                    margin-top: 8px;
-                }
-
-                #time {
-                  align-items: center;
-                    display: flex;
-                    margin-right: 24px;
-                    margin-top: 8px;
-                }
-
-                #person {
-                  align-items: center;
-                    display: flex;
-                    margin-top: 8px;
-                }
-              }
+              margin-right: 24px;
+              margin-top: 8px;
             }
+
+            #time-container {
+              align-items: center;
+              display: flex;
+              margin-right: 24px;
+              margin-top: 8px;
+            }
+
+            #person-container {
+              align-items: center;
+              display: flex;
+              margin-top: 8px;
+            }
+
+            i {
+              margin-right: 10px;
+              // margin-bottom: px;
+            }
+
+            p {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+
+      #form-title {
+        flex: 1 100%;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        margin: 16px 0;
+      }
+
+      #user-name {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        margin: 8px 0;
+      }
+
+      #user-info-wrapper {
+        #reserv-form {
+          display: block;
+          margin-top: 0em;
+          font-family: "Manrope", sans-serif;
+          font-size: 15px;
+          // border-top: 1px solid #d2d4d6;
+          // padding-top: 20px;
+
+          #upper-reserv-form {
+            display: flex;
+            margin-bottom: 20px;
+            margin-top: 10px;
+
+            #reserv-phone-num {
+              background-color: #eff0f2;
+              margin-right: 16px;
+              width: 310px;
+              height: 50px;
+              border: 1px solid #d2d4d6;
+              border-radius: 4px;
+              box-sizing: border-box;
+              padding-left: 8px;
+              font-size: 14px;
+            }
+
+            #reserv-email {
+              background-color: #eff0f2;
+              font-family: "Roboto", sans-serif;
+              font-weight: 300;
+              width: 310px;
+              height: 50px;
+              border: 1px solid #d2d4d6;
+              border-radius: 4px;
+              box-sizing: border-box;
+              padding-left: 8px;
+              font-size: 14px;
+            }
+          }
+
+          #lower-reserv-form {
+            display: flex;
+            margin-bottom: 20px;
+
+            #occasion {
+              margin-right: 16px;
+              font-family: "Manrope", sans-serif;
+              color: #6f737b;
+              width: 310px;
+              height: 50px;
+              border: 1px solid #d2d4d6;
+              border-radius: 4px;
+              box-sizing: border-box;
+              padding-left: 8px;
+            }
+
+            #special-request {
+              padding-top: 16px;
+              width: 310px;
+              height: 50px;
+              border: 1px solid #d2d4d6;
+              border-radius: 4px;
+              box-sizing: border-box;
+              padding-left: 8px;
+            }
+          }
+
+          
+
+          #check-container {
+
+            #checkbox {
+              margin-bottom: 20px;
+            }
+
+            #checkmark {
+              margin-left: 5px;
+            }
+          }
+
+          #reserv-button {
+            background-color: #e03744;
+            color: white;
+            border-radius: 3px;
+            border: none;
+            width: 637px;
+            height: 48px;
+            margin-right: 8px;
+            font-size: 14px;
           }
         }
       }
     }
   }
 }
+
+
+
+#reserv-right {
+  flex: 0 0 18.875rem;
+  margin-left: 2.375rem;
+}
+
+
+
+
+
+
+#info-title {
+  font-weight: 700;
+  margin: 16px 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+#info-content {
+  margin: 16px 0 0;
+  white-space: pre-line;
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+}
+
+#info-subtitle {
+  font-weight: 700;
+  margin: 0;
+  font-size: .875rem;
+  line-height: 1.25rem;
+}
+
+#info-p {
+  font-size: 12px;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+

@@ -1,4 +1,9 @@
+import csrfFetch from "./csrf";
+
+
 export const RECEIVE_RESTAURANT_REVIEWS = "reviews/RECEIVE_RESTAURANT_REVIEWS";
+export const RECEIVE_RESTAURANT_REVIEW = "reviews/RECEIVE_RESTAURANT_REVIEW";
+export const REMOVE_RESTAURANT_REVIEW = "reviews/REMOVE_RESTAURANT_REVIEW";
 
 export function receiveRestaurantReviews(restaurantId, reviews) {
   return {
@@ -8,13 +13,26 @@ export function receiveRestaurantReviews(restaurantId, reviews) {
   }
 }
 
+export function receiveRestaurantReview(review) {
+  return {
+    type: RECEIVE_RESTAURANT_REVIEWS,
+    review
+  }
+}
+
+export function removeRestaurantReview(reviewId) {
+  return {
+    type: REMOVE_RESTAURANT_REVIEW,
+    reviewId
+}
+}
+
 
 export function getRestaurantReviews(state, restaurantId) {
   // if (!state || !state["reviews"] || !state["reviews"]["restaurants"] || !state["reviews"]["restaurants"][restaurantId]) {
   //   return [];
   // }
  
-
   if (!state["reviews"]["restaurants"][restaurantId]) {
     return [];
   }

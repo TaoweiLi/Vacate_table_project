@@ -1,7 +1,7 @@
 import SearchHeader from "../SearchHeader";
 import RestaurantsCategory from "../RestaurantsCategory";
 import "./RestaurantsIndex.scss";
-import restaurantsReducer from "../../store/restaurants";
+
 
 function RestaurantsIndex() {
 
