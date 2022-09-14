@@ -372,15 +372,19 @@
             padding: 16px 4px;
             text-decoration: none;
             z-index: 0;
+
+            // .map {
+            //     width: 200px;
+            //       height: 200px;
+            //       position: relative;
+            //       z-index: 0;
+            //       max-width: 100%;
+            // }
             
-            .map {
-              position: relative;
-              width: 100%;
-              height: 100%;
-            }
 
             #res-address-wrapper {
               display: block;
+              margin-top: 10px;
             }
           }
 

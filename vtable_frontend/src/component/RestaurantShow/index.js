@@ -3,18 +3,28 @@ import { Link, useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import "./RestaurantShow.scss"
 import { getRestaurant, fetchRestaurant } from '../../store/restaurants';
-import { fetchRestaurantReviews, getRestaurantReviews } from '../../store/reviews';
+import { getReviews, fetchReviews, getReviewsByResId, createReview } from "../../store/reviews";
 import React from 'react';
 import Map from '../GoogleMap/Map';
+import ReviewIndexItem from '../RestaurantReview/ReviewIndexItem';
 
 function RestaurantShow() {
   const { restaurantId } = useParams();
   const restaurant = useSelector(getRestaurant(restaurantId));
-  console.log("debug dsdd", restaurant)
-  const reviews = useSelector((state) => getRestaurantReviews(state, restaurantId));
+  const sessionUser = useSelector((state) => state.session.user)
+  const reviews = useSelector(getReviewsByResId(restaurantId));
+  
   const dispatch = useDispatch();
   const history = useHistory();
-  
+  const reviewData = {
+    review: "",
+    rating: 4,
+    restaurant_id: restaurantId,
+    user_id: sessionUser.id
+  }
+
+  const [review, setReview] = useState(reviewData)
+
   const location = {
     address: restaurant?.address,
     lat: restaurant?.lat,
@@ -27,7 +37,7 @@ function RestaurantShow() {
   }, [dispatch, restaurantId])
 
   useEffect(() => {
-    dispatch(fetchRestaurantReviews(restaurantId));
+    dispatch(fetchReviews(restaurantId));
   }, [dispatch, restaurantId])
 
   var hashMonth = {
@@ -87,6 +97,12 @@ function RestaurantShow() {
     });
   }
 
+  function handleReviewSubmit(e) {
+    e.preventDefault();
+    dispatch(createReview(review));
+    setReview(reviewData);
+  }
+
   return (
     <>
       <div className="breadcrumb"></div>
@@ -129,7 +145,7 @@ function RestaurantShow() {
                     <i className="fa-solid fa-star"></i>
                     <i className="fa-solid fa-star"></i>
                     <i className="fa-solid fa-star"></i>
-                    {reviews.rating}
+                    {/* {reviews.rating} */}
                   </div>
                   <div><i className="fa-solid fa-money-bill"></i> {restaurant.expense}</div>
                   <div><i className="fa-solid fa-utensils"></i> {restaurant.cuisine}</div>
@@ -157,14 +173,23 @@ function RestaurantShow() {
                 <h2 id="res-review-header">Review
                   <button id="review-button">Write a review</button>
                 </h2>
+                <form>
+                  <textarea className="r-t" value={review.review} onChange={e => { setReview({ ...review, review: e.target.value }) }}></textarea>
+                  <div className="r-f-b" onClick={handleReviewSubmit}>Respond</div>
+                </form>
+                <div>
+                  {reviews.map(review => {
+                    return <ReviewIndexItem key={review.id} review={review} />
+                  })}
+                </div>
 
                 <ol id="review-list-wrapper">
                   {/* {reviews.map(review => <RestaurantReview key={restaurant.id} review={review} />)} */}
                   <li id="review-content">
-                    <section id="reviewer-info">user_id: {reviews.user_id}</section>
+                    <section id="reviewer-info">user_id: </section>
                     <section id="review-details">
-                      <div>Rating: {reviews.rating}</div>
-                      <div>{reviews.review}</div>
+                      <div>Rating: </div>
+                      <div>reviews</div>
                     </section>
                   </li>
                 </ol>
@@ -336,8 +361,8 @@ function RestaurantShow() {
         </main>
       )}
 
-      <p>{JSON.stringify(restaurant, null, 4)}</p>
-      <p>{JSON.stringify(reviews, null, 4)}</p>
+      {/* <p>{JSON.stringify(restaurant, null, 4)}</p>
+      <p>{JSON.stringify(reviews, null, 4)}</p> */}
       <p></p>
     </>
 

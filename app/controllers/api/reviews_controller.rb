@@ -1,5 +1,5 @@
 class Api::ReviewsController < ApplicationController
-  # before_action :require_logged_in
+  # before_action :require_logged_in, only[:create]
     wrap_parameters include: Review.attribute_names + [:reviewId]
 
   # def index
@@ -68,6 +68,6 @@ class Api::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:review, :rating, :restaurant_id, :user_id, :reservation_id)
+    params.require(:review).permit(:review, :rating, :restaurant_id, :user_id)
   end
 end
