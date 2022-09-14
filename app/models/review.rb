@@ -25,17 +25,17 @@ class Review < ApplicationRecord
 
 
   def self.find_by_resturantId_userId(restaurantId, userId)
-    reviews = Review.find_by(restaurant_id: restaurantId, user_id: userId)
+    reviews = Review.where(restaurant_id: restaurantId).where(user_id: userId)
     return reviews
   end
 
   def self.find_by_resturantId(restaurantId)
-    reviews = Review.find_by(restaurant_id: restaurantId)
+    reviews = Review.where(restaurant_id: restaurantId)
     return reviews
   end
 
   def self.find_by_userId(userId)
-    reviews = Review.find_by(user_id: userId)
+    reviews = Review.where(user_id: userId)
     return reviews
   end
 end

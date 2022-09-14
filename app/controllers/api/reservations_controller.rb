@@ -37,8 +37,6 @@ end
 
 def destroy
   @reservation = Reservation.find(params[:id])
-  p "DEBUG AAAA"
-  p @reservation
   @reservation.destroy
 
   render :show

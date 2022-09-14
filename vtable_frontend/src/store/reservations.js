@@ -65,7 +65,6 @@ export function fetchUserReservations(userId) {
 
     if (response.ok) {
       const reservations = await response.json();
-      console.log("DEBUG BBBBB ", reservations)
       dispacth(receiveReservations(reservations));
       return true;
     }
@@ -87,10 +86,8 @@ export function fetchReservation(reservationId) {
 }
 
 export function createReservation(reservation) {
-  console.log("DEBUG 12345 ")
 
   return async function (dispatch) {
-    console.log("DEBUG 23456 ")
     const response = await csrfFetch("/api/reservations", {
       method: "POST",
       headers: {
@@ -100,10 +97,9 @@ export function createReservation(reservation) {
       },
       body: JSON.stringify(reservation)
     })
-    console.log("DEBUG 34567 ", response)
+ 
     if (response.ok) {
       const data = await response.json();
-      console.log("123123 ",data)
       dispatch(receiveReservation(data));
       return true
     }
@@ -131,18 +127,17 @@ export function updateReservation(reservation) {
 
 export function deleteReservation(reservationId) {
   
-  console.log("DEUG AAAA ", reservationId)
   return async function (dispatch) {
     const response = await csrfFetch(`/api/reservations/${reservationId}`, {
       method: "DELETE"
     })
-    console.log("DEUG BBB")
+ 
     if (response.ok) {
-      console.log("DEUG CCC")
+
       dispatch(removeReservation(reservationId));
       return true
     }
-    console.log("DEUG DDD")
+
     return false
   }
 }

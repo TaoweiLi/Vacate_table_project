@@ -44,7 +44,7 @@ export function getRestaurantReviews(state, restaurantId) {
 export function fetchRestaurantReviews(restaurantId) {
   return async function (dispatch) {
     const response = await fetch("/api/reviews?restaurantId="+restaurantId);
-
+ 
     if (response.ok) {
       const reviews = await response.json();
       dispatch(receiveRestaurantReviews(restaurantId, reviews));

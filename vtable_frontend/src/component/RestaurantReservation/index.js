@@ -18,7 +18,7 @@ function RestaurantReservation(props) {
   let currentReservationId = reservationId
   // const [currentReservationId, setCurrentReservationId] = useState(reservationId)
 
-  console.log("1111111 ", reservations)
+
 
   useEffect(() => {
     dispatch(fetchRestaurant(restaurantId));
@@ -30,7 +30,7 @@ function RestaurantReservation(props) {
   let time = params.get('time');
 
   if (reservations.length > 0) {
-    console.log("AABBA ", reservations)
+
     currentReservationId = reservations[0].id
   }
 
@@ -48,7 +48,7 @@ function RestaurantReservation(props) {
   }
 
   useEffect(() => {
-    console.log("xxxxxx ", currentReservationId)
+   
     if (currentReservationId) {
       dispatch(fetchReservation(currentReservationId));    // dispatch(fetchPost(postId)).then(res => setPost(res))
     }
@@ -85,7 +85,6 @@ function RestaurantReservation(props) {
   function handleSubmit(e) {
     e.preventDefault();
     reservation = { ...reservation };
-    console.log("Debug   aaaa ", formType)
 
     if (formType === "Create Reservation") {
       dispatch(createReservation(reservation))

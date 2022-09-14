@@ -13,7 +13,6 @@ function User() {
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
-  console.log("DEBUG AAAA ", reservations)
 
   useEffect(() => {
     dispatch(fetchUserReservations(sessionUser.id));
