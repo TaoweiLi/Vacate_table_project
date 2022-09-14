@@ -16,9 +16,9 @@ function RestaurantShow() {
   const history = useHistory();
   
   const location = {
-    address: "825 Battery st, san francisco, CA 94111",
-    lat: 37.7989708,
-    lng: -122.4035458,
+    address: restaurant?.address,
+    lat: restaurant?.lat,
+    lng: restaurant?.lng,
   }
 
 
@@ -234,8 +234,7 @@ function RestaurantShow() {
               <section id="right-res-info-wrapper">
                 <div id="right-res-info-container">
                   <section id="right-google-map">
-                    <Map location={location}/>
-                    <p>Google map</p>
+                    <Map className="map" location={location}/>
                     <div id="res-address-wrapper"><i className="fa-solid fa-location-dot"></i> {restaurant.address}</div>
                   </section>
 

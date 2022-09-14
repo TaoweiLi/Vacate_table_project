@@ -38,4 +38,5 @@ class Review < ApplicationRecord
     reviews = Review.where(user_id: userId)
     return reviews
   end
+  
 end
