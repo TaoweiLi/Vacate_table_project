@@ -12,7 +12,7 @@
 #  updated_at     :datetime         not null
 #
 class Review < ApplicationRecord
-  validates :rating, :review, :user_id, :restaurant_id, presence: true
+  validates :rating, :body, :user_id, :restaurant_id, presence: true
   validates :rating, inclusion: { in: 1..5 }
 
   belongs_to :user,

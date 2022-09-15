@@ -7,6 +7,7 @@ import { getReviews, fetchReviews, getReviewsByResId, createReview } from "../..
 import React from 'react';
 import Map from '../GoogleMap/Map';
 import ReviewIndexItem from '../RestaurantReview/ReviewIndexItem';
+import { Rating } from "@mui/material";
 
 function RestaurantShow() {
   const { restaurantId } = useParams();
@@ -17,8 +18,8 @@ function RestaurantShow() {
   const dispatch = useDispatch();
   const history = useHistory();
   const reviewData = {
-    review: "",
-    rating: 4,
+    body: "",
+    rating: 0,
     restaurant_id: restaurantId,
     user_id: sessionUser.id
   }
@@ -99,6 +100,7 @@ function RestaurantShow() {
 
   function handleReviewSubmit(e) {
     e.preventDefault();
+    console.log("DEBUG aaa ", review)
     dispatch(createReview(review));
     setReview(reviewData);
   }
@@ -171,27 +173,20 @@ function RestaurantShow() {
               <section id="left-review-wrapper">
 
                 <h2 id="res-review-header">Review
-                  <button id="review-button">Write a review</button>
+                  <button id="review-button" onClick={handleReviewSubmit}>Write a review</button>
                 </h2>
                 <form>
-                  <textarea className="r-t" value={review.review} onChange={e => { setReview({ ...review, review: e.target.value }) }}></textarea>
-                  <div className="r-f-b" onClick={handleReviewSubmit}>Respond</div>
+                  <textarea className="r-t" value={review.body} onChange={e => { setReview({ ...review, body: e.target.value }) }}></textarea>
+                  <Rating
+                    name="simple-controlled"
+                    value={review.rating}
+                    onChange={(event, newValue) => {
+                      setReview({ ...review, rating: newValue })
+                    }}
+                  />
                 </form>
-                <div>
-                  {reviews.map(review => {
-                    return <ReviewIndexItem key={review.id} review={review} />
-                  })}
-                </div>
-
                 <ol id="review-list-wrapper">
-                  {/* {reviews.map(review => <RestaurantReview key={restaurant.id} review={review} />)} */}
-                  <li id="review-content">
-                    <section id="reviewer-info">user_id: </section>
-                    <section id="review-details">
-                      <div>Rating: </div>
-                      <div>reviews</div>
-                    </section>
-                  </li>
+                  {reviews.map(review => (<ReviewIndexItem key={review.id} review={review} />) )}
                 </ol>
               </section>
             </div>
