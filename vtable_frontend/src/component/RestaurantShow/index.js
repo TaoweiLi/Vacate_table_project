@@ -14,14 +14,14 @@ function RestaurantShow() {
   const restaurant = useSelector(getRestaurant(restaurantId));
   const sessionUser = useSelector((state) => state.session.user)
   const reviews = useSelector(getReviewsByResId(restaurantId));
-  
+
   const dispatch = useDispatch();
   const history = useHistory();
   const reviewData = {
     body: "",
     rating: 0,
     restaurant_id: restaurantId,
-    user_id: sessionUser.id
+    user_id: ""
   }
 
   const [review, setReview] = useState(reviewData)
@@ -100,7 +100,7 @@ function RestaurantShow() {
 
   function handleReviewSubmit(e) {
     e.preventDefault();
-    console.log("DEBUG aaa ", review)
+    setReview({ ...review, user_id: sessionUser.id })
     dispatch(createReview(review));
     setReview(reviewData);
   }
@@ -173,20 +173,24 @@ function RestaurantShow() {
               <section id="left-review-wrapper">
 
                 <h2 id="res-review-header">Review
-                  <button id="review-button" onClick={handleReviewSubmit}>Write a review</button>
+                  
                 </h2>
-                <form>
-                  <textarea className="r-t" value={review.body} onChange={e => { setReview({ ...review, body: e.target.value }) }}></textarea>
-                  <Rating
-                    name="simple-controlled"
-                    value={review.rating}
-                    onChange={(event, newValue) => {
-                      setReview({ ...review, rating: newValue })
-                    }}
-                  />
-                </form>
+                {sessionUser && (
+                <form id="review-container">
+                  <textarea id="review-texarea" rows="10" cols="40" value={review.body} onChange={e => { setReview({ ...review, body: e.target.value }) }}></textarea>
+                  <div id="rating-star">
+                    <Rating
+                      name="simple-controlled"
+                      value={review.rating}
+                      onChange={(event, newValue) => {
+                        setReview({ ...review, rating: newValue })
+                      }}
+                      size="large"/>
+                  </div>
+                  {sessionUser && <button id="review-button" onClick={handleReviewSubmit}>Write a review</button>}
+                </form> )}
                 <ol id="review-list-wrapper">
-                  {reviews.map(review => (<ReviewIndexItem key={review.id} review={review} />) )}
+                  {reviews.map(review => (<ReviewIndexItem key={review.id} review={review} />))}
                 </ol>
               </section>
             </div>
@@ -254,8 +258,11 @@ function RestaurantShow() {
               <section id="right-res-info-wrapper">
                 <div id="right-res-info-container">
                   <section id="right-google-map">
-                    <Map className="map" location={location}/>
-                    <div id="res-address-wrapper"><i className="fa-solid fa-location-dot"></i> {restaurant.address}</div>
+                    <Map className="map" location={location} />
+                    <div id="res-address-wrapper">
+                      <i className="fa-solid fa-location-dot"></i>
+                      <span id="map-address-text">{restaurant.address}</span>
+                    </div>
                   </section>
 
                   <div id="right-additional-info-wrapper">
@@ -276,7 +283,7 @@ function RestaurantShow() {
                             <div className="ai-icon"><i className="fa-regular fa-clock"></i></div>
                             <div className="ai-info">
                               <div className="ai-info-title">Hours of operation</div>
-                              <div className="ai-info-content">{restaurant.operation_hours}</div>
+                              <div className="ai-info-content">{restaurant.operationHours}</div>
                             </div>
                           </div>
                         </li>
@@ -294,7 +301,7 @@ function RestaurantShow() {
                             <div className="ai-icon"><i className="fa-solid fa-landmark-dome"></i></div>
                             <div className="ai-info">
                               <div className="ai-info-title">Dining style</div>
-                              <div className="ai-info-content">{restaurant.dining_style}</div>
+                              <div className="ai-info-content">{restaurant.diningStyle}</div>
                             </div>
                           </div>
                         </li>
@@ -303,7 +310,7 @@ function RestaurantShow() {
                             <div className="ai-icon"><i className="fa-solid fa-user-tie"></i></div>
                             <div className="ai-info">
                               <div className="ai-info-title">Dress code</div>
-                              <div className="ai-info-content">{restaurant.dress_code}</div>
+                              <div className="ai-info-content">{restaurant.dressCode}</div>
                             </div>
                           </div>
                         </li>
@@ -312,7 +319,7 @@ function RestaurantShow() {
                             <div className="ai-icon"><i className="fa-solid fa-square-parking"></i></div>
                             <div className="ai-info">
                               <div className="ai-info-title">Parking details</div>
-                              <div className="ai-info-content">{restaurant.parking_details}</div>
+                              <div className="ai-info-content">{restaurant.parkingDetails}</div>
                             </div>
                           </div>
                         </li>
@@ -321,7 +328,7 @@ function RestaurantShow() {
                             <div className="ai-icon"><i className="fa-solid fa-square-parking"></i></div>
                             <div className="ai-info">
                               <div className="ai-info-title">Payment options</div>
-                              <div className="ai-info-content">{restaurant.payment_options}</div>
+                              <div className="ai-info-content">{restaurant.paymentOptions}</div>
                             </div>
                           </div>
                         </li>
@@ -339,7 +346,7 @@ function RestaurantShow() {
                             <div className="ai-icon"><i className="fa-solid fa-arrow-up-right-from-square"></i></div>
                             <div className="ai-info">
                               <div className="ai-info-title">Phone Number</div>
-                              <div className="ai-info-content">{restaurant.phone_number}</div>
+                              <div className="ai-info-content">{restaurant.phoneNumber}</div>
                             </div>
                           </div>
                         </li>

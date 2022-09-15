@@ -7,23 +7,23 @@ import { useDispatch } from 'react-redux';
 import ReviewIndexItem from './ReviewIndexItem';
 import ReviewForm from './ReviewForm';
 
-export default function ReviewIndex({ reviews }) {
-  const [isShown, setIsShown] = React.useState(false)
-  const dispatch = useDispatch()
-  console.log(reviews);
-  useEffect(() => {
-    dispatch(fetchReviews())
-  }, [])
-  return (
-    <>
-      <SideSheet width={400} isShown={isShown} onCloseComplete={() => setIsShown(false)}>
-        <ReviewForm reviews={reviews} />
-        {reviews.map(review => {
-          return <ReviewIndexItem key={review.id} review={review} />
-        })}
-      </SideSheet>
-      <a onClick={() => setIsShown(true)}><ChatBubbleOutlineOutlinedIcon /></a>
-    </>
+// export default function ReviewIndex({ reviews }) {
+//   const [isShown, setIsShown] = React.useState(false)
+//   const dispatch = useDispatch()
+//   console.log(reviews);
+//   useEffect(() => {
+//     dispatch(fetchReviews())
+//   }, [])
+//   return (
+//     <>
+//       <SideSheet width={400} isShown={isShown} onCloseComplete={() => setIsShown(false)}>
+//         <ReviewForm reviews={reviews} />
+//         {reviews.map(review => {
+//           return <ReviewIndexItem key={review.id} review={review} />
+//         })}
+//       </SideSheet>
+//       <a onClick={() => setIsShown(true)}><ChatBubbleOutlineOutlinedIcon /></a>
+//     </>
 
-  )
-}
+//   )
+// }

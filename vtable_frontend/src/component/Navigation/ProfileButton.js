@@ -39,21 +39,20 @@ function ProfileButton({ user }) {
             <i className="fa-regular fa-circle-user"></i>
           </button>
           {showMenu && (
-            <div className="profile-dropdown">
-              <div id="dropdown-title">Hello! {user.firstName}</div><br></br>
-              <ul>
-                <li>
+            <div id="profile-dropdown">
+              <div id="dropdown-title">Hello, {user.firstName}!</div>
+              <div id="dropdown-ul">
+                <div className="dropdown-text">
                   <a href={`/users/${userId}`}>My Profile</a>
-                </li>
-                <li>
+                </div>
+                <div className="dropdown-text">
                   <a href={`/users/${userId}`}>My Dining History</a>
-                </li>
-                <li>
+                </div>
+                <div className="dropdown-text">
                   <a href={`/users/${userId}`}>My Saved Restaurant</a>
-                </li>
-              </ul>
-
-              <button onClick={signout}>Sign Out</button>
+                </div>
+              </div>
+              <button id="sign-out-button" onClick={signout}>Sign Out</button>
             </div>
           )}
         </div>

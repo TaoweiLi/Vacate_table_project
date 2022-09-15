@@ -106,7 +106,7 @@ return (
             <section id="reserv-left">
               { reserveCanceled 
                 ? (<h2 id="reserv-text">Reservation Cancelled!</h2>)
-                : (<h2 id="reserv-text">{reserveCompleted ? "Reservation confirmed!" : "You’re almost done!"} </h2>)
+                : (<h2 id="reserv-text">{reserveCompleted ? `Thanks! ${sessionUser.firstName}. Reservation confirmed!` : "You’re almost done!"} </h2>)
               }
               <div id="reserv-info-wrapper">
                 <div id="res-img-container">
@@ -170,7 +170,7 @@ return (
 
               {reserveCanceled && (
                 <div>  
-                  <p> Reservavtion Cancelled sUCCES </p>
+                  <p>{sessionUser.firstName} {sessionUser.lastName}, your reservavtion has been successfully cancelled. </p>
                 </div>
                )}
             </section>

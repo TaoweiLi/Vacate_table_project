@@ -11,7 +11,7 @@ export default function ReviewIndexItem({ review }) {
 
     <>
       <li id="review-content">
-        <section id="reviewer-info">{review.reviewerFirst} {review.reviewerLast}</section>
+        <section id="reviewer-info">{review.reviewerFirst} {review.reviewerLast[0]}</section>
         <section id="review-details">
           <div>
             <Rating
