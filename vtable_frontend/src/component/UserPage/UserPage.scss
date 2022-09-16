@@ -1,0 +1,160 @@
+#user-page-wrapper {
+  outline: 0;
+
+  #page-header-wrapper {
+    background: #fff;
+    border-bottom: 0.0625rem solid #d8d9db;
+    width: 100%;
+
+    #page-header-container {
+      margin: auto;
+      max-width: 64rem;
+      padding: 16px 1.5rem;
+
+      #header-title {
+        color: #2d333f;
+        display: flex;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 36px;
+        margin: 0;
+      }
+    }
+
+  }
+
+  #page-detail-wrapper {
+    color: #2d333f;
+    display: flex;
+    margin: auto;
+    max-width: 64rem;
+    padding: 0 1.5rem 64px;
+    width: 100%;
+
+    #user-nav-bar-wrapper {
+      padding: 32px 0;
+      width: 12.5rem;
+
+      #nav-bar-list-container {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        .nav-bar-list {
+          padding: 0.75rem 0;
+          display: flex;
+          flex-direction: column;
+          list-style: none;
+          margin: 0;
+        }
+
+        a:hover {
+          color: #da3743;
+        }
+      }
+    }
+
+    #reservation-list-wrapper {
+      margin-top: 53px;
+      margin-left: 15px;
+      min-height: 32rem;
+      width: calc(100% - 15.5rem);
+
+      #reservation-list-container {
+        padding: 1.5rem;
+        margin: 0 0 16px;
+        background: #fff;
+        border-bottom: 0.0625rem solid #d8d9db;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+
+        #upcoming-header {
+          margin: 0;
+          font-size: 22px;
+        }
+
+        #restaurant-link-wrapper {
+          margin-bottom: 16px;
+          // padding: 16px;
+          margin-left: -40px;
+          // width: 100%;
+          display: flex;
+          justify-content: normal;
+          align-self: auto;
+          border: 0.0625rem solid #d8d9db;
+          border-radius: 4px;
+          box-shadow:#d8d9db;
+          flex-direction: row;
+          padding: 16px;
+          text-decoration: none;
+
+          #restaurant-img {
+            border-radius: 4px;
+            height: 8rem;
+            width: 8rem;
+            object-fit: cover;
+          }
+
+          #reserv-details-wrapper {
+            padding-right: 0;
+            display: flex;
+            flex-direction: column;
+            grid-area: details;
+            padding: 0 16px;
+          
+
+            #restaurant-name {
+              padding-left: 4px;
+              padding: 0 0 0 4px;
+              font-size: 1.1rem;
+              font-weight: 700;
+              line-height: 1.5rem;
+            }
+
+            #confirmation-bar {
+              align-items: center;
+              display: flex;
+              margin-top: 4px;
+              font-size: 1rem;
+              font-weight: 500;
+              line-height: 1.5rem;
+              color: #2d333f;
+
+              #circle-check-mark {
+                color:#39a25e;
+                margin-right: 10px;
+                font-size: large;
+              }
+            }
+
+            #reserv-details {
+              align-items: center;
+              display: flex;
+              margin-top: 4px;
+              font-size: 1rem;
+              font-weight: 400;
+              line-height: 1.5rem;
+
+              i {
+                padding-right: 13px;
+                display: inline-block;
+                // height: 1.5rem;
+                // line-height: 1;
+                // min-width: 1.5rem;
+                // width: 1.5rem;
+              }
+
+              #person-container {
+                padding-right: 25px;
+              }
+            }
+          }
+
+        }
+      }
+    }
+  }
+}

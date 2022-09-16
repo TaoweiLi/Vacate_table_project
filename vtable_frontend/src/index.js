@@ -45,7 +45,7 @@ const renderApplication = () => {
   div.render(
     <>
       <div>
-        <Favicon url='http://oflisback.github.io/react-favicon/img/github.ico' />
+        <Favicon url='https://raw.githubusercontent.com/TaoweiLi/Vacate_table_project/main/vtable_frontend/asset/fav_icon.png'/>
       </div>
       <BrowserRouter>
         <Root />

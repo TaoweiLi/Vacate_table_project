@@ -5,10 +5,103 @@
   justify-content: center;
 
   #footer {
-    max-width: 80rem;
+    // max-width: 80rem;
     box-sizing: border-box;
-    padding: 32px 32px 16px;
+    padding: 32px 0px 0px;
     width: 100%;
     color: aliceblue;
+    
+      .footer-profile-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        // padding: 54px;
+    
+        h2 {
+          color: lightgray;
+          font-size: 1.0rem;
+          // font-weight: bold;
+        }
+      }
+    
+      #self-portrait {
+        height: 100px;
+        border-radius: 3px;
+        margin-top: 20px;
+      }
+    
+      .footer-col-name {
+        color: lightgray;
+    
+        h2 {
+          margin-bottom: 30px;
+        }
+    
+        a {
+          text-decoration: none;
+          color: lightgray;
+        }
+      }
+    
+      .footer-col-item {
+        margin-bottom: 10px;
+        font-size: small;
+      }
+    
+      .footer-col-item {
+        :hover {
+          color: #beb4b4;
+        }
+      }
+    
+      .compliance {
+        font-size: 12px;
+        padding-left: 270px;
+      }
+    
+      .compliance>ul {
+        display: flex;
+        justify-content: flex-start;
+        color: lightgray;
+      }
+    
+      .compliance>ul>li {
+        margin: 0 20px 0px 0;
+      }
+    
+      .compliance>p {
+        color: grey;
+        padding-left: 40px;
+      }
+    
+      .author-info {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin-top: 35px;
+    
+        &>li {
+          margin-left: 30px;
+          color: lightgray;
+    
+          :hover {
+            color: #beb4b4;
+          }
+        }
+    
+        &>li:first-child {
+          margin-left: 0;
+        }
+    
+        & a {
+          font-size: 1rem;
+          color: lightgray;
+        }
+    
+        & i {
+          margin-right: 4px;
+          font-size: 36px;
+        }
+      }
   }
 }

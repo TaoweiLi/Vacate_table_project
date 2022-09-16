@@ -89,14 +89,14 @@ r1_reser2 = Reservation.create!(
 
 r1_rev1 = Review.create!(
   rating: 5,
-  review: "This was a good location for a first date! Nice ambience",
+  body: "This was a good location for a first date! Nice ambience",
   user_id: u[1].id,
   restaurant_id: r1.id,
 )
 
 r1_rev2 = Review.create!(
   rating: 4,
-  review: "Our server was great and very accommodating. Food was yummy.",
+  body: "Our server was great and very accommodating. Food was yummy.",
   user_id: u[2].id,
   restaurant_id: r1.id,
 )
@@ -142,14 +142,14 @@ r2_reser2 = Reservation.create!(
 
 r2_rev1 = Review.create!(
   rating: 4,
-  review: "Food was great, service outstanding, environment wonderful. Had a great company dinner there, will recommend again.",
+  body: "Food was great, service outstanding, environment wonderful. Had a great company dinner there, will recommend again.",
   user_id: u[3].id,
   restaurant_id: r2.id,
 )
 
 r2_rev2 = Review.create!(
   rating: 5,
-  review: "Food was Fantastic! Waitress had wonderful suggestions that turned out superb. We will go back!",
+  body: "Food was Fantastic! Waitress had wonderful suggestions that turned out superb. We will go back!",
   user_id: u[4].id,
   restaurant_id: r2.id,
 )
@@ -195,14 +195,14 @@ r3_reser2 = Reservation.create!(
 
 r3_rev1 = Review.create!(
   rating: 5,
-  review: "Outdoor setting is very comfortable. Food was delicious and service is great.",
+  body: "Outdoor setting is very comfortable. Food was delicious and service is great.",
   user_id: u[5].id,
   restaurant_id: r3.id,
 )
 
 r3_rev2 = Review.create!(
   rating: 4,
-  review: "Great place for a romantic.",
+  body: "Great place for a romantic.",
   user_id: u[6].id,
   restaurant_id: r3.id,
 )
@@ -248,14 +248,14 @@ r4_reser2 = Reservation.create!(
 
 r4_rev1 = Review.create!(
   rating: 5,
-  review: "Super friendly and efficient service. Food was delicious - as always.",
+  body: "Super friendly and efficient service. Food was delicious - as always.",
   user_id: u[7].id,
   restaurant_id: r4.id,
 )
 
 r4_rev2 = Review.create!(
   rating: 4,
-  review: "Amoura is a great family restaurant. Very spacious and had delicious food. I will definitely go again.",
+  body: "Amoura is a great family restaurant. Very spacious and had delicious food. I will definitely go again.",
   user_id: u[8].id,
   restaurant_id: r4.id,
 )
@@ -302,14 +302,14 @@ r5_reser2 = Reservation.create!(
 
 r5_rev1 = Review.create!(
   rating: 5,
-  review: "Super friendly and efficient service. Food was delicious - as always.",
+  body: "Super friendly and efficient service. Food was delicious - as always.",
   user_id: u[9].id,
   restaurant_id: r5.id,
 )
 
 r5_rev2 = Review.create!(
   rating: 4,
-  review: "Amoura is a great family restaurant. Very spacious and had delicious food. I will definitely go again.",
+  body: "Amoura is a great family restaurant. Very spacious and had delicious food. I will definitely go again.",
   user_id: u[10].id,
   restaurant_id: r5.id,
 )
@@ -356,14 +356,14 @@ r6_reser2 = Reservation.create!(
 
 r6_rev1 = Review.create!(
   rating: 4,
-  review: "Very nice food and great experience. The room temperature was a little too cold.",
+  body: "Very nice food and great experience. The room temperature was a little too cold.",
   user_id: u[0].id,
   restaurant_id: r6.id,
 )
 
 r6_rev2 = Review.create!(
   rating: 4,
-  review: "I've been back several times and the menu and service is consistently good.",
+  body: "I've been back several times and the menu and service is consistently good.",
   user_id: u[1].id,
   restaurant_id: r6.id,
 )
@@ -409,14 +409,14 @@ r7_reser2 = Reservation.create!(
 
 r7_rev1 = Review.create!(
   rating: 5,
-  review: "Great place!! Been there over 10 times and loving everything about it...",
+  body: "Great place!! Been there over 10 times and loving everything about it...",
   user_id: u[2].id,
   restaurant_id: r7.id,
 )
 
 r7_rev2 = Review.create!(
   rating: 5,
-  review: "Great and warm staff - wonderful food and cocktails. Heritage is such a great restaurant.",
+  body: "Great and warm staff - wonderful food and cocktails. Heritage is such a great restaurant.",
   user_id: u[3].id,
   restaurant_id: r7.id,
 )
@@ -462,14 +462,14 @@ r8_reser2 = Reservation.create!(
 
 r8_rev1 = Review.create!(
   rating: 3,
-  review: "Both my husband and I agreed Food amazing Service needs some work",
+  body: "Both my husband and I agreed Food amazing Service needs some work",
   user_id: u[4].id,
   restaurant_id: r8.id,
 )
 
 r8_rev2 = Review.create!(
   rating: 5,
-  review: "Awesome local gem. Family friendly.",
+  body: "Awesome local gem. Family friendly.",
   user_id: u[5].id,
   restaurant_id: r8.id,
 )
@@ -515,14 +515,14 @@ r9_reser2 = Reservation.create!(
 
 r9_rev1 = Review.create!(
   rating: 3,
-  review: "Both my husband and I agreed Food amazing Service needs some work",
+  body: "Both my husband and I agreed Food amazing Service needs some work",
   user_id: u[6].id,
   restaurant_id: r9.id,
 )
 
 r9_rev2 = Review.create!(
   rating: 5,
-  review: "Awesome local gem. Family friendly.",
+  body: "Awesome local gem. Family friendly.",
   user_id: u[7].id,
   restaurant_id: r9.id,
 )
@@ -568,14 +568,14 @@ r10_reser2 = Reservation.create!(
 
 r10_rev1 = Review.create!(
   rating: 3,
-  review: "Music was way too loud and we practically had to yell to each other at our table.",
+  body: "Music was way too loud and we practically had to yell to each other at our table.",
   user_id: u[8].id,
   restaurant_id: r10.id,
 )
 
 r10_rev2 = Review.create!(
   rating: 5,
-  review: "Fantastic service from Kevin and Fatima ! Will be back!",
+  body: "Fantastic service from Kevin and Fatima ! Will be back!",
   user_id: u[9].id,
   restaurant_id: r10.id,
 )
@@ -622,14 +622,14 @@ r11_reser2 = Reservation.create!(
 
 r11_rev1 = Review.create!(
   rating: 3,
-  review: "Nice ambiance, food was just OK.",
+  body: "Nice ambiance, food was just OK.",
   user_id: u[10].id,
   restaurant_id: r11.id,
 )
 
 r11_rev2 = Review.create!(
   rating: 5,
-  review: "Amazing time, delicious food, excellent service",
+  body: "Amazing time, delicious food, excellent service",
   user_id: u[0].id,
   restaurant_id: r11.id,
 )
@@ -675,14 +675,14 @@ r12_reser2 = Reservation.create!(
 
 r12_rev1 = Review.create!(
   rating: 3,
-  review: "Nice ambiance, food was just OK.",
+  body: "Nice ambiance, food was just OK.",
   user_id: u[1].id,
   restaurant_id: r12.id,
 )
 
 r12_rev2 = Review.create!(
   rating: 5,
-  review: "Amazing time, delicious food, excellent service",
+  body: "Amazing time, delicious food, excellent service",
   user_id: u[2].id,
   restaurant_id: r12.id,
 )
@@ -728,14 +728,14 @@ r13_reser2 = Reservation.create!(
 
 r13_rev1 = Review.create!(
   rating: 5,
-  review: "Great service and excellent food.Highly recommend!",
+  body: "Great service and excellent food.Highly recommend!",
   user_id: u[3].id,
   restaurant_id: r13.id,
 )
 
 r13_rev2 = Review.create!(
   rating: 4,
-  review: "Trestle is a great restaurant to add to your weekday dinner rotation.",
+  body: "Trestle is a great restaurant to add to your weekday dinner rotation.",
   user_id: u[4].id,
   restaurant_id: r13.id,
 )
@@ -781,14 +781,14 @@ r14_reser2 = Reservation.create!(
 
 r14_rev1 = Review.create!(
   rating: 5,
-  review: "We were a party of 5 and ordered quite a variety of food and enjoyed everything we ordered.",
+  body: "We were a party of 5 and ordered quite a variety of food and enjoyed everything we ordered.",
   user_id: u[5].id,
   restaurant_id: r14.id,
 )
 
 r14_rev2 = Review.create!(
   rating: 4,
-  review: "Food was spot on fantastic, fresh, delicious, & perfectly prepared.",
+  body: "Food was spot on fantastic, fresh, delicious, & perfectly prepared.",
   user_id: u[6].id,
   restaurant_id: r14.id,
 )
@@ -834,14 +834,14 @@ r15_reser2 = Reservation.create!(
 
 r15_rev1 = Review.create!(
   rating: 4,
-  review: "Always good to go back.There is a new chef who started Friday.Looking forward to seeing his new menu",
+  body: "Always good to go back.There is a new chef who started Friday.Looking forward to seeing his new menu",
   user_id: u[7].id,
   restaurant_id: r15.id,
 )
 
 r15_rev2 = Review.create!(
   rating: 5,
-  review: "It was a very special evening! The food was absolutely delicious.We definitely will come back.",
+  body: "It was a very special evening! The food was absolutely delicious.We definitely will come back.",
   user_id: u[8].id,
   restaurant_id: r15.id,
 )

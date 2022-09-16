@@ -45,21 +45,24 @@
         justify-content: center;
 
         #signin-email {
-          padding-top: 20px;
-          padding-bottom: 15px;
+          font-size: 17px;
+          padding-top: 17px;
+          padding-bottom: 10px;
           border-radius: 5px;
+
         }
 
         #signin-password {
-          padding-top: 20px;
-          padding-bottom: 15px;
+          font-size: 17px;
+          padding-top: 17px;
+          padding-bottom: 10px;
           border-radius: 5px;
           margin-top: 10px;
         }
 
         #signin-modal-button {
-          padding-top: 20px;
-          padding-bottom: 20px;
+          padding-top: 17px;
+          padding-bottom: 17px;
           border-radius: 5px;
           margin-top: 20px;
           background-color: #da3743;
@@ -80,8 +83,8 @@
         }
 
         #demo-user {
-          padding-top: 20px;
-          padding-bottom: 20px;
+          padding-top: 17px;
+          padding-bottom: 17px;
           border-radius: 5px;
           margin-top: 20px;
           background-color: #0d1b45;

@@ -33,6 +33,12 @@ function SigninForm({setShowSignin, setShowSignup}) {
     setShowSignup(true);
   }
 
+  const handleDemoUserClick = (e) => {
+    e.preventDefault();
+    setShowSignin(false);
+    dispatch(sessionActions.signin({ email: "dali@vtable.com", password: "123456" }))
+  }
+
 
   return (
     <div id="signin-modal">
@@ -47,7 +53,7 @@ function SigninForm({setShowSignin, setShowSignup}) {
             <input id="signin-email" placeholder="Email" type="text" value={email} onChange={(e) => setEmail(e.target.value)} required />
             <input id="signin-password" placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
             <button id="signin-modal-button" type="submit">Sign In</button>
-            <button id="demo-user" onClick={() => dispatch(sessionActions.signin({ email: "dali@vtable.com", password: "123456" }))}>DemoUser</button>
+            <button id="demo-user" onClick={handleDemoUserClick}>DemoUser</button>
             <div id="create-one">
               Don't have an account? <span id="create-one-inner" onClick={handleClick}>Create one</span>
             </div>

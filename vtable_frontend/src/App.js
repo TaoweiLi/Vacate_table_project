@@ -9,6 +9,8 @@ import RestaurantShow from "./component/RestaurantShow";
 import PageNotFound from "./component/PageNotFund";
 import RestaurantReservation from "./component/RestaurantReservation";
 import User from "./component/UserPage";
+import AccountDetails from "./component/UserPage/AccountDetails";
+
 
 function App() {
 
@@ -25,7 +27,9 @@ function App() {
               <Route exact path="/" component={RestaurantsIndex} />
               <Route exact path="/restaurants/:restaurantId" component={RestaurantShow} />
               <Route exact path="/restaurants/:restaurantId/reservation" component={RestaurantReservation} />
-              <Route exact path="/users/:userId" component={User} />
+              <Route exact path="/users/profile" component={User} />
+              <Route exact path="/users/profile/account" component={AccountDetails} />
+              {/* <Route exact path="/users/profile/reservation" component={UserReservationDetails} /> */}
               <Route path="*" component={PageNotFound} />
             </Switch>
             {/* <div><RestaurantShow /></div> */}

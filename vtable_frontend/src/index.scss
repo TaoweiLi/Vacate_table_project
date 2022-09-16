@@ -16,6 +16,7 @@ button {
   text-transform: none;
   color: #fff;
   background-color: #da3743;
+  // font-weight: 700;
   border: none;
   border-radius: 4px;
   padding: 10px;
@@ -46,6 +47,11 @@ ol {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   padding-inline-start: 40px;
+  list-style: none;
+}
+
+ul {
+  list-style: none;
 }
 
 select {

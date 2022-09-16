@@ -3,16 +3,40 @@ import { Link, useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import "./RestaurantShow.scss"
 import { getRestaurant, fetchRestaurant } from '../../store/restaurants';
-import { fetchRestaurantReviews, getRestaurantReviews } from '../../store/reviews';
+import { getReviews, fetchReviews, getReviewsByResId, createReview } from "../../store/reviews";
 import React from 'react';
 import Map from '../GoogleMap/Map';
+import ReviewIndexItem from '../RestaurantReview/ReviewIndexItem';
+import { Rating } from "@mui/material";
 
 function RestaurantShow() {
   const { restaurantId } = useParams();
   const restaurant = useSelector(getRestaurant(restaurantId));
-  const reviews = useSelector((state) => getRestaurantReviews(state, restaurantId));
+  const sessionUser = useSelector((state) => state.session.user);
+  const reviews = useSelector(getReviewsByResId(restaurantId));
+
+  // let user;
+  // if (sessionUser) {
+  //   user = sessionUser;
+  // } else {
+  //   user = "";
+  // }
   const dispatch = useDispatch();
   const history = useHistory();
+  const reviewData = {
+    body: "",
+    rating: 0,
+    restaurant_id: restaurantId,
+    user_id:  ""
+  }
+
+  const [review, setReview] = useState(reviewData);
+
+  const location = {
+    address: restaurant?.address,
+    lat: restaurant?.lat,
+    lng: restaurant?.lng,
+  }
 
 
   useEffect(() => {
@@ -20,7 +44,7 @@ function RestaurantShow() {
   }, [dispatch, restaurantId])
 
   useEffect(() => {
-    dispatch(fetchRestaurantReviews(restaurantId));
+    dispatch(fetchReviews(restaurantId));
   }, [dispatch, restaurantId])
 
   var hashMonth = {
@@ -80,6 +104,13 @@ function RestaurantShow() {
     });
   }
 
+  function handleReviewSubmit(e) {
+    e.preventDefault();
+    const newReview = { ...review, user_id: sessionUser.id }
+    dispatch(createReview(newReview));
+    setReview(reviewData);
+  }
+
   return (
     <>
       <div className="breadcrumb"></div>
@@ -122,7 +153,7 @@ function RestaurantShow() {
                     <i className="fa-solid fa-star"></i>
                     <i className="fa-solid fa-star"></i>
                     <i className="fa-solid fa-star"></i>
-                    {reviews.rating}
+                    {/* {reviews.rating} */}
                   </div>
                   <div><i className="fa-solid fa-money-bill"></i> {restaurant.expense}</div>
                   <div><i className="fa-solid fa-utensils"></i> {restaurant.cuisine}</div>
@@ -148,18 +179,24 @@ function RestaurantShow() {
               <section id="left-review-wrapper">
 
                 <h2 id="res-review-header">Review
-                  <button id="review-button">Write a review</button>
+                  
                 </h2>
-
+                {sessionUser && (
+                <form id="review-container">
+                  <textarea id="review-texarea" rows="10" cols="40" value={review.body} onChange={e => { setReview({ ...review, body: e.target.value }) }}></textarea>
+                  <div id="rating-star">
+                    <Rating
+                      name="simple-controlled"
+                      value={review.rating}
+                      onChange={(event, newValue) => {
+                        setReview({ ...review, rating: newValue })
+                      }}
+                      size="large"/>
+                  </div>
+                  {sessionUser && <button id="review-button" onClick={handleReviewSubmit}>Write a review</button>}
+                </form> )}
                 <ol id="review-list-wrapper">
-                  {/* {reviews.map(review => <RestaurantReview key={restaurant.id} review={review} />)} */}
-                  <li id="review-content">
-                    <section id="reviewer-info">user_id: {reviews.user_id}</section>
-                    <section id="review-details">
-                      <div>Rating: {reviews.rating}</div>
-                      <div>{reviews.review}</div>
-                    </section>
-                  </li>
+                  {reviews.map(review => (<ReviewIndexItem key={review.id} review={review} />))}
                 </ol>
               </section>
             </div>
@@ -227,9 +264,11 @@ function RestaurantShow() {
               <section id="right-res-info-wrapper">
                 <div id="right-res-info-container">
                   <section id="right-google-map">
-                    <Map />
-                    <p>Google map</p>
-                    <div id="res-address-wrapper"><i className="fa-solid fa-location-dot"></i> {restaurant.address}</div>
+                    <Map className="map" location={location} />
+                    <div id="res-address-wrapper">
+                      <i className="fa-solid fa-location-dot"></i>
+                      <span id="map-address-text">{restaurant.address}</span>
+                    </div>
                   </section>
 
                   <div id="right-additional-info-wrapper">
@@ -250,7 +289,7 @@ function RestaurantShow() {
                             <div className="ai-icon"><i className="fa-regular fa-clock"></i></div>
                             <div className="ai-info">
                               <div className="ai-info-title">Hours of operation</div>
-                              <div className="ai-info-content">{restaurant.operation_hours}</div>
+                              <div className="ai-info-content">{restaurant.operationHours}</div>
                             </div>
                           </div>
                         </li>
@@ -268,7 +307,7 @@ function RestaurantShow() {
                             <div className="ai-icon"><i className="fa-solid fa-landmark-dome"></i></div>
                             <div className="ai-info">
                               <div className="ai-info-title">Dining style</div>
-                              <div className="ai-info-content">{restaurant.dining_style}</div>
+                              <div className="ai-info-content">{restaurant.diningStyle}</div>
                             </div>
                           </div>
                         </li>
@@ -277,7 +316,7 @@ function RestaurantShow() {
                             <div className="ai-icon"><i className="fa-solid fa-user-tie"></i></div>
                             <div className="ai-info">
                               <div className="ai-info-title">Dress code</div>
-                              <div className="ai-info-content">{restaurant.dress_code}</div>
+                              <div className="ai-info-content">{restaurant.dressCode}</div>
                             </div>
                           </div>
                         </li>
@@ -286,7 +325,7 @@ function RestaurantShow() {
                             <div className="ai-icon"><i className="fa-solid fa-square-parking"></i></div>
                             <div className="ai-info">
                               <div className="ai-info-title">Parking details</div>
-                              <div className="ai-info-content">{restaurant.parking_details}</div>
+                              <div className="ai-info-content">{restaurant.parkingDetails}</div>
                             </div>
                           </div>
                         </li>
@@ -295,7 +334,7 @@ function RestaurantShow() {
                             <div className="ai-icon"><i className="fa-solid fa-square-parking"></i></div>
                             <div className="ai-info">
                               <div className="ai-info-title">Payment options</div>
-                              <div className="ai-info-content">{restaurant.payment_options}</div>
+                              <div className="ai-info-content">{restaurant.paymentOptions}</div>
                             </div>
                           </div>
                         </li>
@@ -313,7 +352,7 @@ function RestaurantShow() {
                             <div className="ai-icon"><i className="fa-solid fa-arrow-up-right-from-square"></i></div>
                             <div className="ai-info">
                               <div className="ai-info-title">Phone Number</div>
-                              <div className="ai-info-content">{restaurant.phone_number}</div>
+                              <div className="ai-info-content">{restaurant.phoneNumber}</div>
                             </div>
                           </div>
                         </li>
@@ -330,8 +369,8 @@ function RestaurantShow() {
         </main>
       )}
 
-      <p>{JSON.stringify(restaurant, null, 4)}</p>
-      <p>{JSON.stringify(reviews, null, 4)}</p>
+      {/* <p>{JSON.stringify(restaurant, null, 4)}</p>
+      <p>{JSON.stringify(reviews, null, 4)}</p> */}
       <p></p>
     </>
 
