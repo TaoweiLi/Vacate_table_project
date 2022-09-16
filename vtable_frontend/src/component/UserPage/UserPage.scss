@@ -57,7 +57,8 @@
     }
 
     #reservation-list-wrapper {
-      margin: 32px 16px;
+      margin-top: 53px;
+      margin-left: 15px;
       min-height: 32rem;
       width: calc(100% - 15.5rem);
 
@@ -72,20 +73,21 @@
 
         #upcoming-header {
           margin: 0;
-          font-size: 23px;
+          font-size: 22px;
         }
 
         #restaurant-link-wrapper {
           margin-bottom: 16px;
+          // padding: 16px;
+          margin-left: -40px;
+          // width: 100%;
           display: flex;
           justify-content: normal;
           align-self: auto;
           border: 0.0625rem solid #d8d9db;
           border-radius: 4px;
-          box-shadow: none;
+          box-shadow:#d8d9db;
           flex-direction: row;
-          // grid-template-areas: "image details points";
-          // grid-template-columns: 1fr 4fr 1fr;
           padding: 16px;
           text-decoration: none;
 
@@ -102,11 +104,12 @@
             flex-direction: column;
             grid-area: details;
             padding: 0 16px;
+          
 
             #restaurant-name {
               padding-left: 4px;
               padding: 0 0 0 4px;
-              font-size: 1.125rem;
+              font-size: 1.1rem;
               font-weight: 700;
               line-height: 1.5rem;
             }

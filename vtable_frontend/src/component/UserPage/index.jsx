@@ -38,7 +38,7 @@ function User() {
                 <a href="/users/profile">Reservations</a>
               </li>
               <li className="nav-bar-list">
-                <a href="">Account Details</a>
+                <a href="/users/profile/account">Account Details</a>
               </li>
             </ul>
           </nav>
@@ -62,9 +62,9 @@ function User() {
 
 
 
-      <p>Under Construction. Comming Soon....</p>
+      {/* <p>Under Construction. Comming Soon....</p>
       <p>{JSON.stringify(sessionUser, null, 4)}</p>
-      <p>{JSON.stringify(reservations, null, 4)}</p>
+      <p>{JSON.stringify(reservations, null, 4)}</p> */}
     </>
   )
 }
