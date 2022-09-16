@@ -1,24 +1,28 @@
-# README
+# Vacate Table [LIVE](https://vacate-table.herokuapp.com/))
+Vacate Table is a full-stack OpenTable clone where users can make reservations, write reviews and search, for dining spots across San Francisco.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Technologies
+- React
+- Redux
+- JavaScript
+- Ruby on Rails
+- AWS S3
+- Google Map API
+- PostgreSQL
+- Webpack
 
-Things you may want to cover:
+## Features
 
-* Ruby version
+### User Authentication
 
-* System dependencies
+## Autocomplete Search Function
 
-* Configuration
+## Reviews CRUD
 
-* Database creation
+## Reservation CRUD
 
-* Database initialization
+## Implementation
 
-* How to run the test suite
+## Future Features
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Image Credits

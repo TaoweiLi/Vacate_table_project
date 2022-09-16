@@ -10,7 +10,7 @@ import ReviewForm from './ReviewForm';
 // export default function ReviewIndex({ reviews }) {
 //   const [isShown, setIsShown] = React.useState(false)
 //   const dispatch = useDispatch()
-//   console.log(reviews);
+
 //   useEffect(() => {
 //     dispatch(fetchReviews())
 //   }, [])

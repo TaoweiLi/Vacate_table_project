@@ -7,12 +7,10 @@ function SigninFormModal({ showSignin, setShowSignin, setShowSignup }) {
 
 
   const signInOnClick = function(){
-    console.log("debug   signInOnClick")
     setShowSignin(true);
   }
 
   const signInModalOnClose = function () {
-    console.log("debug   signInModalOnClose")
     setShowSignin(false)
   }
 

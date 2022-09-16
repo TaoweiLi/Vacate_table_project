@@ -72,7 +72,7 @@ export const fetchReview = (reviewId) => async dispatch => {
 }
 
 export const createReview = (review) => async dispatch => {
-  console.log("DEBUG aaa ", review)
+
   const response = await csrfFetch('/api/reviews', {
     method: "POST",
     headers: { "Content-Type": "application/json" },

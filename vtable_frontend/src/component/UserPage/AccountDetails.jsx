@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 function AccountDetails() {
   const sessionUser = useSelector((state) => state.session.user);
 
-  // console.log("debug aaaa", sessionUser)
   return (
     <>
       {sessionUser && (
