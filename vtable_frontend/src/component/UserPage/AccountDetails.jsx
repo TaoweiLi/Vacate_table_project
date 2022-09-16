@@ -1,7 +1,7 @@
 import "./AccountDetails.scss"
 
 
-function AccountDetails {
+function AccountDetails() {
 
   return (
     <>
