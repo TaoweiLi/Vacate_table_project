@@ -72,10 +72,11 @@
 
         #upcoming-header {
           margin: 0;
+          font-size: 23px;
         }
 
         #restaurant-link-wrapper {
-          margin-bottom: 0;
+          margin-bottom: 16px;
           display: flex;
           justify-content: normal;
           align-self: auto;
@@ -120,9 +121,9 @@
               color: #2d333f;
 
               #circle-check-mark {
-                color: green;
+                color:#39a25e;
                 margin-right: 10px;
-                size: -1px;
+                font-size: large;
               }
             }
 

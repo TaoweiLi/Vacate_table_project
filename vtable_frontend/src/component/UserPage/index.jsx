@@ -14,9 +14,6 @@ function User() {
 
   const dispatch = useDispatch();
 
-  // console.log("debug  aaaa", reservations)
-  // console.log("debug  bbbb", restaurantId)
-
   useEffect(() => {
     dispatch(fetchUserReservations(sessionUser.id));
   }, [dispatch])
@@ -50,7 +47,7 @@ function User() {
             <div id="reservation-list-container">
               <h2 id="upcoming-header">Upcoming reservations</h2>
               <ol id="review-list-wrapper">
-                {reservations.map(reservtaion => (<UserReservationIndexItem key={reservtaion.id} reservtaion={reservtaion} restaurantId={reservtaion.restaurantId} />))}
+                {(reservations.map(reservtaion => (<UserReservationIndexItem key={reservtaion.id} reservtaion={reservtaion} restaurantId={reservtaion.restaurantId} />))).reverse()}
               </ol>
 
 

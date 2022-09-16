@@ -34,7 +34,7 @@ function UserReservationIndexItem({ reservtaion }) {
               </div>
               <div id="date-container">
                 <i className="fa-regular fa-calendar"></i>
-                <span>{reservtaion.date}at{reservtaion.time}</span>
+                <span>{reservtaion.date} at {reservtaion.time}</span>
               </div>
             </div>
           </div>

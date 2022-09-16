@@ -19,8 +19,8 @@
     
         h2 {
           color: lightgray;
-          font-size: 1.2rem;
-          font-weight: bold;
+          font-size: 1.0rem;
+          // font-weight: bold;
         }
       }
     
@@ -45,6 +45,7 @@
     
       .footer-col-item {
         margin-bottom: 10px;
+        font-size: small;
       }
     
       .footer-col-item {
@@ -54,7 +55,7 @@
       }
     
       .compliance {
-        font-size: 13px;
+        font-size: 12px;
         padding-left: 180px;
       }
     
