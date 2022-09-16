@@ -44,9 +44,9 @@ const renderApplication = () => {
   const div = ReactDOM.createRoot(document.getElementById("root"));
   div.render(
     <>
-      <div>
+      {/* <div>
         <Favicon url='https://raw.githubusercontent.com/TaoweiLi/Vacate_table_project/main/vtable_frontend/asset/fav_icon.png'/>
-      </div>
+      </div> */}
       <BrowserRouter>
         <Root />
       </BrowserRouter>
