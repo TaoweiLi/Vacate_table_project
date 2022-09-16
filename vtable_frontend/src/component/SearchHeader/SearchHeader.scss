@@ -216,13 +216,14 @@
           position: relative;
           border: none;
           color: #2d333f;
-          height: 96%;
+          height: 95%;
           font-size: 17px;
+        }
 
 
-          // .search-button {
-          // height: 3rem !important;
-          // }
+        #search-button {
+          height: 2.9rem;
+          width: 6rem;
         }
       }
     }

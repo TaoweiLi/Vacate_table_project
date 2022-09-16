@@ -68,7 +68,7 @@ function SearchHeader() {
                 <form action="/action_page.php">
                   {/* <i id="search-text-icon" className="fa-solid fa-magnifying-glass"></i> */}
                   <input id="search-bar-container" type="text" placeholder="Location, Restaurant, or Cuisine" name="search" />
-                  <button className="search-button" type="submit">Let’s go</button>
+                  <button id="search-button" type="submit">Let’s go</button>
                 </form>
               </div>
 

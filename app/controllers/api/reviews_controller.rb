@@ -36,9 +36,8 @@ class Api::ReviewsController < ApplicationController
   end
 
   def create
-    p "DEBUG"
-    p review_params
     @review = Review.new(review_params)
+
     if @review.save!
       render :show
     else

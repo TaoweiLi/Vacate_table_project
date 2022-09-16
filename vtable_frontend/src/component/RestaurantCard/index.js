@@ -39,7 +39,7 @@ export default function RestaurantCard({ restaurant }) {
                       readOnly
                     />
                   </div>
-                  <div id="card-res-reviews">200 reviews</div>
+                  <div id="card-res-reviews">{Math.floor(Math.random() * 298) + 101} reviews</div>
                 </div>
                 <div id="card-res-info">
                   <div id="card-res-cuisine"> {restaurant.cuisine}</div>

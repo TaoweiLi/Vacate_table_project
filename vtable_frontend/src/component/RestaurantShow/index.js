@@ -12,19 +12,25 @@ import { Rating } from "@mui/material";
 function RestaurantShow() {
   const { restaurantId } = useParams();
   const restaurant = useSelector(getRestaurant(restaurantId));
-  const sessionUser = useSelector((state) => state.session.user)
+  const sessionUser = useSelector((state) => state.session.user);
   const reviews = useSelector(getReviewsByResId(restaurantId));
 
+  // let user;
+  // if (sessionUser) {
+  //   user = sessionUser;
+  // } else {
+  //   user = "";
+  // }
   const dispatch = useDispatch();
   const history = useHistory();
   const reviewData = {
     body: "",
     rating: 0,
     restaurant_id: restaurantId,
-    user_id: ""
+    user_id:  ""
   }
 
-  const [review, setReview] = useState(reviewData)
+  const [review, setReview] = useState(reviewData);
 
   const location = {
     address: restaurant?.address,
@@ -100,8 +106,8 @@ function RestaurantShow() {
 
   function handleReviewSubmit(e) {
     e.preventDefault();
-    setReview({ ...review, user_id: sessionUser.id })
-    dispatch(createReview(review));
+    const newReview = { ...review, user_id: sessionUser.id }
+    dispatch(createReview(newReview));
     setReview(reviewData);
   }
 

@@ -43,13 +43,13 @@ function ProfileButton({ user }) {
               <div id="dropdown-title">Hello, {user.firstName}!</div>
               <div id="dropdown-ul">
                 <div className="dropdown-text">
-                  <a href={`/users/${userId}`}>My Profile</a>
+                  <a href={`/users/profile`}>My Profile</a>
                 </div>
                 <div className="dropdown-text">
-                  <a href={`/users/${userId}`}>My Dining History</a>
+                  <a href={`/users/profile`}>My Dining History</a>
                 </div>
                 <div className="dropdown-text">
-                  <a href={`/users/${userId}`}>My Saved Restaurant</a>
+                  <a href={`/users/profile`}>My Saved Restaurant</a>
                 </div>
               </div>
               <button id="sign-out-button" onClick={signout}>Sign Out</button>
