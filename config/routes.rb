@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :restaurants, only: [:index, :show]
     resources :reviews, only: [:index, :create, :update, :destroy, :show]
     resources :reservations, only: [:index, :create, :update, :destroy, :show]
+    
+    get "/search/:query", to: "restaurants#search"
   end
 
   get "*path", to: "static_pages#frontend_index"

@@ -40,13 +40,17 @@ export function getRestaurant(restaurantId) {
   }
 }
 
-export function getRestaurants(state) {
-  if (!state || !state["restaurants"] || !state["restaurants"]["all"] ) {
-    return [];
-  }
+// export function getRestaurants(state) {
+//   if (!state || !state["restaurants"] || !state["restaurants"]["all"] ) {
+//     return [];
+//   }
 
-  return Object.values(state["all"]);
-}
+//   return Object.values(state["all"]);
+// }
+
+export const getRestaurants = (state) => {
+  return state.restaurants ? Object.values(state.restaurants) : [];
+};
 
 export function getTaggedRestaurants(state, tag) {
   
@@ -83,6 +87,14 @@ export function fetchTaggedRestaurants(tag) {
 
       // return restaurants;
     }
+  }
+}
+
+export const fetchQueryRestaurants = (query) => async dispatch => {
+  const response = await csrfFetch(`/api/search/${query}`)
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(receiveRestaurants(data))
   }
 }
 

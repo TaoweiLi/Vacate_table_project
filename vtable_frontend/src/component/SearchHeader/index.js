@@ -1,10 +1,27 @@
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+
+import { fetchQueryRestaurants } from '../../store/restaurants';
 import "./SearchHeader.scss"
 
 function SearchHeader() {
+  const dispatch = useDispatch();
+  const [query, setQuery] = useState("");
+  const history = useHistory();
+
+
+  const handleSubmit = (e) => {
+
+    e.preventDefault();
+    // dispatch(fetchQueryBusinesses(query));
+    history.push(`/search/${query}`)
+  }
 
 
   return (
     <>
+  
       <header id="search-header-wrapper">
         <div id="search-header-content">
           <h1 id="search-header-text">Find your table for any occasion</h1>
@@ -65,9 +82,9 @@ function SearchHeader() {
               </div>
 
               <div id="searvh-bar-right">
-                <form action="/action_page.php">
+                <form action="/action_page.php" onSubmit={handleSubmit}>
                   {/* <i id="search-text-icon" className="fa-solid fa-magnifying-glass"></i> */}
-                  <input id="search-bar-container" type="text" placeholder="Location, Restaurant, or Cuisine" name="search" />
+                  <input id="search-bar-container" type="text" placeholder="Location, Restaurant, or Cuisine" name="search" value={query} onChange={(e) => setQuery(e.target.value)} />
                   <button id="search-button" type="submit">Let’s go</button>
                 </form>
               </div>

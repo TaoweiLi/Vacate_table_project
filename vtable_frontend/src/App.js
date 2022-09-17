@@ -10,6 +10,8 @@ import PageNotFound from "./component/PageNotFund";
 import RestaurantReservation from "./component/RestaurantReservation";
 import User from "./component/UserPage";
 import AccountDetails from "./component/UserPage/AccountDetails";
+import SearchIndexPage from "./component/SearchIndex";
+import SearchHeader from "./component/SearchHeader";
 
 
 function App() {
@@ -30,6 +32,10 @@ function App() {
               <Route exact path="/users/profile" component={User} />
               <Route exact path="/users/profile/account" component={AccountDetails} />
               {/* <Route exact path="/users/profile/reservation" component={UserReservationDetails} /> */}
+              <Route exact path="/search/:query">
+                <SearchHeader />
+                <SearchIndexPage />
+              </Route>
               <Route path="*" component={PageNotFound} />
             </Switch>
             {/* <div><RestaurantShow /></div> */}
