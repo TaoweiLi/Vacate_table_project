@@ -63,11 +63,14 @@ function RestaurantShow() {
   const params = (new URL(document.location)).searchParams;
   const updateReservationId = params.get('updateReservationId');
 
+
   useEffect(() => {
-    dispatch(fetchReservation(updateReservationId));
+    if (updateReservationId){
+      dispatch(fetchReservation(updateReservationId));
+    }
   }, [dispatch, updateReservationId])
 
-  const updateReservation = useSelector(getReservation(updateReservationId)) 
+  const updateReservation = useSelector(getReservation(updateReservationId))
   let isUpdateReservation = false
 
   let initialState = {
@@ -77,7 +80,7 @@ function RestaurantShow() {
     "time": "11:00"
   }
 
-  if (updateReservation){
+  if (updateReservation) {
     initialState = updateReservation
     isUpdateReservation = true
   }
@@ -111,7 +114,7 @@ function RestaurantShow() {
 
     if (sessionUser) {
       let searchString = `?partySize=${partySize}&date=${date}&time=${time}`
-      if (isUpdateReservation && initialState.id){
+      if (isUpdateReservation && initialState.id) {
         searchString += `&updateReservationId=${initialState.id}`
       }
       history.push({
@@ -134,14 +137,14 @@ function RestaurantShow() {
     }
   }
 
-  function handleReviewUpdateSubmit(e){
+  function handleReviewUpdateSubmit(e) {
     e.preventDefault();
     dispatch(updateReview(review));
     setIsUpdateReview(false)
     setReview(reviewData);
   }
 
-  function onUpdateReview(review) { 
+  function onUpdateReview(review) {
     setReview(review)
     setIsUpdateReview(true)
   }
@@ -217,20 +220,20 @@ function RestaurantShow() {
 
                 </h2>
 
-                  <form id="review-container">
-                    <textarea id="review-texarea" rows="10" cols="40" value={review.body} onChange={e => { setReview({ ...review, body: e.target.value }) }}></textarea>
-                    <div id="rating-star">
-                      <Rating
-                        name="simple-controlled"
-                        value={review.rating}
-                        onChange={(event, newValue) => {
-                          setReview({ ...review, rating: newValue })
-                        }}
-                        size="large" />
-                    </div>
+                <form id="review-container">
+                  <textarea id="review-texarea" rows="10" cols="40" value={review.body} onChange={e => { setReview({ ...review, body: e.target.value }) }}></textarea>
+                  <div id="rating-star">
+                    <Rating
+                      name="simple-controlled"
+                      value={review.rating}
+                      onChange={(event, newValue) => {
+                        setReview({ ...review, rating: newValue })
+                      }}
+                      size="large" />
+                  </div>
                   {!isUpdateReview && (<button id="review-button" onClick={handleReviewSubmit}>Write a review</button>)}
                   {isUpdateReview && (<button id="review-button" onClick={handleReviewUpdateSubmit}>Update the review</button>)}
-                  </form>
+                </form>
                 <ol id="review-list-wrapper">
                   {reviews.map(review => (<ReviewIndexItem key={review.id} review={review} onUpdateReview={onUpdateReview} />))}
                 </ol>
@@ -291,8 +294,8 @@ function RestaurantShow() {
                       </div>
                     </div> */}
 
-                    {!isUpdateReservation  && (<button id="reserv-button">Reserve</button>)}
-                    {isUpdateReservation  && (<button id="reserv-button">Update Reservation</button>)}
+                    {!isUpdateReservation && (<button id="reserv-button">Reserve</button>)}
+                    {isUpdateReservation && (<button id="update-button">Update Reservation</button>)}
                   </form>
 
                 </div>

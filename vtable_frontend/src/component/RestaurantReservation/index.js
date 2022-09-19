@@ -41,16 +41,17 @@ function RestaurantReservation(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (reserveCompleted){
+    if (reserveCompleted) {
       history.push("/users/profile");
+    } else {
+      reservation = { ...reservation };
+      if (formType === "Create Reservation") {
+        dispatch(createReservation(reservation))
+      } else { // Update reservation
+        dispatch(updateReservation(reservation))
+      };
+      setReserveCompleted(true)
     }
-    reservation = { ...reservation };
-    if (formType === "Create Reservation") {
-      dispatch(createReservation(reservation))
-    } else { // Update reservation
-      dispatch(updateReservation(reservation))
-    };
-    setReserveCompleted(true)
   }
 
   return (

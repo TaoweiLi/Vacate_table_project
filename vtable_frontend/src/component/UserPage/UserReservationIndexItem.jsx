@@ -32,7 +32,7 @@ function UserReservationIndexItem(props) {
   return (
     <>
       {restaurant && (
-        <a id="restaurant-link-wrapper" href="">
+        <a id="restaurant-link-wrapper" href={`/restaurants/${restaurant.id}`}>
           <img id="restaurant-img" src={restaurant.img}></img>
           <div id="reserv-details-wrapper">
             <div id="restaurant-name">{restaurant.name}</div>

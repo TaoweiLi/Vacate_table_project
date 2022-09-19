@@ -42,7 +42,7 @@ function User() {
           <div id="reservation-list-wrapper">
             <div id="reservation-list-container">
               <h2 id="upcoming-header">Upcoming reservations</h2>
-              <ol id="review-list-wrapper">
+              <ol id="reservation-list-content">
                 {(reservations.map(reservation => (<UserReservationIndexItem key={reservation.id} reservation={reservation} restaurantId={reservation.restaurantId} />))).reverse()}
               </ol>
 
