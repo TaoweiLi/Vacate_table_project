@@ -1,7 +1,11 @@
-# Vacate Table [LIVE](https://vacate-table.herokuapp.com/))
-Vacate Table is a full-stack OpenTable clone where users can make reservations, write reviews and search, for dining spots across San Francisco.
+# **Vacate Table** 
 
-## Technologies
+## **Description**
+Vacate Table is a full-stack OpenTable clone where users can make reservations, write reviews and search, for dining spots across Bay Area.
+
+[Website](https://vacate-table.herokuapp.com/)
+
+## **Technologies**
 - React
 - Redux
 - JavaScript
@@ -11,18 +15,25 @@ Vacate Table is a full-stack OpenTable clone where users can make reservations, 
 - PostgreSQL
 - Webpack
 
-## Features
+## **Core Features**
 
-### User Authentication
 
-## Autocomplete Search Function
+### **User Authentication**
+- User authentication is implemented on both frontend and backend.
+- Users can sign up, sign in, and sign out of their accounts.
+- Error messages are displayed next to the respective fields in the signup form as part of frontend error-handling.
 
-## Reviews CRUD
+### **Reservation CRUD**
+- Making a reservation request user sign in. If the current user is not signed in, there would be a popover requesting them to sign in or use demo user mode instead. Signed-in users can choose party size, date and time when they making resevation.
+- Confirmed reservations are viewable in the user profile, with options to update or cancel.
 
-## Reservation CRUD
+### **Reviews CRUD**
+- Writing a review request user sign in. If the current user is not signed in, there would be a popover requesting them to sign in or use demo user mode instead. Signed-in users can rate, write, update adn delete reviews of the restaurant.
+- A restaurant review is viewable by the public but can only be updates and deleted by its reviewer.
 
-## Implementation
+### **Search Function**
+- User can search restaurants' name and categories in the search bar field.
 
-## Future Features
-
-## Image Credits
+### **Future Features**
+- Users can make reviews on their past comfirmed reservations.
+- Bookmark a Restaurant.

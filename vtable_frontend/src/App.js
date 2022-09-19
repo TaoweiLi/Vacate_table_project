@@ -6,7 +6,7 @@ import RestaurantsIndex from "./component/RestaurantsIndex";
 import Navigation from "./component/Navigation";
 import Footer from "./component/Footer";
 import RestaurantShow from "./component/RestaurantShow";
-import PageNotFound from "./component/PageNotFund";
+import PageNotFound from "./component/PageNotFound";
 import RestaurantReservation from "./component/RestaurantReservation";
 import User from "./component/UserPage";
 import AccountDetails from "./component/UserPage/AccountDetails";

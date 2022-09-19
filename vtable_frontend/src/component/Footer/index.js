@@ -33,11 +33,12 @@ const Footer = () => {
         <h2>TECHNOLOGIES</h2>
         <div>
           <div className="footer-col-item">JavaScript, Ruby, SCSS</div>
-          <div className="footer-col-item">Amazon Web Services S3</div>
           <div className="footer-col-item">Ruby on Rails</div>
-          <div className="footer-col-item">PostgreSQL</div>
           <div className="footer-col-item">React</div>
           <div className="footer-col-item">Redux</div>
+          <div className="footer-col-item">Amazon Web Services S3</div>
+          <div className="footer-col-item">Google Map API</div>
+          <div className="footer-col-item">PostgreSQL</div>
         </div>
       </div>
       <div className="footer-col-name">

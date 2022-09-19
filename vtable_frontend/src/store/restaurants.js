@@ -3,11 +3,20 @@ import csrfFetch from "./csrf";
 export const RECEIVE_RESTAURANTS = "restaurants/RECEIVE_RESTAURANTS";
 export const RECEIVE_RESTAURANT = "restaurants/RECEIVE_RESTAURANT";
 export const RECEIVE_TAGGED_RESTAURANTS = "restaurants/RECEIVE_TAGGED_RESTAURANTS";
+export const RECEIVE_QUERY_RESTAURANTS = "restaurants/RECEIVE_QUERY_RESTAURANTS";
 
 
 export function receiveRestaurants(restaurants) {
   return {
     type: RECEIVE_RESTAURANTS,
+    restaurants
+  }
+}
+
+export function receiveQueryRestaurants(query, restaurants) {
+  return {
+    type: RECEIVE_QUERY_RESTAURANTS,
+    query: query,
     restaurants
   }
 }
@@ -40,17 +49,17 @@ export function getRestaurant(restaurantId) {
   }
 }
 
-// export function getRestaurants(state) {
-//   if (!state || !state["restaurants"] || !state["restaurants"]["all"] ) {
-//     return [];
-//   }
-
-//   return Object.values(state["all"]);
-// }
-
 export const getRestaurants = (state) => {
-  return state.restaurants ? Object.values(state.restaurants) : [];
+  return state.restaurants && state.restaurants.all ? Object.values(state.restaurants.all) : [];
 };
+
+
+export function getQueryRestaurants(state, query) {
+  if (!state || !state["restaurants"] || !state["restaurants"][query]) {
+    return [];
+  }
+  return Object.values(state["restaurants"][query]);
+}
 
 export function getTaggedRestaurants(state, tag) {
   
@@ -84,8 +93,6 @@ export function fetchTaggedRestaurants(tag) {
     if (response.ok) {
       const restaurants = await response.json();
       dispatch(receiveTaggedRestaurants(tag, restaurants));
-
-      // return restaurants;
     }
   }
 }
@@ -94,7 +101,7 @@ export const fetchQueryRestaurants = (query) => async dispatch => {
   const response = await csrfFetch(`/api/search/${query}`)
   if (response.ok) {
     const data = await response.json();
-    dispatch(receiveRestaurants(data))
+    dispatch(receiveQueryRestaurants(query, data))
   }
 }
 
@@ -117,6 +124,9 @@ function restaurantsReducer(state = {}, action) {
   switch (action.type) {
     case RECEIVE_RESTAURANTS:
       newState["all"] = action.restaurants
+      return newState;
+    case RECEIVE_QUERY_RESTAURANTS:
+      newState[action.query] = action.restaurants
       return newState;
     case RECEIVE_TAGGED_RESTAURANTS:
       newState[action.tag] = action.restaurants

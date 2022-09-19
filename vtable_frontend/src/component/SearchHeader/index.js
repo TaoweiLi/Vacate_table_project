@@ -6,18 +6,14 @@ import { fetchQueryRestaurants } from '../../store/restaurants';
 import "./SearchHeader.scss"
 
 function SearchHeader() {
-  const dispatch = useDispatch();
+
   const [query, setQuery] = useState("");
   const history = useHistory();
 
-
   const handleSubmit = (e) => {
-
     e.preventDefault();
-    // dispatch(fetchQueryBusinesses(query));
     history.push(`/search/${query}`)
   }
-
 
   return (
     <>
@@ -82,7 +78,7 @@ function SearchHeader() {
               </div>
 
               <div id="searvh-bar-right">
-                <form action="/action_page.php" onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                   {/* <i id="search-text-icon" className="fa-solid fa-magnifying-glass"></i> */}
                   <input id="search-bar-container" type="text" placeholder="Restaurant or Category" name="search" value={query} onChange={(e) => setQuery(e.target.value)} />
                   <button id="search-button" type="submit">Let’s go</button>

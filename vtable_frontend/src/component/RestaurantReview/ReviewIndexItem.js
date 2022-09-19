@@ -8,7 +8,6 @@ export default function ReviewIndexItem({ review, onUpdateReview }) {
   const dispatch = useDispatch()
   const sessionUser = useSelector((state) => state.session.user);
 
-  console.log("debug  cccc", review)
 
   function handleUpdateSubmit(e) {
     // e.preventDefault();
