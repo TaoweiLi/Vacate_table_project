@@ -1,6 +1,6 @@
 # **Vacate Table** 
 
-<img src="https://github.com/TaoweiLi/Cat_Game/raw/main/asset/gameplay.gif" width="500" height="300">
+<img src="https://github.com/TaoweiLi/Vacate_table_project/raw/main/vtable_frontend/asset/vTable.gif" width="500" height="300">
 ## **Description**
 Vacate Table is a full-stack OpenTable clone where users can make reservations, write reviews and search, for dining spots across Bay Area.
 
