@@ -22,7 +22,7 @@ end
 
 def update
   @reservation = Reservation.find(params[:id])
-  if @reservation.update(Reservation_params)
+  if @reservation.update(reservation_params)
     render :show
   else
     render json: @reservation.errors.full_messages, status: 422

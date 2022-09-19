@@ -24,7 +24,7 @@ const Footer = () => {
         <h2>Taowei Li</h2>
         <div className="footer-col-item">
           {" "}
-          <a href="" target="_blank">
+          <a href="https://github.com/TaoweiLi" target="_blank">
             Github
           </a>
         </div>
@@ -32,11 +32,11 @@ const Footer = () => {
       <div className="footer-col-name">
         <h2>TECHNOLOGIES</h2>
         <div>
-          <div className="footer-col-item">React</div>
           <div className="footer-col-item">JavaScript, Ruby, SCSS</div>
           <div className="footer-col-item">Amazon Web Services S3</div>
           <div className="footer-col-item">Ruby on Rails</div>
           <div className="footer-col-item">PostgreSQL</div>
+          <div className="footer-col-item">React</div>
           <div className="footer-col-item">Redux</div>
         </div>
       </div>
@@ -45,7 +45,7 @@ const Footer = () => {
         <div>
           <ul className="author-info">
             <li>
-              <a href="" target="_blank">
+              <a href="https://github.com/TaoweiLi" target="_blank">
                 <i className="fa-brands fa-github fa-3x"></i>
               </a>
             </li>

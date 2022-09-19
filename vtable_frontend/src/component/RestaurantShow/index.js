@@ -3,31 +3,26 @@ import { Link, useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import "./RestaurantShow.scss"
 import { getRestaurant, fetchRestaurant } from '../../store/restaurants';
-import { getReviews, fetchReviews, getReviewsByResId, createReview } from "../../store/reviews";
+import { updateReview, fetchReviews, getReviewsByResId, createReview } from "../../store/reviews";
 import React from 'react';
 import Map from '../GoogleMap/Map';
 import ReviewIndexItem from '../RestaurantReview/ReviewIndexItem';
 import { Rating } from "@mui/material";
+import { fetchReservation, getReservation } from '../../store/reservations';
 
 function RestaurantShow() {
   const { restaurantId } = useParams();
   const restaurant = useSelector(getRestaurant(restaurantId));
   const sessionUser = useSelector((state) => state.session.user);
   const reviews = useSelector(getReviewsByResId(restaurantId));
-
-  // let user;
-  // if (sessionUser) {
-  //   user = sessionUser;
-  // } else {
-  //   user = "";
-  // }
+  const [isUpdateReview, setIsUpdateReview] = useState(false)
   const dispatch = useDispatch();
   const history = useHistory();
   const reviewData = {
     body: "",
     rating: 0,
     restaurant_id: restaurantId,
-    user_id:  ""
+    user_id: ""
   }
 
   const [review, setReview] = useState(reviewData);
@@ -38,7 +33,6 @@ function RestaurantShow() {
     lng: restaurant?.lng,
   }
 
-
   useEffect(() => {
     dispatch(fetchRestaurant(restaurantId));
   }, [dispatch, restaurantId])
@@ -47,7 +41,7 @@ function RestaurantShow() {
     dispatch(fetchReviews(restaurantId));
   }, [dispatch, restaurantId])
 
-  var hashMonth = {
+  const hashMonth = {
     '1': '01',
     '2': '02',
     '3': '03',
@@ -66,12 +60,28 @@ function RestaurantShow() {
   const todayMonth = new Date().getMonth() + 1;
   const todayYear = new Date().toDateString().slice(11);
 
-  const initialState = {
+  const params = (new URL(document.location)).searchParams;
+  const updateReservationId = params.get('updateReservationId');
+
+  useEffect(() => {
+    dispatch(fetchReservation(updateReservationId));
+  }, [dispatch, updateReservationId])
+
+  const updateReservation = useSelector(getReservation(updateReservationId)) 
+  let isUpdateReservation = false
+
+  let initialState = {
     "restaurant": restaurant,
     "partySize": 2,
     "date": `${todayYear}-${hashMonth[todayMonth]}-${todayDay}`,
     "time": "11:00"
   }
+
+  if (updateReservation){
+    initialState = updateReservation
+    isUpdateReservation = true
+  }
+
 
   const [partySize, setPartySize] = useState(initialState.partySize)
   const [date, setDate] = useState(initialState.date);
@@ -96,19 +106,44 @@ function RestaurantShow() {
     }
   }
 
-  function handleSubmit(e) {
+  function handleReservSubmit(e) {
     e.preventDefault();
-    history.push({
-      pathname: `/restaurants/${restaurant.id}/reservation`,
-      search: `?partySize=${partySize}&date=${date}&time=${time}`,
-    });
+
+    if (sessionUser) {
+      let searchString = `?partySize=${partySize}&date=${date}&time=${time}`
+      if (isUpdateReservation && initialState.id){
+        searchString += `&updateReservationId=${initialState.id}`
+      }
+      history.push({
+        pathname: `/restaurants/${restaurant.id}/reservation`,
+        search: searchString,
+      });
+    } else {
+      document.getElementById("signinModal").click()
+    }
   }
 
   function handleReviewSubmit(e) {
     e.preventDefault();
-    const newReview = { ...review, user_id: sessionUser.id }
-    dispatch(createReview(newReview));
+    if (sessionUser) {
+      const newReview = { ...review, user_id: sessionUser.id }
+      dispatch(createReview(newReview));
+      setReview(reviewData);
+    } else {
+      document.getElementById("signinModal").click()
+    }
+  }
+
+  function handleReviewUpdateSubmit(e){
+    e.preventDefault();
+    dispatch(updateReview(review));
+    setIsUpdateReview(false)
     setReview(reviewData);
+  }
+
+  function onUpdateReview(review) { 
+    setReview(review)
+    setIsUpdateReview(true)
   }
 
   return (
@@ -179,24 +214,25 @@ function RestaurantShow() {
               <section id="left-review-wrapper">
 
                 <h2 id="res-review-header">Review
-                  
+
                 </h2>
-                {sessionUser && (
-                <form id="review-container">
-                  <textarea id="review-texarea" rows="10" cols="40" value={review.body} onChange={e => { setReview({ ...review, body: e.target.value }) }}></textarea>
-                  <div id="rating-star">
-                    <Rating
-                      name="simple-controlled"
-                      value={review.rating}
-                      onChange={(event, newValue) => {
-                        setReview({ ...review, rating: newValue })
-                      }}
-                      size="large"/>
-                  </div>
-                  {sessionUser && <button id="review-button" onClick={handleReviewSubmit}>Write a review</button>}
-                </form> )}
+
+                  <form id="review-container">
+                    <textarea id="review-texarea" rows="10" cols="40" value={review.body} onChange={e => { setReview({ ...review, body: e.target.value }) }}></textarea>
+                    <div id="rating-star">
+                      <Rating
+                        name="simple-controlled"
+                        value={review.rating}
+                        onChange={(event, newValue) => {
+                          setReview({ ...review, rating: newValue })
+                        }}
+                        size="large" />
+                    </div>
+                  {!isUpdateReview && (<button id="review-button" onClick={handleReviewSubmit}>Write a review</button>)}
+                  {isUpdateReview && (<button id="review-button" onClick={handleReviewUpdateSubmit}>Update the review</button>)}
+                  </form>
                 <ol id="review-list-wrapper">
-                  {reviews.map(review => (<ReviewIndexItem key={review.id} review={review} />))}
+                  {reviews.map(review => (<ReviewIndexItem key={review.id} review={review} onUpdateReview={onUpdateReview} />))}
                 </ol>
               </section>
             </div>
@@ -205,7 +241,7 @@ function RestaurantShow() {
               <div id="right-reserv-wrapper">
                 <div id="right-reserv-container">
                   <h4 id="right-reserv-header">Make a reservation</h4>
-                  <form id="reserv-form" onSubmit={handleSubmit}>
+                  <form id="reserv-form" onSubmit={handleReservSubmit}>
                     <label className="reserv-header" htmlFor="party-size">Party Size</label>
                     <input className="reserv-input" id="party-size" value={partySize} onChange={handleChange("partySize")} />
 
@@ -255,7 +291,8 @@ function RestaurantShow() {
                       </div>
                     </div> */}
 
-                    <button id="reserv-button">Find a time</button>
+                    {!isUpdateReservation  && (<button id="reserv-button">Reserve</button>)}
+                    {isUpdateReservation  && (<button id="reserv-button">Update Reservation</button>)}
                   </form>
 
                 </div>

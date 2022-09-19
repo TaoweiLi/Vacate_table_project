@@ -16,7 +16,7 @@ function SigninFormModal({ showSignin, setShowSignin, setShowSignup }) {
 
   return (
     <>
-      <button className="nav-signin" onClick={() => signInOnClick()}>Sign In</button>
+      <button id="signinModal" className="nav-signin" onClick={() => signInOnClick()}>Sign In</button>
       {showSignin && (
         <Modal onClose={() => signInModalOnClose()}>
           <SigninForm setShowSignin={setShowSignin} setShowSignup={setShowSignup} />

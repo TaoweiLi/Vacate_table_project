@@ -12,9 +12,6 @@ function SearchIndexPage() {
   const resData = useSelector(getRestaurants);
   const history = useHistory();
 
-  console.log("debug   bbb", resData)
-  console.log("debug   aaaa", query)
-
 
   useEffect(() => {
     dispatch(fetchQueryRestaurants(query))

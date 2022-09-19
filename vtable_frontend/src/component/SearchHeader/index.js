@@ -84,7 +84,7 @@ function SearchHeader() {
               <div id="searvh-bar-right">
                 <form action="/action_page.php" onSubmit={handleSubmit}>
                   {/* <i id="search-text-icon" className="fa-solid fa-magnifying-glass"></i> */}
-                  <input id="search-bar-container" type="text" placeholder="Location, Restaurant, or Cuisine" name="search" value={query} onChange={(e) => setQuery(e.target.value)} />
+                  <input id="search-bar-container" type="text" placeholder="Restaurant or Category" name="search" value={query} onChange={(e) => setQuery(e.target.value)} />
                   <button id="search-button" type="submit">Let’s go</button>
                 </form>
               </div>

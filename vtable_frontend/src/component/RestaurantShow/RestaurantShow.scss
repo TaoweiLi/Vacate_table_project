@@ -265,6 +265,22 @@
             #review-details {
               flex-grow: 1;
 
+              #review-body {
+                margin-top: 10px;
+              }
+
+              #update-delete-container{
+                margin-top: 30px;
+
+
+                #update-button {
+                  padding: 8px;
+                }
+                #delete-button {
+                  margin-left: 16px;
+                  padding: 8px;
+                }
+              }
             }
           }
         }

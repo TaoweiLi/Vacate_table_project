@@ -4,9 +4,27 @@ import { Rating } from "@mui/material";
 import { deleteReview } from '../../store/reviews'
 
 
-export default function ReviewIndexItem({ review }) {
+export default function ReviewIndexItem({ review, onUpdateReview }) {
   const dispatch = useDispatch()
   const sessionUser = useSelector((state) => state.session.user);
+
+  console.log("debug  cccc", review)
+
+  function handleUpdateSubmit(e) {
+    // e.preventDefault();
+    //   const newReview = { ...review, user_id: sessionUser.id }
+    //   dispatch(createReview(newReview));
+    //   setReview(reviewData);
+    onUpdateReview(review)
+  }
+
+  function handleDeleteSubmit(e) {
+    e.preventDefault();
+    dispatch(deleteReview(review.id));
+  }
+
+
+
   return (
 
     <>
@@ -21,7 +39,17 @@ export default function ReviewIndexItem({ review }) {
               readOnly
             />
           </div>
-          <div>Review: {review.body}</div>
+          <div id="review-body">Review: {review.body}</div>
+          <div id="update-delete-wrapper">
+          {
+            sessionUser && (sessionUser.id === review.userId) && (
+              <div id="update-delete-container">
+                <button id="update-button" onClick={handleUpdateSubmit}>Update</button>
+                <button id="delete-button" onClick={handleDeleteSubmit}>Delete</button>
+              </div>
+            )
+          }
+          </div>
         </section>
       </li>
     </>

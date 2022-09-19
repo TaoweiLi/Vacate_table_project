@@ -2,19 +2,32 @@ import { useDispatch, useSelector } from 'react-redux';
 import React from 'react'
 import { useEffect } from 'react';
 import { getRestaurant, fetchRestaurant } from '../../store/restaurants';
-import { useParams } from 'react-router-dom';
+import { deleteReservation } from "../../store/reservations";
+import { useHistory } from 'react-router-dom';
 
-function UserReservationIndexItem({ reservtaion }) {
-  const restaurantId = reservtaion.restaurantId;
+function UserReservationIndexItem(props) {
+  const reservation = props.reservation
+  const restaurantId = reservation.restaurantId;
   const restaurant = useSelector(getRestaurant(restaurantId));
+  const history = useHistory();
 
   const dispatch = useDispatch();
-  // const currentRestaurantId = reservtaion.restaurantId
+  // const currentRestaurantId = reservation.restaurantId
   // const currentRestaurant = restaurants.currentRestaurantId
 
   useEffect(() => {
     dispatch(fetchRestaurant(restaurantId))
   }, [dispatch, restaurantId])
+
+  function handleUpdateSubmit(e) {
+    e.preventDefault();
+    history.push(`/restaurants/${restaurantId}?updateReservationId=${reservation.id}`);
+  }
+
+  function handleCancelSubmit(e) {
+    e.preventDefault();
+    dispatch(deleteReservation(reservation.id));
+  }
 
   return (
     <>
@@ -30,12 +43,16 @@ function UserReservationIndexItem({ reservtaion }) {
             <div id="reserv-details">
               <div id="person-container">
                 <i className="fa-regular fa-user"></i>
-                <span>{reservtaion.partySize}</span>
+                <span>{reservation.partySize}</span>
               </div>
               <div id="date-container">
                 <i className="fa-regular fa-calendar"></i>
-                <span>{reservtaion.date} at {reservtaion.time}</span>
+                <span>{reservation.date} at {reservation.time}</span>
               </div>
+            </div>
+            <div id="update-cancel-wrapper">
+              <button id="update-button" onClick={handleUpdateSubmit}>Update Reservation</button>
+              <button id="cancel-button" onClick={handleCancelSubmit}>Cancel Reservation</button>
             </div>
           </div>
         </a>

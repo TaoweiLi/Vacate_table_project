@@ -18,10 +18,6 @@ function User() {
     dispatch(fetchUserReservations(sessionUser.id));
   }, [dispatch])
 
-  // useEffect(()=>{
-  //   dispatch(fetchRestaurants())
-  // }, [dispatch])
-
   return (
     <>
       <div id="user-page-wrapper">
@@ -47,7 +43,7 @@ function User() {
             <div id="reservation-list-container">
               <h2 id="upcoming-header">Upcoming reservations</h2>
               <ol id="review-list-wrapper">
-                {(reservations.map(reservtaion => (<UserReservationIndexItem key={reservtaion.id} reservtaion={reservtaion} restaurantId={reservtaion.restaurantId} />))).reverse()}
+                {(reservations.map(reservation => (<UserReservationIndexItem key={reservation.id} reservation={reservation} restaurantId={reservation.restaurantId} />))).reverse()}
               </ol>
 
 
