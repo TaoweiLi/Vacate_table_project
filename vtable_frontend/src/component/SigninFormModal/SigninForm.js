@@ -12,6 +12,8 @@ function SigninForm({setShowSignin, setShowSignup}) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
+    setShowSignin(false);
+    
     return dispatch(sessionActions.signin({ email, password }))
       .catch(async (res) => {
         let data;
@@ -38,7 +40,6 @@ function SigninForm({setShowSignin, setShowSignup}) {
     setShowSignin(false);
     dispatch(sessionActions.signin({ email: "dali@vtable.com", password: "123456" }))
   }
-
 
   return (
     <div id="signin-modal">

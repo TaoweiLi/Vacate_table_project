@@ -20,23 +20,26 @@ function SignupForm({setShowSignin, setShowSignup}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
-      setErrors([]);
-      return dispatch(sessionActions.signup({ firstName, lastName, email, phoneNumber, password }))
-        .catch(async (res) => {
-          let data;
-          try {
-            // .clone() essentially allows you to read the response body twice
-            data = await res.clone().json();
-          } catch {
-            data = await res.text(); // Will hit this case if the server is down
-          }
-          if (data?.errors) setErrors(data.errors);
-          else if (data) setErrors([data]);
-          else setErrors([res.statusText]);
-        });
+    if (password !== confirmPassword) {
+      return setErrors(['Confirm Password field must be the same as the Password field']);
     }
-    return setErrors(['Confirm Password field must be the same as the Password field']);
+
+    setErrors([]);
+    setShowSignup(false);
+
+    return dispatch(sessionActions.signup({ firstName, lastName, email, phoneNumber, password }))
+      .catch(async (res) => {
+        let data;
+        try {
+          // .clone() essentially allows you to read the response body twice
+          data = await res.clone().json();
+        } catch {
+          data = await res.text(); // Will hit this case if the server is down
+        }
+        if (data?.errors) setErrors(data.errors);
+        else if (data) setErrors([data]);
+        else setErrors([res.statusText]);
+      });
   };
 
   const handleClick = (e) => {
@@ -46,11 +49,6 @@ function SignupForm({setShowSignin, setShowSignup}) {
   }
 
   return (
-
-
-
-
-
     <div id="signup-modal">
       <div id="signup-modal-wrapper">
         <div id="signup-modal-inner">

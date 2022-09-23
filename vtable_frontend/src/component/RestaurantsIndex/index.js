@@ -17,10 +17,10 @@ function RestaurantsIndex() {
               <div id="current-location-text">It looks like you're in San Francisco. Not correct?</div>
               <div id="current-location-buttons">
                 <div id="current-location-arrow">
-                  <i className="fa-solid fa-location-arrow"></i>
+                  {/* <i className="fa-solid fa-location-arrow"></i> */}
                 </div>
                 <div id="current-location-link">
-                  <div>Get current location</div>
+                  {/* <div>Get current location</div> */}
                 </div>
               </div>
             </div>

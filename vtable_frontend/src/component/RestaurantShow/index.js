@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import "./RestaurantShow.scss"
 import { getRestaurant, fetchRestaurant } from '../../store/restaurants';
@@ -9,6 +9,7 @@ import Map from '../GoogleMap/Map';
 import ReviewIndexItem from '../RestaurantReview/ReviewIndexItem';
 import { Rating } from "@mui/material";
 import { fetchReservation, getReservation } from '../../store/reservations';
+import { HashLink as Link } from 'react-router-hash-link';
 
 function RestaurantShow() {
   const { restaurantId } = useParams();
@@ -167,16 +168,21 @@ function RestaurantShow() {
                 <nav className="left-nav-bar">
                   <ol className="nav-list">
                     <li className="nav-buttons">
-                      <button className="nav-button">Overview</button>
+                      {/* <button className="nav-button">Overview</button> */}
+                      {/* <a className="nav-button" href="#left-oview-wrapper">Overview</a> */}
+                      <Link className="nav-button" smooth to="#left-oview-wrapper">Overview</Link>
+                    </li>
+                    {/* <li className="nav-buttons"> */}
+                      {/* <button className="nav-button">Photos</button> */}
+                    {/* </li> */}
+                    <li className="nav-buttons">
+                      {/* <button className="nav-button">Menu</button> */}
+                      {/* <a className="nav-button" href="#left-menu-wrapper">Menu</a> */}
+                      <Link className="nav-button" smooth to="#left-menu-wrapper">Menu</Link>
                     </li>
                     <li className="nav-buttons">
-                      <button className="nav-button">Photos</button>
-                    </li>
-                    <li className="nav-buttons">
-                      <button className="nav-button">Menu</button>
-                    </li>
-                    <li className="nav-buttons">
-                      <button className="nav-button">Review</button>
+                      {/* <button className="nav-button">Review</button> */}
+                      <Link className="nav-button" smooth to="#left-review-wrapper">Review</Link>
                     </li>
 
                   </ol>
@@ -200,9 +206,9 @@ function RestaurantShow() {
                   <div id="res-description-container">
                     <div id="res-description-detail">{restaurant.description}</div>
                   </div>
-                  <div id="res-readmore">
+                  {/* <div id="res-readmore">
                     <button id="res-readmore-button">+ Read more</button>
-                  </div>
+                  </div> */}
                 </div>
               </section>
 
@@ -397,9 +403,9 @@ function RestaurantShow() {
                           </div>
                         </li>
                       </ul>
-                      <div id="view-more">
+                      {/* <div id="view-more">
                         <button id="view-more-button">+ View more</button>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>

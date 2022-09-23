@@ -35,14 +35,14 @@ function Navigation() {
     <>
       <div id="nav-bar-wrapper">
         <div id="top-nav-bar">
-          <button id="for-business">For Businesses</button>
+          {/* <button id="for-business">For Businesses</button>
           <div id="mobile-button-wrapper">
             <button id="mobile-button" className="button_with_down_arrow">Mobile</button>
           </div>
           <button id="help">Help</button>
           <div id="language-wrapper">
             <button id="language" className="button_with_down_arrow" >EN</button>
-          </div>
+          </div> */}
         </div>
 
         <div className="lower-nav-bar">
@@ -51,8 +51,8 @@ function Navigation() {
               <img className="nav-logo-img" height="35" src="https://i.postimg.cc/ZKgFN97s/Untitled-drawing-17.png" alt="Vacate Table Logo"></img>
             </a>
             <div className="nav-location-menu">
-              <i className="fa-solid fa-location-dot"></i>
-              <div className='button_with_down_arrow'></div>
+              {/* <i className="fa-solid fa-location-dot"></i>
+              <div className='button_with_down_arrow'></div> */}
             </div>
           </div>
 

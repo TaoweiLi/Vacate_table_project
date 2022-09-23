@@ -5,7 +5,7 @@ import { deleteReview } from '../../store/reviews'
 
 
 export default function ReviewIndexItem({ review, onUpdateReview }) {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
 
 
