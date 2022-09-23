@@ -57,12 +57,12 @@ function ProfileButton({ user }) {
           )}
         </div>
 
-        <button className="nav-calendar">
+        {/* <button className="nav-calendar">
           <i className="fa-regular fa-calendar"></i>
         </button>
         <button className="nav-bell">
           <i className="fa-regular fa-bell"></i>
-        </button>
+        </button> */}
       </div>
 
     </>
