@@ -86,7 +86,6 @@ function RestaurantShow() {
     isUpdateReservation = true
   }
 
-
   const [partySize, setPartySize] = useState(initialState.partySize)
   const [date, setDate] = useState(initialState.date);
   const [time, setTime] = useState(initialState.time);
@@ -182,7 +181,7 @@ function RestaurantShow() {
                     </li>
                     <li className="nav-buttons">
                       {/* <button className="nav-button">Review</button> */}
-                      <Link className="nav-button" smooth to="#left-review-wrapper">Review</Link>
+                      <Link className="nav-button" id="nav-button-review" smooth to="#left-review-wrapper">Review</Link>
                     </li>
 
                   </ol>
@@ -251,8 +250,24 @@ function RestaurantShow() {
                 <div id="right-reserv-container">
                   <h4 id="right-reserv-header">Make a reservation</h4>
                   <form id="reserv-form" onSubmit={handleReservSubmit}>
-                    <label className="reserv-header" htmlFor="party-size">Party Size</label>
-                    <input className="reserv-input" id="party-size" value={partySize} onChange={handleChange("partySize")} />
+                    <label className="reserv-header" htmlFor="ps-wrapper">Party Size</label>
+                    {/* <input className="reserv-input" id="party-size" value={partySize} onChange={handleChange("partySize")} /> */}
+                    <div id="ps-wrapper">
+                      <div id="ps-select-wrapper">
+                        <select className="reserv-input" id="ps-select">
+                          <option value="1">1 people</option>
+                          <option selected="selected">2 people</option>
+                          <option value="3">3 people</option>
+                          <option value="4">4 people</option>
+                          <option value="5">5 people</option>
+                          <option value="6">6 people</option>
+                          <option value="7">7 people</option>
+                          <option value="8">8 people</option>
+                          <option value="9">9 people</option>
+                          <option value="10">10 people</option>
+                        </select>
+                      </div>
+                    </div>
 
                     <label className="reserv-header" htmlFor="date">Date</label>
                     <input className="reserv-input" id="date" value={date} onChange={handleChange("date")} />
@@ -261,22 +276,7 @@ function RestaurantShow() {
                     <input className="reserv-input" id="time" value={time} onChange={handleChange("time")} />
 
 
-                    {/* <div id="ps-wrapper">
-                      <div className="ps-select-wrapper">
-                        <select className="ps-select-dropdown" id="ps-select">
-                          <option value="1">1 person</option>
-                          <option value="2">2 person</option> */}
-                    {/* <option value="3">3 person</option>
-                          <option value="4">4 person</option>
-                          <option value="5">5 person</option>
-                          <option value="6">6 person</option>
-                          <option value="7">7 person</option>
-                          <option value="8">8 person</option>
-                          <option value="9">9 person</option>
-                          <option value="10">10 person</option>
-                        </select>
-                      </div>
-                    </div> */}
+
 
                     {/* <div id="dt-wrapper">
                       <div id="date-wrapper">

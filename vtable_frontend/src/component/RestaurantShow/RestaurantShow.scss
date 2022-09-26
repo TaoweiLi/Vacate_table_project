@@ -18,7 +18,6 @@
     position: relative;
     z-index: -2;
 
-
     .show-res-img {
       height: 460px;
       object-fit: cover;
@@ -65,7 +64,6 @@
             padding-bottom: 16px;
             scrollbar-width: none;
             white-space: nowrap;
-  
 
             .nav-buttons {
               margin-right: 32px;
@@ -94,7 +92,7 @@
 
       #left-oview-wrapper {
 
-        scroll-margin-top: 100px;
+        scroll-margin-top: 30px;
 
         #res-name {
           border-bottom: 0.0625rem solid #d8d9db;
@@ -169,7 +167,7 @@
       }
 
       #left-menu-wrapper {
-        scroll-margin-top: 200px;
+        scroll-margin-top: 50px;
         margin-top: 64px;
 
         #menu-header {
@@ -201,7 +199,7 @@
       }
 
       #left-review-wrapper {
-        scroll-margin-top: 200px;
+        scroll-margin-top: 50px;
         margin-top: 64px;
 
         #res-review-header {
@@ -329,13 +327,13 @@
             flex-direction: column;
             color: #2d333f;
 
-            input {
-              border-top-style: hidden;
-              border-right-style: hidden;
-              border-left-style: hidden;
-              border-bottom-style: groove;
-              border-bottom: 0.0625rem solid #d8d9db;
-            }
+            // input {
+            //   border-top-style: hidden;
+            //   border-right-style: hidden;
+            //   border-left-style: hidden;
+            //   border-bottom-style: groove;
+            //   border-bottom: 0.0625rem solid #d8d9db;
+            // }
 
             .reserv-header {
               font-size: 14px;
@@ -344,12 +342,23 @@
               color: #2d333f;
             }
 
+            #ps-select-wrapper {
+              display: block;
+              width: 100%;
+            }
+
             .reserv-input {
               font-size: 13px;
               color: #2d333f;
               background: #fff;
               height: 3rem;
               position: relative;
+              width: 100%;
+              border-top-style: hidden;
+              border-right-style: hidden;
+              border-left-style: hidden;
+              border-bottom-style: groove;
+              border-bottom: 0.0625rem solid #d8d9db;
             }
 
             #reserv-button {
