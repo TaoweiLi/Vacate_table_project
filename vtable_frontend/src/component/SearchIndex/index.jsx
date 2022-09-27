@@ -27,7 +27,7 @@ function SearchIndexPage() {
           <h1>Search Results:</h1>
           {resData.length > 0 ? resData.map((restaurant, i) => (
             <Link to={`/restaurants/${restaurant.id}`} className="singleres" key={i} >
-              <img src={restaurant.img} alt="" width="250vw" height='250vh' />
+              <img id="restaurant-img" src={restaurant.img} alt="" width="250vw" height='250vh' />
               <div className="restaurant-wrapper">
                 <h1>{i + 1}. {restaurant.name}</h1>
                 <div id="res-details-wrapper">
