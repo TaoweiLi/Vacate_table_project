@@ -25,6 +25,7 @@ function RestaurantReservation(props) {
   let time = params.get('time');
   let updateReservationId = params.get('updateReservationId');
 
+
   const formType = (updateReservationId ? "Update Reservation" : "Create Reservation"); //frontend routes: postId is a wildcard--> useParams()
 
   let reservation = {

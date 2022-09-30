@@ -19,6 +19,7 @@ function RestaurantShow() {
   const [isUpdateReview, setIsUpdateReview] = useState(false)
   const dispatch = useDispatch();
   const history = useHistory();
+  const [errors, setErrors] = useState([]);
   const reviewData = {
     body: "",
     rating: 0,
@@ -265,6 +266,14 @@ function RestaurantShow() {
                           <option value="8">8 people</option>
                           <option value="9">9 people</option>
                           <option value="10">10 people</option>
+                          <option value="11">11 people</option>
+                          <option value="12">12 people</option>
+                          <option value="13">13 people</option>
+                          <option value="14">14 people</option>
+                          <option value="15">15 people</option>
+                          <option value="16">16 people</option>
+                          <option value="17">17 people</option>
+                          <option value="18">18 people</option>
                         </select>
                       </div>
                     </div>
@@ -272,8 +281,38 @@ function RestaurantShow() {
                     <label className="reserv-header" htmlFor="date">Date</label>
                     <input className="reserv-input" id="date" value={date} onChange={handleChange("date")} />
 
-                    <label className="reserv-header" htmlFor="time">Time</label>
-                    <input className="reserv-input" id="time" value={time} onChange={handleChange("time")} />
+                    <label className="reserv-header" htmlFor="time-wrapper">Time</label>
+                    {/* <input className="reserv-input" id="time" value={time} onChange={handleChange("time")} /> */}
+                    <div id="time-wrapper">
+                      <div id="time-select-wrapper">
+                        <select className="reserv-input" id="time-select">
+                          <option value="2000-02-01T11:00:00">11:00 AM</option>
+                          <option selected="selected">11:30 AM</option>
+                          <option value="2000-02-01T12:00:00">12:00 PM</option>
+                          <option value="2000-02-01T12:30:00">12:30 PM</option>
+                          <option value="2000-02-01T13:00:00">1:00 PM</option>
+                          <option value="2000-02-01T13:30:00">1:30 PM</option>
+                          <option value="2000-02-01T14:00:00">2:00 PM</option>
+                          <option value="2000-02-01T14:30:00">2:30 PM</option>
+                          <option value="2000-02-01T15:00:00">3:00 PM</option>
+                          <option value="2000-02-01T15:30:00">3:30 PM</option>
+                          <option value="2000-02-01T16:00:00">4:00 PM</option>
+                          <option value="2000-02-01T16:30:00">4:30 PM</option>
+                          <option value="2000-02-01T17:00:00">5:00 PM</option>
+                          <option value="2000-02-01T17:30:00">5:30 PM</option>
+                          <option value="2000-02-01T18:00:00">6:00 PM</option>
+                          <option value="2000-02-01T18:30:00">6:30 PM</option>
+                          <option value="2000-02-01T19:00:00">7:00 PM</option>
+                          <option value="2000-02-01T19:30:00">7:30 PM</option>
+                          <option value="2000-02-01T20:00:00">8:00 PM</option>
+                          <option value="2000-02-01T20:30:00">8:30 PM</option>
+                          <option value="2000-02-01T21:00:00">9:00 PM</option>
+                          <option value="2000-02-01T21:30:00">9:30 PM</option>
+                          <option value="2000-02-01T22:00:00">10:00 PM</option>
+                          <option value="2000-02-01T22:30:00">10:30 PM</option>
+                        </select>
+                      </div>
+                    </div>
 
 
 
