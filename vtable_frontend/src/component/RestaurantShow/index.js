@@ -19,7 +19,7 @@ function RestaurantShow() {
   const [isUpdateReview, setIsUpdateReview] = useState(false)
   const dispatch = useDispatch();
   const history = useHistory();
-  const [errors, setErrors] = useState([]);
+  // const [errors, setErrors] = useState([]);
   const reviewData = {
     body: "",
     rating: 0,
@@ -67,7 +67,7 @@ function RestaurantShow() {
 
 
   useEffect(() => {
-    if (updateReservationId){
+    if (updateReservationId) {
       dispatch(fetchReservation(updateReservationId));
     }
   }, [dispatch, updateReservationId])
@@ -91,23 +91,36 @@ function RestaurantShow() {
   const [date, setDate] = useState(initialState.date);
   const [time, setTime] = useState(initialState.time);
 
-  function handleChange(field) {
-    return (event) => {
-      switch (field) {
-        case "partySize":
-          setPartySize(event.currentTarget.value);
-          break;
-        case "date":
-          setDate(event.currentTarget.value);
-          break;
-        case "time":
-          setTime(event.currentTarget.value);
-          break;
-        default:
-          console.error("Field name error");
-          break;
-      }
-    }
+  // function handleChange(field) {
+  //   return (event) => {
+  //     switch (field) {
+  //       case "partySize":
+  //         setPartySize(event.currentTarget.value);
+  //         break;
+  //       case "date":
+  //         setDate(event.currentTarget.value);
+  //         break;
+  //       case "time":
+  //         setTime(event.currentTarget.value);
+  //         break;
+  //       default:
+  //         console.error("Field name error");
+  //         break;
+  //     }
+  //   }
+  // }
+
+  function handlePartySizeChange(event) {
+    setPartySize(event.currentTarget.value);
+  }
+
+
+  function handleDateChange(event) {
+    setDate(event.currentTarget.value);
+  }
+
+  function handleTimeChange(event) {
+    setTime(event.currentTarget.value);
   }
 
   function handleReservSubmit(e) {
@@ -173,7 +186,7 @@ function RestaurantShow() {
                       <Link className="nav-button" smooth to="#left-oview-wrapper">Overview</Link>
                     </li>
                     {/* <li className="nav-buttons"> */}
-                      {/* <button className="nav-button">Photos</button> */}
+                    {/* <button className="nav-button">Photos</button> */}
                     {/* </li> */}
                     <li className="nav-buttons">
                       {/* <button className="nav-button">Menu</button> */}
@@ -255,9 +268,9 @@ function RestaurantShow() {
                     {/* <input className="reserv-input" id="party-size" value={partySize} onChange={handleChange("partySize")} /> */}
                     <div id="ps-wrapper">
                       <div id="ps-select-wrapper">
-                        <select className="reserv-input" id="ps-select">
+                        <select className="reserv-input" id="ps-select" defaultValue="2" onChange={handlePartySizeChange}>
                           <option value="1">1 people</option>
-                          <option selected="selected">2 people</option>
+                          <option value="2">2 people</option>
                           <option value="3">3 people</option>
                           <option value="4">4 people</option>
                           <option value="5">5 people</option>
@@ -279,37 +292,37 @@ function RestaurantShow() {
                     </div>
 
                     <label className="reserv-header" htmlFor="date">Date</label>
-                    <input className="reserv-input" id="date" value={date} onChange={handleChange("date")} />
+                    <input className="reserv-input" id="date" value={date} onChange={handleDateChange} />
 
                     <label className="reserv-header" htmlFor="time-wrapper">Time</label>
                     {/* <input className="reserv-input" id="time" value={time} onChange={handleChange("time")} /> */}
                     <div id="time-wrapper">
                       <div id="time-select-wrapper">
-                        <select className="reserv-input" id="time-select">
-                          <option value="2000-02-01T11:00:00">11:00 AM</option>
-                          <option selected="selected">11:30 AM</option>
-                          <option value="2000-02-01T12:00:00">12:00 PM</option>
-                          <option value="2000-02-01T12:30:00">12:30 PM</option>
-                          <option value="2000-02-01T13:00:00">1:00 PM</option>
-                          <option value="2000-02-01T13:30:00">1:30 PM</option>
-                          <option value="2000-02-01T14:00:00">2:00 PM</option>
-                          <option value="2000-02-01T14:30:00">2:30 PM</option>
-                          <option value="2000-02-01T15:00:00">3:00 PM</option>
-                          <option value="2000-02-01T15:30:00">3:30 PM</option>
-                          <option value="2000-02-01T16:00:00">4:00 PM</option>
-                          <option value="2000-02-01T16:30:00">4:30 PM</option>
-                          <option value="2000-02-01T17:00:00">5:00 PM</option>
-                          <option value="2000-02-01T17:30:00">5:30 PM</option>
-                          <option value="2000-02-01T18:00:00">6:00 PM</option>
-                          <option value="2000-02-01T18:30:00">6:30 PM</option>
-                          <option value="2000-02-01T19:00:00">7:00 PM</option>
-                          <option value="2000-02-01T19:30:00">7:30 PM</option>
-                          <option value="2000-02-01T20:00:00">8:00 PM</option>
-                          <option value="2000-02-01T20:30:00">8:30 PM</option>
-                          <option value="2000-02-01T21:00:00">9:00 PM</option>
-                          <option value="2000-02-01T21:30:00">9:30 PM</option>
-                          <option value="2000-02-01T22:00:00">10:00 PM</option>
-                          <option value="2000-02-01T22:30:00">10:30 PM</option>
+                        <select className="reserv-input" id="time-select" defaultValue="2000-02-01T11:30:00" onChange={handleTimeChange}>
+                          <option value="11:00 AM">11:00 AM</option>
+                          <option value="11:30 AM">11:30 AM</option>
+                          <option value="12:00 PM">12:00 PM</option>
+                          <option value="12:30 PM">12:30 PM</option>
+                          <option value="1:00 PM">1:00 PM</option>
+                          <option value="1:30 PM">1:30 PM</option>
+                          <option value="2:00 PM">2:00 PM</option>
+                          <option value="2:30 PM">2:30 PM</option>
+                          <option value="3:00 PM">3:00 PM</option>
+                          <option value="3:30 PM">3:30 PM</option>
+                          <option value="4:00 PM">4:00 PM</option>
+                          <option value="4:30 PM">4:30 PM</option>
+                          <option value="5:00 PM">5:00 PM</option>
+                          <option value="5:30 PM">5:30 PM</option>
+                          <option value="6:00 PM">6:00 PM</option>
+                          <option value="6:30 PM">6:30 PM</option>
+                          <option value="7:00 PM">7:00 PM</option>
+                          <option value="7:30 PM">7:30 PM</option>
+                          <option value="8:00 PM">8:00 PM</option>
+                          <option value="8:30 PM">8:30 PM</option>
+                          <option value="9:00 PM">9:00 PM</option>
+                          <option value="9:30 PM">9:30 PM</option>
+                          <option value="10:00 PM">10:00 PM</option>
+                          <option value="10:30 PM">10:30 PM</option>
                         </select>
                       </div>
                     </div>
