@@ -10,6 +10,8 @@ import ReviewIndexItem from '../RestaurantReview/ReviewIndexItem';
 import { Rating } from "@mui/material";
 import { fetchReservation, getReservation } from '../../store/reservations';
 import { HashLink as Link } from 'react-router-hash-link';
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 
 function RestaurantShow() {
   const { restaurantId } = useParams();
@@ -166,7 +168,6 @@ function RestaurantShow() {
   return (
     <>
       <div className="breadcrumb"></div>
-
       {restaurant && (
         <main className="show-main-wrapper">
           <div className="show-banner-wrapper">
@@ -291,8 +292,12 @@ function RestaurantShow() {
                       </div>
                     </div>
 
-                    <label className="reserv-header" htmlFor="date">Date</label>
-                    <input className="reserv-input" id="date" value={date} onChange={handleDateChange} />
+                    <label className="reserv-header" htmlFor="date-wrapper">Date</label>
+                    {/* <input className="reserv-input" id="date" value={date} onChange={handleDateChange} /> */}
+                    <div id="date-wrapper">
+                      <DatePicker className="reserv-input" dateFormat="yyyy-MM-dd" />
+                      <div className='button_with_down_arrow' id="aabbc"></div>
+                    </div>
 
                     <label className="reserv-header" htmlFor="time-wrapper">Time</label>
                     {/* <input className="reserv-input" id="time" value={time} onChange={handleChange("time")} /> */}

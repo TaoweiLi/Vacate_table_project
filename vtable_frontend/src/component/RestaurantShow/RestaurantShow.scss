@@ -360,6 +360,8 @@
               border-left-style: hidden;
               border-bottom-style: groove;
               border-bottom: 0.0625rem solid #d8d9db;
+              // -moz-appearance: none;
+              // -webkit-appearance: none;
             }
 
             #reserv-button {
@@ -374,6 +376,16 @@
               margin-top: 15px;
               font-size: 16px;
               font-weight: 500;
+            }
+
+            #date-wrapper{
+              display:flex;
+              width: 100%;
+            }
+
+            #aabbc {
+              margin-left: -20px;
+              background-color:#2d333f;
             }
 
 
