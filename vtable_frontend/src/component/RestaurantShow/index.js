@@ -60,7 +60,8 @@ function RestaurantShow() {
     '12': '12'
   }
 
-  const todayDay = new Date().toDateString().slice(8, 10);
+  const todayDate = new Date();
+  const todayDay = todayDate.toDateString().slice(8, 10);
   const todayMonth = new Date().getMonth() + 1;
   const todayYear = new Date().toDateString().slice(11);
 
@@ -80,7 +81,7 @@ function RestaurantShow() {
   let initialState = {
     "restaurant": restaurant,
     "partySize": 2,
-    "date": `${todayYear}-${hashMonth[todayMonth]}-${todayDay}`,
+    "date": new Date(), // `${todayYear}-${hashMonth[todayMonth]}-${todayDay}`,
     "time": "11:00"
   }
 
@@ -128,8 +129,10 @@ function RestaurantShow() {
   function handleReservSubmit(e) {
     e.preventDefault();
 
+    const formattedDate = date.toLocaleDateString()
+
     if (sessionUser) {
-      let searchString = `?partySize=${partySize}&date=${date}&time=${time}`
+      let searchString = `?partySize=${partySize}&date=${formattedDate}&time=${time}`
       if (isUpdateReservation && initialState.id) {
         searchString += `&updateReservationId=${initialState.id}`
       }
@@ -294,10 +297,15 @@ function RestaurantShow() {
 
                     <label className="reserv-header" htmlFor="date-wrapper">Date</label>
                     {/* <input className="reserv-input" id="date" value={date} onChange={handleDateChange} /> */}
-                    <div id="date-wrapper">
-                      <DatePicker className="reserv-input" dateFormat="yyyy-MM-dd" />
-                      <div className='button_with_down_arrow' id="aabbc"></div>
+                    <div id="date-wrapper" >
+                      <DatePicker className="reserv-input" dateFormat="yyyy-MM-dd" selected={date} onChange={(date) => setDate(date)} />
+                      <div id="aaaa">
+                        <div className="button_with_down_arrow" id="aabbc"></div>
+                        
+                      </div>
+                     
                     </div>
+                
 
                     <label className="reserv-header" htmlFor="time-wrapper">Time</label>
                     {/* <input className="reserv-input" id="time" value={time} onChange={handleChange("time")} /> */}

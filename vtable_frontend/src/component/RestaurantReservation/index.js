@@ -75,15 +75,15 @@ function RestaurantReservation(props) {
                     <div id="reserv-detail-wrapper">
                       <div id="date-container">
                         <i className="fa-regular fa-calendar"></i>
-                        <p>{date}</p>
+                        <p className="reserv-content">{date}</p>
                       </div>
                       <div id="time-container">
                         <i className="fa-regular fa-clock"></i>
-                        <p>{time}</p>
+                        <p className="reserv-content">{time}</p>
                       </div>
                       <div id="person-container">
                         <i className="fa-regular fa-user"></i>
-                        <p>{partySize}</p>
+                        <p className="reserv-content">{partySize}</p>
                       </div>
 
                     </div>

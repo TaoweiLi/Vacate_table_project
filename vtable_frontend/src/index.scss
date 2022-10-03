@@ -82,18 +82,18 @@ select {
 }
 
 .button_with_down_arrow::after {
-  background-image: url(//cdn.otstatic.com/cfe/9/images/ic_down-23cada.svg);
-  background-position: right -0.375rem center;
+  background-image: url("../asset/down_arrow2.svg");
+  // background-position: right -0.375rem center;
   background-repeat: no-repeat;
-  background-size: auto 1.5rem;
+  background-size: auto 0.9rem;
   bottom: 0;
   content: "";
   left: 0;
-  position: absolute;
+  // position: absolute;
   right: 0;
-  top: 0;
+  top: 17px;
   z-index: 0;
-  padding-right: 16px;
+  padding-right: 15px;
   position: relative;
 }
 
