@@ -301,7 +301,6 @@ function RestaurantShow() {
                       <DatePicker className="reserv-input" dateFormat="yyyy-MM-dd" selected={date} onChange={(date) => setDate(date)} />
                       <div id="aaaa">
                         <div className="button_with_down_arrow" id="aabbc"></div>
-                        
                       </div>
                      
                     </div>

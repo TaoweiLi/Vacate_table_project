@@ -85,7 +85,9 @@ select {
   background-image: url("../asset/down_arrow2.svg");
   // background-position: right -0.375rem center;
   background-repeat: no-repeat;
-  background-size: auto 0.7rem;
+  position: relative;
+  background-size: 75%;
+  min-width: 75%;
   bottom: 0;
   content: "";
   left: 0;
@@ -94,7 +96,6 @@ select {
   top: 20px;
   z-index: 0;
   padding-right: 15px;
-  position: relative;
 }
 
 h1 {
