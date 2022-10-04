@@ -68,15 +68,14 @@ function RestaurantShow() {
   const params = (new URL(document.location)).searchParams;
   const updateReservationId = params.get('updateReservationId');
 
-
   useEffect(() => {
     if (updateReservationId) {
       dispatch(fetchReservation(updateReservationId));
     }
   }, [dispatch, updateReservationId])
 
-  const updateReservation = useSelector(getReservation(updateReservationId))
-  let isUpdateReservation = false
+  const updateReservation = useSelector(getReservation(updateReservationId));
+  let isUpdateReservation = false;
 
   let initialState = {
     "restaurant": restaurant,
@@ -86,8 +85,8 @@ function RestaurantShow() {
   }
 
   if (updateReservation) {
-    initialState = updateReservation
-    isUpdateReservation = true
+    initialState = updateReservation;
+    isUpdateReservation = true;
   }
 
   const [partySize, setPartySize] = useState(initialState.partySize)
@@ -117,11 +116,6 @@ function RestaurantShow() {
     setPartySize(event.currentTarget.value);
   }
 
-
-  function handleDateChange(event) {
-    setDate(event.currentTarget.value);
-  }
-
   function handleTimeChange(event) {
     setTime(event.currentTarget.value);
   }
@@ -129,7 +123,7 @@ function RestaurantShow() {
   function handleReservSubmit(e) {
     e.preventDefault();
 
-    const formattedDate = date.toLocaleDateString()
+    const formattedDate = date.toLocaleDateString();
 
     if (sessionUser) {
       let searchString = `?partySize=${partySize}&date=${formattedDate}&time=${time}`
@@ -141,7 +135,7 @@ function RestaurantShow() {
         search: searchString,
       });
     } else {
-      document.getElementById("signinModal").click()
+      document.getElementById("signinModal").click();
     }
   }
 
@@ -152,20 +146,25 @@ function RestaurantShow() {
       dispatch(createReview(newReview));
       setReview(reviewData);
     } else {
-      document.getElementById("signinModal").click()
+      document.getElementById("signinModal").click();
     }
   }
 
   function handleReviewUpdateSubmit(e) {
     e.preventDefault();
     dispatch(updateReview(review));
-    setIsUpdateReview(false)
+    setIsUpdateReview(false);
     setReview(reviewData);
   }
 
   function onUpdateReview(review) {
-    setReview(review)
-    setIsUpdateReview(true)
+    if(review) {
+      setReview(review);
+      setIsUpdateReview(true);
+    } else {
+      setReview(reviewData);
+      setIsUpdateReview(false);
+    }
   }
 
   return (

@@ -15,6 +15,7 @@ export default function ReviewIndexItem({ review, onUpdateReview }) {
   function handleDeleteSubmit(e) {
     e.preventDefault();
     dispatch(deleteReview(review.id));
+    onUpdateReview(null);
   }
 
   return (
