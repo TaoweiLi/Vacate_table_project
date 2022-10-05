@@ -211,11 +211,31 @@
         }
 
         #review-container {
+          .error-container-wrapper {
+            display: flex;
+            justify-content: center;
+
+            .error-container {
+              display: block;
+              margin-top: 16px;
+
+              .error {
+                font-size: 16px;
+                font-family: Arial, Helvetica, sans-serif;
+                list-style: none;
+                color: #da3743;
+                text-align: left;
+                margin-top: 6px;
+              }
+            }
+          }
+
 
           #review-texarea {
             display: block;
             margin-left: auto;
             margin-right: auto;
+            margin-top: 16px;
           }
 
           #rating-star {
@@ -378,8 +398,8 @@
               font-weight: 500;
             }
 
-            #date-wrapper{
-              display:flex;
+            #date-wrapper {
+              display: flex;
               width: 100%;
             }
 

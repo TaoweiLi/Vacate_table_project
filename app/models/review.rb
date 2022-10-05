@@ -13,7 +13,7 @@
 #
 class Review < ApplicationRecord
   validates :body, :user_id, :restaurant_id, presence: true
-  validates :rating, inclusion: { in: 1..5, message: "can not be blank!" }
+  validates :rating, inclusion: { in: 1..5, message: "can't be blank" }
 
   belongs_to :user,
     foreign_key: :user_id,

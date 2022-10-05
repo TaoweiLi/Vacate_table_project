@@ -22,6 +22,8 @@ function RestaurantShow() {
   const dispatch = useDispatch();
   const history = useHistory();
   const [errors, setErrors] = useState([]);
+  const [updateReservationId, setUpdateReservationId] = useState(null);
+
   const reviewData = {
     body: "",
     rating: 0,
@@ -37,80 +39,56 @@ function RestaurantShow() {
     lng: restaurant?.lng,
   }
 
-  useEffect(() => {
-    dispatch(fetchRestaurant(restaurantId));
-  }, [dispatch, restaurantId])
-
-  useEffect(() => {
-    dispatch(fetchReviews(restaurantId));
-  }, [dispatch, restaurantId])
-
-  const hashMonth = {
-    '1': '01',
-    '2': '02',
-    '3': '03',
-    '4': '04',
-    '5': '05',
-    '6': '06',
-    '7': '07',
-    '8': '08',
-    '9': '09',
-    '10': '10',
-    '11': '11',
-    '12': '12'
+  // Check and set if the current page support update an reservation
+  let isUpdateReservation = false;
+  const params = (new URL(document.location)).searchParams;
+  const updateReservationIdVal = params.get('updateReservationId');
+  if (updateReservationIdVal) {
+    isUpdateReservation = true;
   }
 
-  const todayDate = new Date();
-  const todayDay = todayDate.toDateString().slice(8, 10);
-  const todayMonth = new Date().getMonth() + 1;
-  const todayYear = new Date().toDateString().slice(11);
+  useEffect(
+    () => {
+      if (isUpdateReservation) {
+        setUpdateReservationId(updateReservationIdVal)
 
-  const params = (new URL(document.location)).searchParams;
-  const updateReservationId = params.get('updateReservationId');
+      }
+    }, []
+  )
+
+  useEffect(
+    () => {
+      if (updateReservationId) {
+        dispatch(fetchReservation(updateReservationId));
+      }
+    }, [updateReservationId]
+  )
 
   useEffect(() => {
-    if (updateReservationId) {
-      dispatch(fetchReservation(updateReservationId));
-    }
-  }, [dispatch, updateReservationId])
-
-  const updateReservation = useSelector(getReservation(updateReservationId));
-  let isUpdateReservation = false;
+    dispatch(fetchRestaurant(restaurantId));
+    dispatch(fetchReviews(restaurantId));
+  }, [dispatch, restaurantId])
 
   let initialState = {
     "restaurant": restaurant,
     "partySize": 2,
-    "date": new Date(), // `${todayYear}-${hashMonth[todayMonth]}-${todayDay}`,
-    "time": "11:00"
+    "date": new Date(),
+    "time": "11:30 AM"
   }
 
-  if (updateReservation) {
-    initialState = updateReservation;
-    isUpdateReservation = true;
-  }
-
+  const updateReservation = useSelector(getReservation(updateReservationId));
   const [partySize, setPartySize] = useState(initialState.partySize)
   const [date, setDate] = useState(initialState.date);
   const [time, setTime] = useState(initialState.time);
 
-  // function handleChange(field) {
-  //   return (event) => {
-  //     switch (field) {
-  //       case "partySize":
-  //         setPartySize(event.currentTarget.value);
-  //         break;
-  //       case "date":
-  //         setDate(event.currentTarget.value);
-  //         break;
-  //       case "time":
-  //         setTime(event.currentTarget.value);
-  //         break;
-  //       default:
-  //         console.error("Field name error");
-  //         break;
-  //     }
-  //   }
-  // }
+  useEffect(() => {
+    if (updateReservation) {
+      // pre-set existing reservation info
+      setPartySize(updateReservation.partySize)
+      setDate(new Date(updateReservation.date + "T12:00:00"));
+      setTime(updateReservation.time);
+    }
+  }, [updateReservation])
 
   function handlePartySizeChange(event) {
     setPartySize(event.currentTarget.value);
@@ -268,12 +246,14 @@ function RestaurantShow() {
                 </h2>
 
                 <form id="review-container">
-                  <div>
-                    {errors.map((error) => (
-                      <li key={error} className="error">
-                        {error}
-                      </li>
-                    ))}
+                  <div className="error-container-wrapper">
+                    <div className="error-container">
+                      {errors.map((error) => (
+                        <li key={error} className="error">
+                          {error}
+                        </li>
+                      ))}
+                    </div>
                   </div>
                   <textarea id="review-texarea" rows="10" cols="40" value={review.body} onChange={e => { setReview({ ...review, body: e.target.value }) }}></textarea>
                   <div id="rating-star">
@@ -300,48 +280,26 @@ function RestaurantShow() {
                   <h4 id="right-reserv-header">Make a reservation</h4>
                   <form id="reserv-form" onSubmit={handleReservSubmit}>
                     <label className="reserv-header" htmlFor="ps-wrapper">Party Size</label>
-                    {/* <input className="reserv-input" id="party-size" value={partySize} onChange={handleChange("partySize")} /> */}
                     <div id="ps-wrapper">
                       <div id="ps-select-wrapper">
-                        <select className="reserv-input" id="ps-select" defaultValue="2" onChange={handlePartySizeChange}>
-                          <option value="1">1 people</option>
-                          <option value="2">2 people</option>
-                          <option value="3">3 people</option>
-                          <option value="4">4 people</option>
-                          <option value="5">5 people</option>
-                          <option value="6">6 people</option>
-                          <option value="7">7 people</option>
-                          <option value="8">8 people</option>
-                          <option value="9">9 people</option>
-                          <option value="10">10 people</option>
-                          <option value="11">11 people</option>
-                          <option value="12">12 people</option>
-                          <option value="13">13 people</option>
-                          <option value="14">14 people</option>
-                          <option value="15">15 people</option>
-                          <option value="16">16 people</option>
-                          <option value="17">17 people</option>
-                          <option value="18">18 people</option>
+                        <select className="reserv-input" id="ps-select" value={partySize} onChange={handlePartySizeChange}>
+                          {[...Array(18).keys()].map(i => (<option key={i} value={i + 1} > {i + 1} people</option>))}
                         </select>
                       </div>
                     </div>
 
                     <label className="reserv-header" htmlFor="date-wrapper">Date</label>
-                    {/* <input className="reserv-input" id="date" value={date} onChange={handleDateChange} /> */}
                     <div id="date-wrapper" >
                       <DatePicker className="reserv-input" dateFormat="yyyy-MM-dd" selected={date} onChange={(date) => setDate(date)} />
                       <div id="aaaa">
                         <div className="button_with_down_arrow" id="aabbc"></div>
                       </div>
-
                     </div>
 
-
                     <label className="reserv-header" htmlFor="time-wrapper">Time</label>
-                    {/* <input className="reserv-input" id="time" value={time} onChange={handleChange("time")} /> */}
                     <div id="time-wrapper">
                       <div id="time-select-wrapper">
-                        <select className="reserv-input" id="time-select" defaultValue="2000-02-01T11:30:00" onChange={handleTimeChange}>
+                        <select className="reserv-input" id="time-select" value={time} onChange={handleTimeChange}>
                           <option value="11:00 AM">11:00 AM</option>
                           <option value="11:30 AM">11:30 AM</option>
                           <option value="12:00 PM">12:00 PM</option>
@@ -369,31 +327,6 @@ function RestaurantShow() {
                         </select>
                       </div>
                     </div>
-
-
-
-
-                    {/* <div id="dt-wrapper">
-                      <div id="date-wrapper">
-                        <div className="date-select-wrapper">
-                          <select className="date-select-dropdown" id="date-select">
-                          </select>
-                        </div>
-                      </div> */}
-
-                    {/* <div id="time-wrapper">
-                        <label className="time-select-header" htmlFor="time-select">Time</label>
-                        <input type="text" id="partySize" value={partySize} onChange={handleChange("partySize")} /><br></br>
-                        <div className="time-select-wrapper">
-                          <select className="time-select-dropdown" id="time-select">
-                            <option value="2000-02-01T00:00:00">12:00 AM</option>
-                            <option value="2000-02-01T00:30:00">12:30 AM</option>
-                            <option value="2000-02-01T01:00:00">1:00 AM</option>
-                            <option value="2000-02-01T01:30:00">1:30 AM</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div> */}
 
                     {!isUpdateReservation && (<button id="reserv-button">Reserve</button>)}
                     {isUpdateReservation && (<button id="update-button">Update Reservation</button>)}
