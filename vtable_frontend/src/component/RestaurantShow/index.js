@@ -130,7 +130,7 @@ function RestaurantShow() {
         } catch {
           data = await res.text();
         }
-        console.log("DEBUG AAAA  ", data)
+        
         if (data?.errors) setErrors(data.errors);
         else if (data) setErrors([data.message]);
         else setErrors([res.statusText]);
