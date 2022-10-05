@@ -29,9 +29,9 @@ export default function RestaurantCard({ restaurant }) {
                 className="card-img" component="img" image={restaurant.img} alt={restaurant.name}
               />
               <CardContent className="card-content-wrapper">
-                <h3 id="card-res-name">{restaurant.name}</h3>
-                <div id="card-res-rating">
-                  <div id="card-res-stars">
+                <h3 className="card-res-name">{restaurant.name}</h3>
+                <div className="card-res-rating">
+                  <div className="card-res-stars">
                     <Rating
                       name="read-only"
                       value={[3, 3.5, 4, 4.5, 5][Math.floor(Math.random() * 5)]}
@@ -39,12 +39,12 @@ export default function RestaurantCard({ restaurant }) {
                       readOnly
                     />
                   </div>
-                  <div id="card-res-reviews">{Math.floor(Math.random() * 298) + 101} reviews</div>
+                  <div className="card-res-reviews">{Math.floor(Math.random() * 298) + 101} reviews</div>
                 </div>
-                <div id="card-res-info">
-                  <div id="card-res-cuisine"> {restaurant.cuisine}</div>
-                  <div id="card-res-expense"> {restaurant.expense}</div>
-                  <div id="card-res-neighborhood"> {restaurant.neighborhood}</div>
+                <div className="card-res-info">
+                  <div className="card-res-cuisine"> {restaurant.cuisine}</div>
+                  <div className="card-res-expense"> {restaurant.expense}</div>
+                  <div className="card-res-neighborhood"> {restaurant.neighborhood}</div>
                 </div>
 
               </CardContent>
