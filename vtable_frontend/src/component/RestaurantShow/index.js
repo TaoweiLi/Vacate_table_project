@@ -21,7 +21,7 @@ function RestaurantShow() {
   const [isUpdateReview, setIsUpdateReview] = useState(false)
   const dispatch = useDispatch();
   const history = useHistory();
-  // const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState([]);
   const reviewData = {
     body: "",
     rating: 0,
@@ -143,8 +143,21 @@ function RestaurantShow() {
     e.preventDefault();
     if (sessionUser) {
       const newReview = { ...review, user_id: sessionUser.id }
-      dispatch(createReview(newReview));
-      setReview(reviewData);
+      dispatch(createReview(newReview)).then(async (res) => {
+        setReview(reviewData);
+      }).catch(async (res) => {
+        let data;
+        try {
+          data = await res.clone().json();
+        } catch {
+          data = await res.text();
+        }
+        console.log("DEBUG AAAA  ", data)
+        if (data?.errors) setErrors(data.errors);
+        else if (data) setErrors([data.message]);
+        else setErrors([res.statusText]);
+        return
+      });
     } else {
       document.getElementById("signinModal").click();
     }
@@ -152,13 +165,25 @@ function RestaurantShow() {
 
   function handleReviewUpdateSubmit(e) {
     e.preventDefault();
-    dispatch(updateReview(review));
-    setIsUpdateReview(false);
-    setReview(reviewData);
+    dispatch(updateReview(review)).then(async (res) => {
+      setIsUpdateReview(false);
+      setReview(reviewData);
+    }).catch(async (res) => {
+      let data;
+      try {
+        data = await res.clone().json();
+      } catch {
+        data = await res.text();
+      }
+      if (data?.errors) setErrors(data.errors);
+      else if (data) setErrors([data.message]);
+      else setErrors([res.statusText]);
+      return
+    });
   }
 
   function onUpdateReview(review) {
-    if(review) {
+    if (review) {
       setReview(review);
       setIsUpdateReview(true);
     } else {
@@ -243,6 +268,13 @@ function RestaurantShow() {
                 </h2>
 
                 <form id="review-container">
+                  <div>
+                    {errors.map((error) => (
+                      <li key={error} className="error">
+                        {error}
+                      </li>
+                    ))}
+                  </div>
                   <textarea id="review-texarea" rows="10" cols="40" value={review.body} onChange={e => { setReview({ ...review, body: e.target.value }) }}></textarea>
                   <div id="rating-star">
                     <Rating
@@ -301,9 +333,9 @@ function RestaurantShow() {
                       <div id="aaaa">
                         <div className="button_with_down_arrow" id="aabbc"></div>
                       </div>
-                     
+
                     </div>
-                
+
 
                     <label className="reserv-header" htmlFor="time-wrapper">Time</label>
                     {/* <input className="reserv-input" id="time" value={time} onChange={handleChange("time")} /> */}

@@ -12,8 +12,8 @@
 #  updated_at     :datetime         not null
 #
 class Review < ApplicationRecord
-  validates :rating, :body, :user_id, :restaurant_id, presence: true
-  validates :rating, inclusion: { in: 1..5 }
+  validates :body, :user_id, :restaurant_id, presence: true
+  validates :rating, inclusion: { in: 1..5, message: "can not be blank!" }
 
   belongs_to :user,
     foreign_key: :user_id,
