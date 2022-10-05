@@ -12,7 +12,6 @@ end
 
 def create
   @reservation = Reservation.new(reservation_params)
-
   if @reservation.save
     render :show
   else

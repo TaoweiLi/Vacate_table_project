@@ -100,9 +100,7 @@ function RestaurantShow() {
 
   function handleReservSubmit(e) {
     e.preventDefault();
-
-    const formattedDate = date.toLocaleDateString();
-
+    const formattedDate = date.toISOString().split("T")[0];
     if (sessionUser) {
       let searchString = `?partySize=${partySize}&date=${formattedDate}&time=${time}`
       if (isUpdateReservation && initialState.id) {

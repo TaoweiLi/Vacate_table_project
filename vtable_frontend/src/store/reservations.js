@@ -28,9 +28,7 @@ export function removeReservation(reservationId) {
 
 // selector
 export function getReservation(reservationId) {
-  console.log("DEUG AAA3 ", reservationId)
   return function (state) {
-    console.log("DEUG AAA4 ", state)
     if (!state || !state["reservations"]) {
       return null;
     }
