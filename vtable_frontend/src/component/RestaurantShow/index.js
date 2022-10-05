@@ -128,7 +128,7 @@ function RestaurantShow() {
         } catch {
           data = await res.text();
         }
-        
+
         if (data?.errors) setErrors(data.errors);
         else if (data) setErrors([data.message]);
         else setErrors([res.statusText]);
