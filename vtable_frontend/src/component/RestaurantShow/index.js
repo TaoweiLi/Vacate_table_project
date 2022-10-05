@@ -103,8 +103,8 @@ function RestaurantShow() {
     const formattedDate = date.toISOString().split("T")[0];
     if (sessionUser) {
       let searchString = `?partySize=${partySize}&date=${formattedDate}&time=${time}`
-      if (isUpdateReservation && initialState.id) {
-        searchString += `&updateReservationId=${initialState.id}`
+      if (isUpdateReservation && updateReservation) {
+        searchString += `&updateReservationId=${updateReservation.id}`
       }
       history.push({
         pathname: `/restaurants/${restaurant.id}/reservation`,
