@@ -46,17 +46,10 @@ function User() {
                 {(reservations.map(reservation => (<UserReservationIndexItem key={reservation.id} reservation={reservation} restaurantId={reservation.restaurantId} />))).reverse()}
               </ol>
 
-
             </div>
           </div>
         </div>
-
-
-
       </div>
-
-
-
 
       {/* <p>Under Construction. Comming Soon....</p>
       <p>{JSON.stringify(sessionUser, null, 4)}</p>
