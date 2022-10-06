@@ -3,6 +3,7 @@ import { fetchQueryRestaurants, getRestaurants, getQueryRestaurants } from "../.
 import { useHistory, useParams, Link, Redirect } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./SearchIndexPage.scss";
+import { Rating } from "@mui/material";
 
 
 
@@ -46,21 +47,27 @@ function SearchIndexItem(props) {
   return (
     <>
       {props.res && (
-        <a id="restaurant-link-wrapper" href={`/restaurants/${props.res.id}`}>
+        <div id="restaurant-link-wrapper" >
+          <a href={`/restaurants/${props.res.id}`}>
           <img id="restaurant-img" src={props.res.img}></img>
+          </a>
           <div id="reserv-details-wrapper">
+            <a href={`/restaurants/${props.res.id}`}>
             <div id="restaurant-name">{props.res.name}</div>
+            </a>
             <div id="res-overview">
-              <div><i className="fa-solid fa-star"></i>
-                <i className="fa-solid fa-star"></i>
-                <i className="fa-solid fa-star"></i>
-                <i className="fa-solid fa-star"></i>
-                <i className="fa-solid fa-star"></i>
-                {/* {reviews.rating} */}
+              <div>
+                <Rating
+                  name="read-only"
+                  value={props.res.rating}
+                  precision={0.5}
+                  readOnly
+                />
               </div>
-              <div>{props.res.expense}</div>
-              <div>{props.res.cuisine}</div>
-              <div>{props.res.neighborhood}</div>
+              <div>
+              <span>{props.res.expense}</span>
+              <div> • {props.res.cuisine} • {props.res.neighborhood}</div>
+              </div>
             </div>
             <div id="reserv-details">
               <div id="person-container">
@@ -69,14 +76,18 @@ function SearchIndexItem(props) {
               </div>
               <div id="date-container">
                 <i className="fa-regular fa-calendar"></i>
-                <span>{reservation.date} at {reservation.time}</span>
+                <span>{reservation.date}</span>
+              </div>
+              <div id="date-container">
+                <i className="fa-regular fa-clock"></i>
+                <span>{reservation.time}</span>
               </div>
             </div>
             <div id="update-cancel-wrapper">
               <button id="update-button" onClick={handleReservSubmit}>Make a reservation</button>
             </div>
           </div>
-        </a>
+        </div>
       )}
     </>
       
