@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import { fetchQueryRestaurants, getRestaurants, getQueryRestaurants } from "../../store/restaurants";
-// import StaticRating from "../StaticRating";
 import { useHistory, useParams, Link, Redirect } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./SearchIndexPage.scss";
@@ -29,17 +28,15 @@ function SearchIndexPage() {
     user_id: sessionUser.id,
   }
 
-  if (!resData) { return null }
-
   return (
     <>
-      <div id="user-page-wrapper">
-        <div id="page-detail-wrapper">
-          <div id="reservation-list-wrapper">
-            <div id="reservation-list-container">
-              <h2 id="upcoming-header">Search Results:</h2>
+      <div id="search-page-wrapper">
+        <div id="search-page-detail-wrapper">
+          <div id="result-list-wrapper">
+            <div id="result-list-container">
+              <h2 id="result-header">Search Results for "{query}":</h2>
               {resData && (resData.length > 0) ?
-                (<ol id="reservation-list-content">
+                (<ol id="result-list-content">
                   {(resData.map(res => (<SearchIndexItem key={res.id} res={res} restaurantId={res.restaurantId} />)))}
                 </ol>) :
                 <h1>Sorry, no results found</h1>

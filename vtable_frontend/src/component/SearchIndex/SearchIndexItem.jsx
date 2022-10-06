@@ -31,7 +31,7 @@ function SearchIndexItem(props) {
     user_id: sessionUser.id,
   }
 
-    function handleReservSubmit(e) {
+  function handleReservSubmit(e) {
     e.preventDefault();
     const formattedDate = date.toISOString().split("T")[0];
     if (sessionUser) {
@@ -47,16 +47,17 @@ function SearchIndexItem(props) {
   return (
     <>
       {props.res && (
-        <div id="restaurant-link-wrapper" >
+        <div id="result-link-wrapper" >
           <a href={`/restaurants/${props.res.id}`}>
-          <img id="restaurant-img" src={props.res.img}></img>
+            <img id="result-res-img" src={props.res.img}></img>
           </a>
-          <div id="reserv-details-wrapper">
+          <div id="result-res-wrapper">
             <a href={`/restaurants/${props.res.id}`}>
-            <div id="restaurant-name">{props.res.name}</div>
+              <div id="result-res-name">{props.res.name}</div>
             </a>
-            <div id="res-overview">
-              <div>
+
+            <div id="result-res-overview">
+              <div className="result-res-rating">
                 <Rating
                   name="read-only"
                   value={props.res.rating}
@@ -64,33 +65,34 @@ function SearchIndexItem(props) {
                   readOnly
                 />
               </div>
-              <div>
-              <span>{props.res.expense}</span>
-              <div> • {props.res.cuisine} • {props.res.neighborhood}</div>
+              <div className="result-res-info">
+                <span>{props.res.expense}</span>
+                <div className="cn-wrapper"> • {props.res.cuisine} • {props.res.neighborhood}</div>
               </div>
             </div>
-            <div id="reserv-details">
-              <div id="person-container">
+
+            <div id="result-reserv-details">
+              <div id="reserv-person-container">
                 <i className="fa-regular fa-user"></i>
                 <span>{reservation.party_size}</span>
               </div>
-              <div id="date-container">
+              <div id="reserv-date-container">
                 <i className="fa-regular fa-calendar"></i>
                 <span>{reservation.date}</span>
               </div>
-              <div id="date-container">
+              <div id="reserv-time-container">
                 <i className="fa-regular fa-clock"></i>
                 <span>{reservation.time}</span>
               </div>
             </div>
-            <div id="update-cancel-wrapper">
+            <div id="result-reserve-wrapper">
               <button id="update-button" onClick={handleReservSubmit}>Make a reservation</button>
             </div>
           </div>
         </div>
       )}
     </>
-      
+
   )
 }
 
