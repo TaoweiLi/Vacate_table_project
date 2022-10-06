@@ -2,20 +2,6 @@ import "./Footer.scss";
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 
-// function Footer() {
-
-//   return (
-//     <>
-//       <div id="footer-wrapper">
-//         <h1 id="footer">Footer Placeholder</h1>
-//       </div>
-//     </>
-//   )
-// }
-
-// export default Footer;
-
-
 const Footer = () => {
 
   return (
@@ -24,16 +10,33 @@ const Footer = () => {
         <div className="footer-profile-container">
           <div className="footer-col-name">
             <h2>Taowei Li</h2>
+
             <div className="footer-col-item">
-              {" "}
-              <a href="https://github.com/TaoweiLi" target="_blank">
-                Github
-              </a>
-              <a href="https://github.com/TaoweiLi" target="_blank">
+              <a href="https://www.linkedin.com/in/taoweili" target="_blank">
                 Linkedin
               </a>
             </div>
+
+            <div className="footer-col-item">
+              <a href="https://github.com/TaoweiLi" target="_blank">
+                Github
+              </a>
+            </div>
+
+            <div className="footer-col-item">
+              <a href="https://taoweili.github.io/taowei_li_portfolio/" target="_blank">
+                Portfolio
+              </a>
+            </div>
+
+            <div className="footer-col-item">
+              <a href="https://angel.co/u/taowei-li" target="_blank">
+                AngelList
+              </a>
+            </div>
+
           </div>
+
           <div className="footer-col-name">
             <h2>TECHNOLOGIES</h2>
             <div>
@@ -49,10 +52,20 @@ const Footer = () => {
           <div className="footer-col-name">
             <h2>ABOUT AUTHOR</h2>
             <div>
-              <ul className="author-info">
+              <ul className="dev-info">
+                <li>
+                  <a href="https://www.linkedin.com/in/taoweili" target="_blank">
+                    <i className="fa-brands fa-linkedin fa-3x"></i>
+                  </a>
+                </li>
                 <li>
                   <a href="https://github.com/TaoweiLi" target="_blank">
                     <i className="fa-brands fa-github fa-3x"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/TaoweiLi" target="_blank">
+                    <i className="fa-brands fa-angellist fa-3x"></i>
                   </a>
                 </li>
               </ul>
