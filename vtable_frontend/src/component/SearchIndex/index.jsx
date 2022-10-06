@@ -6,27 +6,14 @@ import "./SearchIndexPage.scss";
 import SearchIndexItem from "./SearchIndexItem.jsx";
 
 function SearchIndexPage() {
-  const { restaurantId } = useParams();
   const dispatch = useDispatch();
   const { query } = useParams();
   const resData = useSelector((state) => getQueryRestaurants(state, query));
-  const sessionUser = useSelector(state => state.session.user);
 
   useEffect(() => {
     dispatch(fetchQueryRestaurants(query))
   }, [dispatch, query])
 
-  let partySize = document.getElementById("ps-select")?.value;
-  let date = document.getElementById("date-select")?.value;
-  let time = document.getElementById("time-select")?.value;
-
-  let reservation = {
-    date: date,
-    time: time,
-    party_size: partySize,
-    restaurant_id: restaurantId,
-    user_id: sessionUser.id,
-  }
 
   return (
     <>
