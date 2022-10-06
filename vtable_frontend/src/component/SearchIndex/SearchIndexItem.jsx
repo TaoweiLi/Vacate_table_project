@@ -60,7 +60,7 @@ function SearchIndexItem(props) {
               <div className="result-res-rating">
                 <Rating
                   name="read-only"
-                  value={props.res.rating}
+                  value={props.res.scoreAvg}
                   precision={0.5}
                   readOnly
                 />

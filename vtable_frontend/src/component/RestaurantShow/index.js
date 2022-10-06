@@ -209,12 +209,13 @@ function RestaurantShow() {
               <section id="left-oview-wrapper">
                 <h1 id="res-name">{restaurant.name}</h1>
                 <div id="res-overview">
-                  <div><i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    {/* {reviews.rating} */}
+                  <div className="res-overview-rating">
+                    <Rating
+                      name="read-only"
+                      value={restaurant.scoreAvg}
+                      precision={0.5}
+                      readOnly
+                    />
                   </div>
                   <div><i className="fa-solid fa-money-bill"></i> {restaurant.expense}</div>
                   <div><i className="fa-solid fa-utensils"></i> {restaurant.cuisine}</div>

@@ -34,7 +34,7 @@ export default function RestaurantCard({ restaurant }) {
                   <div className="card-res-stars">
                     <Rating
                       name="read-only"
-                      value={[3, 3.5, 4, 4.5, 5][Math.floor(Math.random() * 5)]}
+                      value={restaurant.scoreAvg}
                       precision={0.5}
                       readOnly
                     />
