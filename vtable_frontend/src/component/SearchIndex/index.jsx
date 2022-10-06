@@ -1,67 +1,52 @@
 import { useDispatch, useSelector } from "react-redux";
 import { fetchQueryRestaurants, getRestaurants, getQueryRestaurants } from "../../store/restaurants";
-// import StaticRating from "../StaticRating";
 import { useHistory, useParams, Link, Redirect } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./SearchIndexPage.scss";
-
-
+import SearchIndexItem from "./SearchIndexItem.jsx";
 
 function SearchIndexPage() {
+  const { restaurantId } = useParams();
   const dispatch = useDispatch();
-  const {query} = useParams()
+  const { query } = useParams();
   const resData = useSelector((state) => getQueryRestaurants(state, query));
+  const sessionUser = useSelector(state => state.session.user);
 
   useEffect(() => {
     dispatch(fetchQueryRestaurants(query))
   }, [dispatch, query])
 
-  if (!resData) { return null }
+  let partySize = document.getElementById("ps-select")?.value;
+  let date = document.getElementById("date-select")?.value;
+  let time = document.getElementById("time-select")?.value;
+
+  let reservation = {
+    date: date,
+    time: time,
+    party_size: partySize,
+    restaurant_id: restaurantId,
+    user_id: sessionUser.id,
+  }
 
   return (
     <>
-
-      <div className="allindex">
-
-        <div className="leftindex">
-          <h1>Search Results:</h1>
-          {resData.length > 0 ? resData.map((restaurant, i) => (
-            <Link to={`/restaurants/${restaurant.id}`} className="singleres" key={i} >
-              <img id="restaurant-img" src={restaurant.img} alt="" width="250vw" height='250vh' />
-              <div className="restaurant-wrapper">
-                <h1>{i + 1}. {restaurant.name}</h1>
-                <div id="res-details-wrapper">
-                  <p>Category: {restaurant.tag}</p>
-                  <p>Address: {restaurant.address}</p>
-                  <p>Cuisine: {restaurant.cuisine}</p>
-                  <p>Expense: {restaurant.expense}</p>
-                  <p>Neighborhood: {restaurant.neighborhood}</p>
-                  <p>Operation Hours: {restaurant.operationHours}</p>
-                  <p>Phone Number: {restaurant.phoneNumber}</p>
-                </div>
-              </div>
-            </Link>
-          )) : <h1>Sorry, no results found</h1>}
+      <div id="search-page-wrapper">
+        <div id="search-page-detail-wrapper">
+          <div id="result-list-wrapper">
+            <div id="result-list-container">
+              <h2 id="result-header">Search Results for "{query}":</h2>
+              {resData && (resData.length > 0) ?
+                (<ol id="result-list-content">
+                  {(resData.map(res => (<SearchIndexItem key={res.id} res={res} restaurantId={res.restaurantId} />)))}
+                </ol>) :
+                <h1>Sorry, no results found</h1>
+              }
+            </div>
+          </div>
         </div>
-        <div></div>
-
       </div>
-      {/* <p>{JSON.stringify(resData, null, 4)}</p> */}
     </>
   )
 }
 
 export default SearchIndexPage;
-// Footer
-// © 2022 GitHub, Inc.
-// Footer navigation
-// Terms
-// Privacy
-// Security
-// Status
-// Docs
-// Contact GitHub
-// Pricing
-// API
-// Training
-// Blog

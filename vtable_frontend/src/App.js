@@ -36,6 +36,7 @@ function App() {
                 <SearchHeader />
                 <SearchIndexPage />
               </Route>
+              <Route exact path="/error" component={PageNotFound} />
               <Route path="*" component={PageNotFound} />
             </Switch>
             {/* <div><RestaurantShow /></div> */}

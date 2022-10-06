@@ -1,4 +1,4 @@
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import "./SearchHeader.scss"
 import DatePicker from 'react-datepicker';
@@ -7,11 +7,12 @@ function SearchHeader() {
 
   const [query, setQuery] = useState("");
   const history = useHistory();
+  const location = useLocation();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    history.push(`/search/${query}`)
-  }
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   history.push(`/search/${query}`)
+  // }
 
   let initialState = {
     // "restaurant": restaurant,
@@ -20,9 +21,35 @@ function SearchHeader() {
     "time": "11:30 AM"
   }
 
+  if(location.state) {
+    initialState = location.state
+  }
+
   const [partySize, setPartySize] = useState(initialState.partySize)
   const [date, setDate] = useState(initialState.date);
   const [time, setTime] = useState(initialState.time);
+
+  function handlePartySizeChange(event) {
+    setPartySize(event.currentTarget.value);
+  }
+
+  function handleTimeChange(event) {
+    setTime(event.currentTarget.value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const searchBarState = {
+      partySize,
+      date,
+      time
+    }
+    // let searchString = `?partySize=${partySize}&date=${formattedDate}&time=${time}`
+    history.push({
+      pathname: `/search/${query}`,
+      state: searchBarState,
+    });
+  }
 
   return (
     <>
@@ -41,10 +68,7 @@ function SearchHeader() {
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false"><g fill="none" fillRule="evenodd"><path d="M17,5 L19,5 C20.1045695,5 21,5.8954305 21,7 L21,19 C21,20.1045695 20.1045695,21 19,21 L5,21 C3.8954305,21 3,20.1045695 3,19 L3,7 C3,5.8954305 3.8954305,5 5,5 L7,5 L7,4 C7,3.44771525 7.44771525,3 8,3 C8.55228475,3 9,3.44771525 9,4 L9,5 L15,5 L15,4 C15,3.44771525 15.4477153,3 16,3 C16.5522847,3 17,3.44771525 17,4 L17,5 Z M19,9 L19,7 L5,7 L5,9 L19,9 Z M19,11 L5,11 L5,19 L19,19 L19,11 Z" fill="#2D333F"></path></g></svg>
                       </div>
                       <div id="dtp-date-view-content" >
-                        <DatePicker dateFormat="yyyy-MM-dd" selected={date} onChange={(date) => setDate(date)} />
-                        <div id="aaaa">
-                          <div className="button_with_down_arrow" id="aabbc"></div>
-                        </div>
+                        <DatePicker id="date-select" dateFormat="yyyy-MM-dd" selected={date} onChange={(date) => setDate(date)} />
                       </div>
                       <div id="dtp-date-view-arrow">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false"><g fill="none" fillRule="evenodd"><path d="M11,11 L11,14.5 C11,14.7761424 10.7761424,15 10.5,15 L9.5,15 C9.22385763,15 9,14.7761424 9,14.5 L9,10.5 L9,9.5 C9,9.22385763 9.22385763,9 9.5,9 L14.5,9 C14.7761424,9 15,9.22385763 15,9.5 L15,10.5 C15,10.7761424 14.7761424,11 14.5,11 L11,11 Z" fill="#2D333F" transform="translate(12.000000, 12.000000) rotate(-135.000000) translate(-12.000000, -12.000000)"></path></g></svg>
@@ -54,9 +78,6 @@ function SearchHeader() {
                   <div></div>
                 </div>
 
-
-
-
                 <div className="dtp" id="dtp-time">
                   <div id="dtp-time-view">
                     <div id="dtp-time-view-icon">
@@ -64,7 +85,7 @@ function SearchHeader() {
                     </div>
                     <div id="dtp-time-view-content">
                       <div id="time-select-wrapper">
-                        <select className="reserv-input" id="time-select" value={time}>
+                        <select className="search-input" id="time-select" value={time} onChange={handleTimeChange}>
                           <option value="11:00 AM">11:00 AM</option>
                           <option value="11:30 AM">11:30 AM</option>
                           <option value="12:00 PM">12:00 PM</option>
@@ -105,7 +126,7 @@ function SearchHeader() {
                     </div>
                     <div id="dtp-people-view-content">
                       <div id="ps-select-wrapper">
-                        <select className="reserv-input" id="ps-select" value={partySize}>
+                        <select className="search-input" id="ps-select" value={partySize} onChange={handlePartySizeChange}>
                           {[...Array(18).keys()].map(i => (<option key={i} value={i + 1} > {i + 1} people</option>))}
                         </select>
                       </div>
@@ -120,7 +141,7 @@ function SearchHeader() {
               <div id="searvh-bar-right">
                 <form onSubmit={handleSubmit}>
                   {/* <i id="search-text-icon" className="fa-solid fa-magnifying-glass"></i> */}
-                  <input id="search-bar-container" type="text" placeholder="Restaurant or Category" name="search" value={query} onChange={(e) => setQuery(e.target.value)} />
+                  <input id="search-bar-container" type="text" placeholder="Restaurant or Cuisine" name="search" value={query} onChange={(e) => setQuery(e.target.value)} />
                   <button id="search-button" type="submit">Let’s go</button>
                 </form>
               </div>
