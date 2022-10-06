@@ -65,7 +65,7 @@ function RestaurantShow() {
   )
 
   useEffect(() => {
-    dispatch(fetchRestaurant(restaurantId));
+    dispatch(fetchRestaurant(restaurantId)).catch((e) => history.push("/error") );
     dispatch(fetchReviews(restaurantId));
   }, [dispatch, restaurantId])
 
