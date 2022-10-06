@@ -85,7 +85,7 @@ function SearchHeader() {
                     </div>
                     <div id="dtp-time-view-content">
                       <div id="time-select-wrapper">
-                        <select className="reserv-input" id="time-select" value={time} onChange={handleTimeChange}>
+                        <select className="search-input" id="time-select" value={time} onChange={handleTimeChange}>
                           <option value="11:00 AM">11:00 AM</option>
                           <option value="11:30 AM">11:30 AM</option>
                           <option value="12:00 PM">12:00 PM</option>
@@ -126,7 +126,7 @@ function SearchHeader() {
                     </div>
                     <div id="dtp-people-view-content">
                       <div id="ps-select-wrapper">
-                        <select className="reserv-input" id="ps-select" value={partySize} onChange={handlePartySizeChange}>
+                        <select className="search-input" id="ps-select" value={partySize} onChange={handlePartySizeChange}>
                           {[...Array(18).keys()].map(i => (<option key={i} value={i + 1} > {i + 1} people</option>))}
                         </select>
                       </div>
