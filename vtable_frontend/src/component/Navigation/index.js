@@ -58,9 +58,9 @@ function Navigation() {
 
           <div className="nav-right">
             <div className='nav-user-state'>{sessionLinks}</div>
-            <div className='nav-seach'>
+            {/* <div className='nav-seach'>
               <i className="fa-solid fa-magnifying-glass"></i>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
