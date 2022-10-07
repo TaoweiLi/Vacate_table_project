@@ -9,13 +9,7 @@ function SearchHeader() {
   const history = useHistory();
   const location = useLocation();
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   history.push(`/search/${query}`)
-  // }
-
   let initialState = {
-    // "restaurant": restaurant,
     "partySize": 2,
     "date": new Date(),
     "time": "11:30 AM"
@@ -44,16 +38,18 @@ function SearchHeader() {
       date,
       time
     }
-    // let searchString = `?partySize=${partySize}&date=${formattedDate}&time=${time}`
+    const searchString = `?query=${query}`
     history.push({
-      pathname: `/search/${query}`,
+      pathname: `/search`,
+      search: searchString,
       state: searchBarState,
     });
+    // force the page to reload
+    window.location.reload();
   }
 
   return (
     <>
-
       <header id="search-header-wrapper">
         <div id="search-header-content">
           <h1 id="search-header-text">Find your table for any occasion</h1>

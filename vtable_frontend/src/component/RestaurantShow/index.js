@@ -51,7 +51,6 @@ function RestaurantShow() {
     () => {
       if (isUpdateReservation) {
         setUpdateReservationId(updateReservationIdVal)
-
       }
     }, []
   )

@@ -32,7 +32,7 @@ function App() {
               <Route exact path="/users/profile" component={User} />
               <Route exact path="/users/profile/account" component={AccountDetails} />
               {/* <Route exact path="/users/profile/reservation" component={UserReservationDetails} /> */}
-              <Route exact path="/search/:query">
+              <Route exact path="/search">
                 <SearchHeader />
                 <SearchIndexPage />
               </Route>

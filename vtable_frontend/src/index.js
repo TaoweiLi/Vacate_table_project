@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { ModalProvider } from './context/Modal';
+import { createBrowserHistory } from 'history'
 import './index.scss';
 import App from './App';
 import configureStore from './store';
 import csrfFetch from './store/csrf';
 import * as sessionActions from './store/session';
-import Favicon from 'react-favicon'
 
 const store = configureStore();
 
@@ -25,12 +25,14 @@ if (process.env.NODE_ENV !== "production") {
 //   </div>
 // );
 
+const hisotry = createBrowserHistory()
+
 function Root() {
   return (
     <>
       <ModalProvider>
         <Provider store={store}>
-          <BrowserRouter>
+          <BrowserRouter history={hisotry}>
             <App />
             {/* <Carrot /> */}
           </BrowserRouter>
