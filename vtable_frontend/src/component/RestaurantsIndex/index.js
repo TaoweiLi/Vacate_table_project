@@ -14,7 +14,7 @@ function RestaurantsIndex() {
         <div id="main-sections">
           <section id="current-location-wrapper" >
             <div id="current-location-contetnt">
-              <div id="current-location-text">It looks like you're in San Francisco. Not correct?</div>
+              <div id="current-location-text">San Francisco Bay Area</div>
               <div id="current-location-buttons">
                 <div id="current-location-arrow">
                   {/* <i className="fa-solid fa-location-arrow"></i> */}
