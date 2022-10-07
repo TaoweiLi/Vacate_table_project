@@ -18,13 +18,6 @@ if (process.env.NODE_ENV !== "production") {
   window.sessionActions = sessionActions;
 }
 
-// carrot icon example:
-// const Carrot = () => (
-//   <div style={{ color: "orange", fontSize: "100px" }}>
-//     <i className="fa-solid fa-carrot"></i>
-//   </div>
-// );
-
 const hisotry = createBrowserHistory()
 
 function Root() {

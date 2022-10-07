@@ -15,7 +15,7 @@ function SearchHeader() {
     "time": "11:30 AM"
   }
 
-  if(location.state) {
+  if (location.state) {
     initialState = location.state
   }
 
@@ -48,6 +48,20 @@ function SearchHeader() {
     window.location.reload();
   }
 
+  function dateDownArrow() {
+    document.getElementById("date-select").click();
+  }
+
+  function timeDownArrow() {
+    document.getElementById("time-select").setAttribute("disabled", "disabled")
+    document.getElementById("time-select").removeAttribute("disabled")
+  }
+
+  function psDownArrow() {
+    document.getElementById("ps-select").click();
+  }
+
+
   return (
     <>
       <header id="search-header-wrapper">
@@ -57,6 +71,7 @@ function SearchHeader() {
             <div id="search-bar-content-wrapper">
 
               <div id="search-bar-left">
+
                 <div className="dtp" id="dtp-date">
                   <button id="dtp-date-button">
                     <div id="dtp-date-view">
@@ -67,52 +82,53 @@ function SearchHeader() {
                         <DatePicker id="date-select" dateFormat="yyyy-MM-dd" selected={date} onChange={(date) => setDate(date)} />
                       </div>
                       <div id="dtp-date-view-arrow">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false"><g fill="none" fillRule="evenodd"><path d="M11,11 L11,14.5 C11,14.7761424 10.7761424,15 10.5,15 L9.5,15 C9.22385763,15 9,14.7761424 9,14.5 L9,10.5 L9,9.5 C9,9.22385763 9.22385763,9 9.5,9 L14.5,9 C14.7761424,9 15,9.22385763 15,9.5 L15,10.5 C15,10.7761424 14.7761424,11 14.5,11 L11,11 Z" fill="#2D333F" transform="translate(12.000000, 12.000000) rotate(-135.000000) translate(-12.000000, -12.000000)"></path></g></svg>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false"><g fill="none" fill-rule="evenodd"><path d="M11,11 L11,14.5 C11,14.7761424 10.7761424,15 10.5,15 L9.5,15 C9.22385763,15 9,14.7761424 9,14.5 L9,10.5 L9,9.5 C9,9.22385763 9.22385763,9 9.5,9 L14.5,9 C14.7761424,9 15,9.22385763 15,9.5 L15,10.5 C15,10.7761424 14.7761424,11 14.5,11 L11,11 Z" fill="#2D333F" transform="translate(12.000000, 12.000000) rotate(-135.000000) translate(-12.000000, -12.000000)"></path></g></svg>
                       </div>
                     </div>
                   </button>
-                  <div></div>
                 </div>
 
                 <div className="dtp" id="dtp-time">
-                  <div id="dtp-time-view">
-                    <div id="dtp-time-view-icon">
-                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false"><g fill="none" fillRule="evenodd"><path d="M13,11 L14.5,11 C14.7761424,11 15,11.2238576 15,11.5 L15,12.5 C15,12.7761424 14.7761424,13 14.5,13 L12.5,13 L11.5,13 C11.2238576,13 11,12.7761424 11,12.5 L11,7.5 C11,7.22385763 11.2238576,7 11.5,7 L12.5,7 C12.7761424,7 13,7.22385763 13,7.5 L13,11 Z M12,21 C7.02943725,21 3,16.9705627 3,12 C3,7.02943725 7.02943725,3 12,3 C16.9705627,3 21,7.02943725 21,12 C21,16.9705627 16.9705627,21 12,21 Z M12,19 C15.8659932,19 19,15.8659932 19,12 C19,8.13400675 15.8659932,5 12,5 C8.13400675,5 5,8.13400675 5,12 C5,15.8659932 8.13400675,19 12,19 Z" fill="#2D333F"></path></g></svg>
-                    </div>
-                    <div id="dtp-time-view-content">
-                      <div id="time-select-wrapper">
-                        <select className="search-input" id="time-select" value={time} onChange={handleTimeChange}>
-                          <option value="11:00 AM">11:00 AM</option>
-                          <option value="11:30 AM">11:30 AM</option>
-                          <option value="12:00 PM">12:00 PM</option>
-                          <option value="12:30 PM">12:30 PM</option>
-                          <option value="1:00 PM">1:00 PM</option>
-                          <option value="1:30 PM">1:30 PM</option>
-                          <option value="2:00 PM">2:00 PM</option>
-                          <option value="2:30 PM">2:30 PM</option>
-                          <option value="3:00 PM">3:00 PM</option>
-                          <option value="3:30 PM">3:30 PM</option>
-                          <option value="4:00 PM">4:00 PM</option>
-                          <option value="4:30 PM">4:30 PM</option>
-                          <option value="5:00 PM">5:00 PM</option>
-                          <option value="5:30 PM">5:30 PM</option>
-                          <option value="6:00 PM">6:00 PM</option>
-                          <option value="6:30 PM">6:30 PM</option>
-                          <option value="7:00 PM">7:00 PM</option>
-                          <option value="7:30 PM">7:30 PM</option>
-                          <option value="8:00 PM">8:00 PM</option>
-                          <option value="8:30 PM">8:30 PM</option>
-                          <option value="9:00 PM">9:00 PM</option>
-                          <option value="9:30 PM">9:30 PM</option>
-                          <option value="10:00 PM">10:00 PM</option>
-                          <option value="10:30 PM">10:30 PM</option>
-                        </select>
+                  {/* <button id="dtp-time-button"> */}
+                    <div id="dtp-time-view">
+                      <div id="dtp-time-view-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false"><g fill="none" fillRule="evenodd"><path d="M13,11 L14.5,11 C14.7761424,11 15,11.2238576 15,11.5 L15,12.5 C15,12.7761424 14.7761424,13 14.5,13 L12.5,13 L11.5,13 C11.2238576,13 11,12.7761424 11,12.5 L11,7.5 C11,7.22385763 11.2238576,7 11.5,7 L12.5,7 C12.7761424,7 13,7.22385763 13,7.5 L13,11 Z M12,21 C7.02943725,21 3,16.9705627 3,12 C3,7.02943725 7.02943725,3 12,3 C16.9705627,3 21,7.02943725 21,12 C21,16.9705627 16.9705627,21 12,21 Z M12,19 C15.8659932,19 19,15.8659932 19,12 C19,8.13400675 15.8659932,5 12,5 C8.13400675,5 5,8.13400675 5,12 C5,15.8659932 8.13400675,19 12,19 Z" fill="#2D333F"></path></g></svg>
+                      </div>
+                      <div id="dtp-time-view-content">
+                        <div id="time-select-wrapper">
+                          <select className="search-input" id="time-select" value={time} onChange={handleTimeChange}>
+                            <option value="11:00 AM">11:00 AM</option>
+                            <option value="11:30 AM">11:30 AM</option>
+                            <option value="12:00 PM">12:00 PM</option>
+                            <option value="12:30 PM">12:30 PM</option>
+                            <option value="1:00 PM">1:00 PM</option>
+                            <option value="1:30 PM">1:30 PM</option>
+                            <option value="2:00 PM">2:00 PM</option>
+                            <option value="2:30 PM">2:30 PM</option>
+                            <option value="3:00 PM">3:00 PM</option>
+                            <option value="3:30 PM">3:30 PM</option>
+                            <option value="4:00 PM">4:00 PM</option>
+                            <option value="4:30 PM">4:30 PM</option>
+                            <option value="5:00 PM">5:00 PM</option>
+                            <option value="5:30 PM">5:30 PM</option>
+                            <option value="6:00 PM">6:00 PM</option>
+                            <option value="6:30 PM">6:30 PM</option>
+                            <option value="7:00 PM">7:00 PM</option>
+                            <option value="7:30 PM">7:30 PM</option>
+                            <option value="8:00 PM">8:00 PM</option>
+                            <option value="8:30 PM">8:30 PM</option>
+                            <option value="9:00 PM">9:00 PM</option>
+                            <option value="9:30 PM">9:30 PM</option>
+                            <option value="10:00 PM">10:00 PM</option>
+                            <option value="10:30 PM">10:30 PM</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div id="dtp-time-view-arrow">
+                      <svg onClick={timeDownArrow} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false"><g fill="none" fillRule="evenodd"><path d="M11,11 L11,14.5 C11,14.7761424 10.7761424,15 10.5,15 L9.5,15 C9.22385763,15 9,14.7761424 9,14.5 L9,10.5 L9,9.5 C9,9.22385763 9.22385763,9 9.5,9 L14.5,9 C14.7761424,9 15,9.22385763 15,9.5 L15,10.5 C15,10.7761424 14.7761424,11 14.5,11 L11,11 Z" fill="#2D333F" transform="translate(12.000000, 12.000000) rotate(-135.000000) translate(-12.000000, -12.000000)"></path></g></svg>
                       </div>
                     </div>
-                    <div id="dtp-time-view-arrow">
-                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false"><g fill="none" fillRule="evenodd"><path d="M11,11 L11,14.5 C11,14.7761424 10.7761424,15 10.5,15 L9.5,15 C9.22385763,15 9,14.7761424 9,14.5 L9,10.5 L9,9.5 C9,9.22385763 9.22385763,9 9.5,9 L14.5,9 C14.7761424,9 15,9.22385763 15,9.5 L15,10.5 C15,10.7761424 14.7761424,11 14.5,11 L11,11 Z" fill="#2D333F" transform="translate(12.000000, 12.000000) rotate(-135.000000) translate(-12.000000, -12.000000)"></path></g></svg>
-                    </div>
-                  </div>
+                  {/* </button> */}
                 </div>
 
                 <div className="dtp" id="dtp-people">
@@ -128,7 +144,7 @@ function SearchHeader() {
                       </div>
                     </div>
                     <div id="dtp-people-view-arrow">
-                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false"><g fill="none" fillRule="evenodd"><path d="M11,11 L11,14.5 C11,14.7761424 10.7761424,15 10.5,15 L9.5,15 C9.22385763,15 9,14.7761424 9,14.5 L9,10.5 L9,9.5 C9,9.22385763 9.22385763,9 9.5,9 L14.5,9 C14.7761424,9 15,9.22385763 15,9.5 L15,10.5 C15,10.7761424 14.7761424,11 14.5,11 L11,11 Z" fill="#2D333F" transform="translate(12.000000, 12.000000) rotate(-135.000000) translate(-12.000000, -12.000000)"></path></g></svg>
+                      <svg onClick={psDownArrow} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false"><g fill="none" fillRule="evenodd"><path d="M11,11 L11,14.5 C11,14.7761424 10.7761424,15 10.5,15 L9.5,15 C9.22385763,15 9,14.7761424 9,14.5 L9,10.5 L9,9.5 C9,9.22385763 9.22385763,9 9.5,9 L14.5,9 C14.7761424,9 15,9.22385763 15,9.5 L15,10.5 C15,10.7761424 14.7761424,11 14.5,11 L11,11 Z" fill="#2D333F" transform="translate(12.000000, 12.000000) rotate(-135.000000) translate(-12.000000, -12.000000)"></path></g></svg>
                     </div>
                   </div>
                 </div>

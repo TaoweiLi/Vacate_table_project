@@ -380,6 +380,7 @@
               border-left-style: hidden;
               border-bottom-style: groove;
               border-bottom: 0.0625rem solid #d8d9db;
+              cursor: pointer;
               // -moz-appearance: none;
               // -webkit-appearance: none;
             }
@@ -403,11 +404,12 @@
               width: 100%;
             }
 
-            #aaaa {
+            #down-arrow-container {
               margin-left: -10px;
+              cursor: pointer;
             }
 
-            #aabbc {
+            #down-arrow {
               margin-left: 0px;
             }
 

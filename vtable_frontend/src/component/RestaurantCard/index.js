@@ -52,7 +52,7 @@ export default function RestaurantCard({ restaurant }) {
 
               <CardActions className="reservation-button">
                 <div>
-                  <button className="home-resev-button" size="small">Reservation</button>
+                  <button className="home-resev-button" size="small">Reserve</button>
                 </div>
               </CardActions>
 

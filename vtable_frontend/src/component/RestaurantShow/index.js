@@ -167,6 +167,10 @@ function RestaurantShow() {
     }
   }
 
+  function downArrow() {
+    document.getElementById("reserv-datepicker").click();
+  }
+
   return (
     <>
       <div className="breadcrumb"></div>
@@ -184,23 +188,14 @@ function RestaurantShow() {
                 <nav className="left-nav-bar">
                   <ol className="nav-list">
                     <li className="nav-buttons">
-                      {/* <button className="nav-button">Overview</button> */}
-                      {/* <a className="nav-button" href="#left-oview-wrapper">Overview</a> */}
                       <Link className="nav-button" smooth to="#left-oview-wrapper">Overview</Link>
                     </li>
-                    {/* <li className="nav-buttons"> */}
-                    {/* <button className="nav-button">Photos</button> */}
-                    {/* </li> */}
                     <li className="nav-buttons">
-                      {/* <button className="nav-button">Menu</button> */}
-                      {/* <a className="nav-button" href="#left-menu-wrapper">Menu</a> */}
                       <Link className="nav-button" smooth to="#left-menu-wrapper">Menu</Link>
                     </li>
                     <li className="nav-buttons">
-                      {/* <button className="nav-button">Review</button> */}
                       <Link className="nav-button" id="nav-button-review" smooth to="#left-review-wrapper">Review</Link>
                     </li>
-
                   </ol>
                 </nav>
               </section>
@@ -239,9 +234,7 @@ function RestaurantShow() {
 
               <section id="left-review-wrapper">
 
-                <h2 id="res-review-header">Review
-
-                </h2>
+                <h2 id="res-review-header">Review</h2>
 
                 <form id="review-container">
                   <div className="error-container-wrapper">
@@ -288,9 +281,9 @@ function RestaurantShow() {
 
                     <label className="reserv-header" htmlFor="date-wrapper">Date</label>
                     <div id="date-wrapper" >
-                      <DatePicker className="reserv-input" dateFormat="yyyy-MM-dd" selected={date} onChange={(date) => setDate(date)} />
-                      <div id="aaaa">
-                        <div className="button_with_down_arrow" id="aabbc"></div>
+                      <DatePicker id="reserv-datepicker" className="reserv-input" dateFormat="yyyy-MM-dd" selected={date} onChange={(date) => setDate(date)} />
+                      <div id="down-arrow-container">
+                        <div className="button_with_down_arrow" id="down-arrow" onClick={downArrow}></div>
                       </div>
                     </div>
 
@@ -326,7 +319,7 @@ function RestaurantShow() {
                       </div>
                     </div>
 
-                    {!isUpdateReservation && (<button id="reserv-button">Reserve</button>)}
+                    {!isUpdateReservation && (<button id="reserv-button">Make a reservation</button>)}
                     {isUpdateReservation && (<button id="update-button">Update Reservation</button>)}
                   </form>
 
