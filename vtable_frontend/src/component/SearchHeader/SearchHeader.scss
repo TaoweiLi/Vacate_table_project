@@ -85,6 +85,10 @@
                     padding-top: 2px;
                     padding-right: 10px;
                   }
+
+                  input {
+                    border: none;
+                  }
                 }
 
                 #dtp-date-view-arrow {
@@ -292,5 +296,3 @@
   border-right: 0.0625rem solid #00000014;
   // border-radius: 4px;
 }
-
-select {}
