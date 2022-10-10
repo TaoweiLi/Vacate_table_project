@@ -21,15 +21,23 @@ class Api::ReviewsController < ApplicationController
   # end
 
   def index
-    @reviews = Review.all
+    @restaurantId = params[:restaurant_id]
+    
+    if (@restaurantId == nil)
+      @reviews = Review.all
+    else
+      @reviews = Review.where(restaurant_id: @restaurantId)
+    end
+
     render :index
   end
 
   def show
-    @review = Review.where(restaurant_id: params[:restaurant_id])
+    @review = Review.find_by_id(params[:id])
+
     if @review
-      render json: @review
-      # render :show
+      # render json: @review
+      render :show
     else
       render json: {}
     end

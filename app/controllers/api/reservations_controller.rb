@@ -2,6 +2,7 @@ class Api::ReservationsController < ApplicationController
 
 def index
   userId = params[:user_id]
+
   if (userId != nil)
     @reservations = Reservation.where(user_id: userId)
   else
@@ -30,7 +31,6 @@ end
 
 def show
   @reservation = Reservation.find(params[:id])
-
   render :show
 end
 
@@ -41,6 +41,8 @@ def destroy
   render :show
 end
 
+private
+
 def reservation_params
   params.require(:reservation).permit(:date, :time, :party_size, :restaurant_id, :user_id)
 end
@@ -48,6 +50,5 @@ end
 def user_id
   params[:userId]
 end 
-
 
 end
