@@ -55,10 +55,18 @@ export const getReview = reviewId => state => {
 }
 
 export const fetchReviews = () => async dispatch => {
-  const response = await csrfFetch('/api/reviews')
+  const response = await csrfFetch('/api/reviews');
   if (response.ok) {
     const reviews = await response.json()
     dispatch(receiveReviews(reviews))
+  }
+}
+
+export const fetchReviewsByRestaurantId = (restaurantId) => async dispatch => {
+  const response = await csrfFetch('/api/reviews?restaurantId=' + restaurantId);
+  if (response.ok) {
+    const reviews = await response.json();
+    dispatch(receiveReviews(reviews));
   }
 }
 

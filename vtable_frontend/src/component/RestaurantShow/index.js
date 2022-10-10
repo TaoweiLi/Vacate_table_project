@@ -3,7 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import "./RestaurantShow.scss"
 import { getRestaurant, fetchRestaurant } from '../../store/restaurants';
-import { updateReview, fetchReviews, getReviewsByResId, createReview } from "../../store/reviews";
+import { updateReview, fetchReviewsByRestaurantId, getReviewsByResId, createReview } from "../../store/reviews";
 import React from 'react';
 import Map from '../GoogleMap/Map';
 import ReviewIndexItem from '../RestaurantReview/ReviewIndexItem';
@@ -65,7 +65,7 @@ function RestaurantShow() {
 
   useEffect(() => {
     dispatch(fetchRestaurant(restaurantId)).catch((e) => history.push("/error") );
-    dispatch(fetchReviews(restaurantId));
+    dispatch(fetchReviewsByRestaurantId(restaurantId));
   }, [dispatch, restaurantId])
 
   let initialState = {
