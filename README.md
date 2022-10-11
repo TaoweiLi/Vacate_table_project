@@ -36,6 +36,7 @@ Vacate Table is a full-stack OpenTable clone where users can make reservations, 
 ![alt text](https://github.com/TaoweiLi/Vacate_table_project/raw/main/vtable_frontend/asset/review.png)
 ### **Search Function**
 - User can search restaurants' name and categories in the search bar field.
+- Serch result page will show all the relative result.
 ![alt text](https://github.com/TaoweiLi/Vacate_table_project/raw/main/vtable_frontend/asset/search.png)
 
 ### **Future Features**
