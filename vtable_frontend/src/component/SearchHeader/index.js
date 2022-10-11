@@ -38,7 +38,8 @@ function SearchHeader() {
       date,
       time
     }
-    const searchString = `?query=${query}`
+
+    const searchString = `?query=${query}` // 42-47: add seach query as search parameter into url path to search index page.
     history.push({
       pathname: `/search`,
       search: searchString,

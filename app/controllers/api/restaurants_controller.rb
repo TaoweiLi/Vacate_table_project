@@ -1,6 +1,6 @@
 class Api::RestaurantsController < ApplicationController
   def search
-    query = params[:query]
+    query = params[:query] # get from restaurant store fetchQueryRestaurants
     @restaurants = Restaurant.where("name ILIKE ? OR cuisine ILIKE ?", "%#{query}%", "%#{query}%")
 
     @restaurant_ids = @restaurants.map { |res| res.id }

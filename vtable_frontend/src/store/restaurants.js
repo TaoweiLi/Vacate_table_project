@@ -98,7 +98,7 @@ export function fetchTaggedRestaurants(tag) {
 }
 
 export const fetchQueryRestaurants = (query) => async dispatch => {
-  const response = await csrfFetch(`/api/search/${query}`)
+  const response = await csrfFetch(`/api/search/${query}`) // query get from search index index.js & send back to backend restaurants' controller.
   if (response.ok) {
     const data = await response.json();
     dispatch(receiveQueryRestaurants(query, data))

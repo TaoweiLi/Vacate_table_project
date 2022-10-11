@@ -6,14 +6,13 @@ import "./SearchIndexPage.scss";
 import SearchIndexItem from "./SearchIndexItem.jsx";
 
 function SearchIndexPage() {
-  console.log("DEBUG HERE")
   const dispatch = useDispatch();
   const params = (new URL(document.location)).searchParams;
-  const [query, setQuery] = useState(params.get('query'))
+  const [query, setQuery] = useState(params.get('query'))  //get query from url search paramenter from searchh eader component index.js; query here is the key query before = 
   const resData = useSelector((state) => getQueryRestaurants(state, query));
 
   useEffect(() => {
-    dispatch(fetchQueryRestaurants(query))
+    dispatch(fetchQueryRestaurants(query)) // pass query to restaurants store's fetchQueryRestaurants function!
   }, [dispatch, query])
 
   return (

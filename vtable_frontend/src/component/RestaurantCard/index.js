@@ -3,19 +3,10 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import "./RestaurantCard.scss"
 import { Rating } from "@mui/material";
-import { useEffect, useState } from 'react';
-import { Link, useParams, useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchRestaurantReviews, getRestaurantReviews } from '../../store/reviews';
 
 export default function RestaurantCard({ restaurant }) {
-  // const { restaurantId } = useParams();
-  // const reviews = useSelector((state) => getRestaurantReviews(state, restaurantId));
-  // const restaurant_id = restaurant["id"];
-  // let star = reviews["restaurant_id"]["rating"];
 
   return (
     <>
@@ -46,9 +37,7 @@ export default function RestaurantCard({ restaurant }) {
                   <div className="card-res-expense"> {restaurant.expense}</div>
                   <div className="card-res-neighborhood"> {restaurant.neighborhood}</div>
                 </div>
-
               </CardContent>
-
 
               <CardActions className="reservation-button">
                 <div>
@@ -59,8 +48,6 @@ export default function RestaurantCard({ restaurant }) {
             </Card>
           </a>
         </div >
-        {/* </ul> */}
-        {/* </div> */}
       </div >
     </>
   );
