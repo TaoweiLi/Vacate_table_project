@@ -23,20 +23,20 @@ Vacate Table is a full-stack OpenTable clone where users can make reservations, 
 - User authentication is implemented on both frontend and backend. Presence validations and uniqueness contraints (for username and email) are enforced in models and database. Upon a successful signup, the password is hashed using BCrypt and saved to the database as a password digest.
 - Users can sign up, sign in, and sign out of their accounts.
 - Error messages are displayed next to the respective fields in the signup form as part of frontend error-handling.
-![alt text](../Vacate_table_project/vtable_frontend/asset/sign-in.png)
+![alt text](https://github.com/TaoweiLi/Vacate_table_project/raw/main/vtable_frontend/asset/sign-in.png)
 
 ### **Reservation CRUD**
 - Making a reservation request user sign in. If the current user is not signed in, there would be a popover requesting them to sign in or use demo user mode instead. Signed-in users can choose party size, date and time when they making resevation.
 - Confirmed reservations are viewable in the user profile, with options to update or cancel.
-![alt text](../Vacate_table_project/vtable_frontend/asset/reservation.png)
+![alt text](https://github.com/TaoweiLi/Vacate_table_project/raw/main/vtable_frontend/asset/reservation.png)
 
 ### **Reviews CRUD**
 - Writing a review request user sign in. If the current user is not signed in, there would be a popover requesting them to sign in or use demo user mode instead. Signed-in users can rate, write, update adn delete reviews of the restaurant.
 - A restaurant review is viewable by the public but can only be updates and deleted by its reviewer.
-![alt text](../Vacate_table_project/vtable_frontend/asset/review.png)
+![alt text](https://github.com/TaoweiLi/Vacate_table_project/raw/main/vtable_frontend/asset/review.png)
 ### **Search Function**
 - User can search restaurants' name and categories in the search bar field.
-![alt text](../Vacate_table_project/vtable_frontend/asset/search.png)
+![alt text](https://github.com/TaoweiLi/Vacate_table_project/raw/main/vtable_frontend/asset/search.png)
 
 ### **Future Features**
 - Users can make reviews on their past comfirmed reservations.
