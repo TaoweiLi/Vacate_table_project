@@ -1,11 +1,10 @@
-# **Vacate Table** 
+# **Vacate Table** | [LIVE](https://vacate-table.herokuapp.com/)
 
 <img src="https://github.com/TaoweiLi/Vacate_table_project/raw/main/vtable_frontend/asset/Recording%202022-09-19%20at%2022.54.19.gif" width="750" height="400">
 
 ## **Description**
 Vacate Table is a full-stack OpenTable clone where users can make reservations, write reviews and search, for dining spots across Bay Area.
 
-[Website](https://vacate-table.herokuapp.com/)
 
 ## **Technologies**
 - React
