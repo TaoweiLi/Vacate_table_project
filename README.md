@@ -35,6 +35,10 @@ Vacate Table is a full-stack OpenTable clone where users can make reservations, 
 - A restaurant review is viewable by the public but can only be updates and deleted by its reviewer.
 ![alt text](https://github.com/TaoweiLi/Vacate_table_project/raw/main/vtable_frontend/asset/review-1.png)
 
+### **Restaurants**
+- Different restaurant categories show on the home page(New to Vacate Table, Award Winning, Order takeout).
+- Each restaurant page include restaurant information(Overview, Reviews) and a side reservation form.
+![alt text](https://github.com/TaoweiLi/Vacate_table_project/raw/main/vtable_frontend/asset/review-1.png)
 
 ### **Search Function**
 - User can search restaurants' name and categories in the search bar field.
