@@ -28,7 +28,7 @@ function SearchIndexItem(props) {
     time: time,
     party_size: partySize,
     restaurant_id: restaurantId,
-    user_id: sessionUser.id,
+    user_id: sessionUser?.id  // Optional chaining (?.) 
   }
 
   function handleReservSubmit(e) {
