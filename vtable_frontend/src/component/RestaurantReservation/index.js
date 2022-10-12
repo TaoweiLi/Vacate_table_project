@@ -4,11 +4,11 @@ import { getRestaurant, fetchRestaurant } from '../../store/restaurants';
 import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
 import "./RestaurantReservation.scss";
-import { getReservation, getReservations, fetchReservation, createReservation, updateReservation, deleteReservation } from "../../store/reservations";
+import { createReservation, updateReservation} from "../../store/reservations";
 
 
 function RestaurantReservation(props) {
-  const { restaurantId, reservationId } = useParams();
+  const { restaurantId} = useParams();
   const dispatch = useDispatch();
   const restaurant = useSelector(getRestaurant(restaurantId));
   const sessionUser = useSelector(state => state.session.user);
