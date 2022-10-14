@@ -281,7 +281,7 @@ function RestaurantShow() {
 
                     <label className="reserv-header" htmlFor="date-wrapper">Date</label>
                     <div id="date-wrapper" >
-                      <DatePicker id="reserv-datepicker" className="reserv-input" dateFormat="yyyy-MM-dd" selected={date} onChange={(date) => setDate(date)} />
+                      <DatePicker id="reserv-datepicker" className="reserv-input" dateFormat="yyyy-MM-dd" minDate={new Date()} selected={date} onChange={(date) => setDate(date)} />
                       <div id="down-arrow-container">
                         <div className="button_with_down_arrow" id="down-arrow" onClick={downArrow}></div>
                       </div>
