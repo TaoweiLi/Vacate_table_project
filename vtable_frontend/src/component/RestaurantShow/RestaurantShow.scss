@@ -315,16 +315,13 @@
       }
     }
 
-
-
-
-
     #res-detail-right {
       width: 20rem;
 
       #right-reserv-wrapper {
         position: sticky;
         top: 0;
+        z-index: 100;
 
         #right-reserv-container {
           background-color: #fff;
@@ -467,7 +464,7 @@
             padding: 16px 4px;
             text-decoration: none;
             position: relative;
-            z-index: -9;
+            z-index: 0;
 
 
             // .map {
