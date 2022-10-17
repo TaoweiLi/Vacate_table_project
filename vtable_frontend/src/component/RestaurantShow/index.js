@@ -329,7 +329,7 @@ function RestaurantShow() {
               <section id="right-res-info-wrapper">
                 <div id="right-res-info-container">
                   <section id="right-google-map">
-                    <Map className="map" location={location} />
+                    <Map className="map" location={location} restaurant={restaurant}/>
                     <div id="res-address-wrapper">
                       <i className="fa-solid fa-location-dot"></i>
                       <span id="map-address-text">{restaurant.address}</span>
