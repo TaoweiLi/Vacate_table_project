@@ -64,7 +64,7 @@ function RestaurantShow() {
   )
 
   useEffect(() => {
-    dispatch(fetchRestaurant(restaurantId)).catch((e) => history.push("/error") );
+    dispatch(fetchRestaurant(restaurantId)).catch((e) => history.push("/error"));
     dispatch(fetchReviewsByRestaurantId(restaurantId));
   }, [dispatch, restaurantId])
 
@@ -170,6 +170,10 @@ function RestaurantShow() {
   function downArrow() {
     document.getElementById("reserv-datepicker").click();
   }
+
+  console.log("DEBUG   aaaa", restaurant)
+
+  const redirectUrl = `https://www.google.com/maps/search/${restaurant?.name} ${restaurant?.address}`
 
   return (
     <>
@@ -329,11 +333,13 @@ function RestaurantShow() {
               <section id="right-res-info-wrapper">
                 <div id="right-res-info-container">
                   <section id="right-google-map">
-                    <Map className="map" location={location} restaurant={restaurant}/>
-                    <div id="res-address-wrapper">
-                      <i className="fa-solid fa-location-dot"></i>
-                      <span id="map-address-text">{restaurant.address}</span>
-                    </div>
+                    <Map className="map" location={location} restaurant={restaurant} />
+                    <a target="_blank" rel="noopener noreferrer" href={redirectUrl}>
+                      <div id="res-address-wrapper">
+                        <i className="fa-solid fa-location-dot"></i>
+                        <span id="map-address-text">{restaurant.address}</span>
+                      </div>
+                    </a>
                   </section>
 
                   <div id="right-additional-info-wrapper">
