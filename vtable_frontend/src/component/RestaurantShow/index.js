@@ -171,8 +171,6 @@ function RestaurantShow() {
     document.getElementById("reserv-datepicker").click();
   }
 
-  console.log("DEBUG   aaaa", restaurant)
-
   const redirectUrl = `https://www.google.com/maps/search/${restaurant?.name} ${restaurant?.address}`
 
   return (
