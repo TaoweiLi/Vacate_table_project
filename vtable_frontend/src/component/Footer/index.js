@@ -64,7 +64,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="https://github.com/TaoweiLi" target="_blank">
+                  <a href="https://angel.co/u/taowei-li" target="_blank">
                     <i className="fa-brands fa-angellist fa-3x"></i>
                   </a>
                 </li>
