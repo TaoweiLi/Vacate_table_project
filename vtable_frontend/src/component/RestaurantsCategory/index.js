@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getTaggedRestaurants } from '../../store/restaurants';
 
+// query restuarants with same tag
 function RestaurantsCategory({ title, tag }) {
   const restaurants = useSelector((state) => getTaggedRestaurants(state, tag))
   const dispatch = useDispatch();

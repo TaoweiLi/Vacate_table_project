@@ -262,7 +262,7 @@ function RestaurantShow() {
                   {isUpdateReview && (<button id="review-button" onClick={handleReviewUpdateSubmit}>Update the review</button>)}
                 </form>
                 <ol id="review-list-wrapper">
-                  {reviews.map(review => (<ReviewIndexItem key={review.id} review={review} onUpdateReview={onUpdateReview} />))}
+                  {reviews.map(review => (<ReviewIndexItem key={review.id} review={review} onUpdateReview={onUpdateReview} />)).reverse()}
                 </ol>
               </section>
             </div>

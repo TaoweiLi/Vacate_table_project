@@ -13,7 +13,7 @@
 #  dining_style    :string
 #  dress_code      :string
 #  parking_details :string
-#  payment_options :string
+#  payment_options :stri
 #  website         :string
 #  phone_number    :string
 #  tag             :string
@@ -24,7 +24,7 @@
 #  updated_at      :datetime         not null
 #
 class Restaurant < ApplicationRecord
-  validates :name, :address, :description, :cuisine, :lng, :lat, presence: true
+  validates :name, :address, :description, :cuisine, :neighborhood, :dining_style, :lng, :lat, presence: true
   
   has_many :reviews,
     foreign_key: :restaurant_id,

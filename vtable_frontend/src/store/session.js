@@ -14,6 +14,7 @@ const removeCurrentUser = () => ({
 
 
 // ??? selector? action? helper function?
+// store the CSRF token k-v pair into forntend session storage:
 const storeCSRFToken = (response) => {
   const csrfToken = response.headers.get("X-CSRF-Token");
   if (csrfToken !== null || csrfToken  !== undefined) {
@@ -21,6 +22,7 @@ const storeCSRFToken = (response) => {
   }
 }
 
+// store the current user k-v pair into forntend session storage:
 const storeCurrentUser = (user) => {
   if (user !== null || user !== undefined) {
     sessionStorage.setItem("currentUser", JSON.stringify(user));

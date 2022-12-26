@@ -1,5 +1,6 @@
 import csrfFetch from "./csrf";
 
+// React action types: gnerate data that can be identified and used by reducer
 export const RECEIVE_RESTAURANTS = "restaurants/RECEIVE_RESTAURANTS";
 export const RECEIVE_RESTAURANT = "restaurants/RECEIVE_RESTAURANT";
 export const RECEIVE_TAGGED_RESTAURANTS = "restaurants/RECEIVE_TAGGED_RESTAURANTS";
@@ -9,7 +10,7 @@ export const RECEIVE_QUERY_RESTAURANTS = "restaurants/RECEIVE_QUERY_RESTAURANTS"
 export function receiveRestaurants(restaurants) {
   return {
     type: RECEIVE_RESTAURANTS,
-    restaurants
+    restaurants: restaurants
   }
 }
 
@@ -39,7 +40,8 @@ export function receiveTaggedRestaurants(tag, restaurants) {
 
 
 // selector
-export function getRestaurant(restaurantId) {
+
+export function getRestaurant(restaurantId) {   // curry function, state in the return function
   return function (state) {
     if (!state || !state["restaurants"]) {
       return null;
@@ -71,7 +73,7 @@ export function getTaggedRestaurants(state, tag) {
 }
 
 
-// thunk action
+// thunk actions
 export function fetchRestaurants() {
   return async function (dispatch) {
 
@@ -79,7 +81,7 @@ export function fetchRestaurants() {
   
     if (response.ok) {
       const restaurants = await response.json();
-      dispatch(receiveRestaurants(restaurants));
+      dispatch(receiveRestaurants(restaurants));   // store data query from server into frontend state
       return restaurants;
     }
   }
@@ -87,7 +89,7 @@ export function fetchRestaurants() {
 
 export function fetchTaggedRestaurants(tag) {
   return async function (dispatch) {
-
+    // response is the data get from server 
     const response = await csrfFetch("/api/restaurants?tag=" + tag);
 
     if (response.ok) {
@@ -116,7 +118,7 @@ export function fetchRestaurant(restaurantId) {
   }
 }
 
-
+// After react action then reducer update frontend state regarding action type
 function restaurantsReducer(state = {}, action) {
   Object.freeze(state);
   let newState = { ...state };
