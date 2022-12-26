@@ -24,7 +24,7 @@ function RestaurantsIndex() {
                 </div>
               </div>
             </div>
-            <div><RestaurantsCategory title={"New to VacateTable"} tag={"new_to_vtable"} /></div>
+            <div><RestaurantsCategory title={"New to VacateTable"} tag={"new_to_vtable"} /></div>  
             <div><RestaurantsCategory title={"Order takeout"} tag={"order_takeout"} /></div>
             <div><RestaurantsCategory title={"Award Winning"} tag={"award_winning"} /></div>
           </section>

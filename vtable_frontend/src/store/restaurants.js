@@ -38,7 +38,6 @@ export function receiveTaggedRestaurants(tag, restaurants) {
   }
 }
 
-
 // selector
 
 export function getRestaurant(restaurantId) {   // curry function, state in the return function

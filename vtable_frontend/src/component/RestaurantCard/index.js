@@ -5,11 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import "./RestaurantCard.scss"
 import { Rating } from "@mui/material";
-import { useParams, useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { updateReview, fetchReviewsByRestaurantId, getReviewsByResId, createReview } from "../../store/reviews";
-import { useEffect, useState } from 'react';
-import ReviewIndexItem from '../RestaurantReview/ReviewIndexItem';
+
 
 export default function RestaurantCard({ restaurant }) {
   // const restaurantId = restaurant.id;
