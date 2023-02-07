@@ -62,7 +62,7 @@ function SignupForm({setShowSignin, setShowSignup}) {
             <input id="signup-lname" placeholder="Last Name" type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
             <input id="signup-email" placeholder="Email" type="text" value={email} onChange={(e) => setEmail(e.target.value)} required />
             <input id="signup-phone" placeholder="Phone Number" type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required />
-            <input id="signup-password" placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+            <input id="signup-password" placeholder="Password(10 digits, only numbers)" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
             <input id="signup-password-comf" placeholder="Comfirm Password" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
             <button id="signup-modal-button" type="submit">Sign Up</button>
             {/* <button id="demo-user" onClick={() => dispatch(sessionActions.signup({ firstName: "Dai", lastName: "Li", email: "dali@vtable.com", phoneNumber: "1234567890", password: "123456" }))}>DemoUser</button> */}
