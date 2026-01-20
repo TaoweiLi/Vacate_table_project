@@ -18,3 +18,4 @@ Rails.application.routes.draw do
 
   get "*path", to: "static_pages#frontend_index"
 end
+ 
