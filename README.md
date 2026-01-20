@@ -132,3 +132,17 @@ def index
 ### **Future Features**
 - Users can make reviews on their past comfirmed reservations.
 - Bookmark a Restaurant.
+
+### **Deployment on Heroku**
+- Prepare Postgres DB (Demo)
+```
+# (Optional) Reset DB to a clean state
+heroku pg:reset
+
+# Update DB schema and push seed data 
+heroku run rails db:migrate db:seed
+
+```
+
+
+
