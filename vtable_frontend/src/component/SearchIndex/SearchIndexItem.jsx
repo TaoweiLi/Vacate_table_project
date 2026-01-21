@@ -20,7 +20,7 @@ function SearchIndexItem(props) {
   }, [dispatch, query])
 
   let partySize = document.getElementById("ps-select")?.value;
-  let date = new Date(document.getElementById("date-select")?.value);
+  let date = document.getElementById("date-select")?.value;
   let time = document.getElementById("time-select")?.value;
 
   let reservation = {
@@ -33,7 +33,7 @@ function SearchIndexItem(props) {
 
   function handleReservSubmit(e) {
     e.preventDefault();
-    const formattedDate = date.toISOString().split("T")[0];
+    const formattedDate = new Date(date).toISOString().split("T")[0];
     if (sessionUser) {
       let searchString = `?partySize=${partySize}&date=${formattedDate}&time=${time}`
       history.push({
