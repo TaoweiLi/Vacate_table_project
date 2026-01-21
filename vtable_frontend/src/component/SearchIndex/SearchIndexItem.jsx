@@ -20,7 +20,7 @@ function SearchIndexItem(props) {
   }, [dispatch, query])
 
   let partySize = document.getElementById("ps-select")?.value;
-  let date = document.getElementById("date-select")?.value;
+  let date = new Date(document.getElementById("date-select")?.value);
   let time = document.getElementById("time-select")?.value;
 
   let reservation = {
